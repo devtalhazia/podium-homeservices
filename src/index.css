@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PODIUM DESIGN TOKENS
+   Edit any variable below to restyle the entire page.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* ── Backgrounds (space-separated RGB for Tailwind opacity support) ───────── */
+  --brand-dark:    24 24 28;      /* #18181c  navbar / footer / dark sections  */
+  --brand-section: 24 24 28;     /* #18181c  dark interior sections (same)    */
+  --brand-cream:   240 240 243;  /* #f0f0f3  main light gray (cool)           */
+  --brand-white:   255 254 252;  /* #fffefc  near-white card / FAQ bg         */
+  --brand-gray:    240 240 243;  /* #f0f0f3  cool light gray                  */
+
+  /* ── Text ───────────────────────────────────────────────────────────────── */
+  --ink:           28 27 24;     /* #1c1b18  primary dark text                 */
+  --ink-mid:       74 74 77;     /* #4a4a4d  secondary text                    */
+  --ink-muted:     128 121 111;  /* #80796f  muted / caption text              */
+  --ink-light:     255 254 252;  /* #fffefc  light text on dark backgrounds    */
+
+  /* ── Accent Colors ──────────────────────────────────────────────────────── */
+  --azure:         0 153 255;    /* #0099ff  primary CTA blue                  */
+  --rust:          157 64 60;    /* #9d403c  rust / red accent                 */
+  --steel:         102 126 153;  /* #667e99  steel blue                        */
+  --silver:        194 186 171;  /* #c2baab  warm silver                       */
+
+  /* ── Borders ────────────────────────────────────────────────────────────── */
+  --border-warm:   194 186 171;  /* warm gray dividers                         */
+  --border-cool:   195 195 200;  /* cool gray dividers                         */
+  --border-line:   132 124 115;  /* dark warm hairline                         */
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  --font-display: "Crimson Pro"; /* serif headings */
+  --font-sans:    "Rubik";       /* body / UI text  */
+  --font-mono:    "ui-monospace";
+
+  /* ── Type Scale ─────────────────────────────────────────────────────────── */
+  --text-display-xl: 3.25rem;    /* 52px */
+  --text-display-lg: 2.875rem;   /* 46px */
+  --text-display-md: 2.625rem;   /* 42px */
+  --text-display-sm: 2.25rem;    /* 36px */
+  --text-heading-xl: 2rem;       /* 32px */
+  --text-heading-lg: 1.75rem;    /* 28px */
+  --text-heading-md: 1.5rem;     /* 24px */
+  --text-heading-sm: 1.25rem;    /* 20px */
+  --text-body-lg:    1.125rem;   /* 18px */
+  --text-body-md:    1rem;       /* 16px */
+  --text-body-sm:    0.875rem;   /* 14px */
+  --text-label:      0.8125rem;  /* 13px */
+  --text-caption:    0.75rem;    /* 12px */
+
+  /* ── Border Radius ──────────────────────────────────────────────────────── */
+  --radius-xs:  6px;
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+
+  /* ── Layout ─────────────────────────────────────────────────────────────── */
+  --container-max:    1440px;
+  --section-pad-x:    30px;
+  --section-pad-y:    96px;   /* default (desktop > 1199px) */
+  --U:                80px;
+  --marquee-duration: 55s;
+
+  /* ── shadcn / Radix (kept for component compatibility) ──────────────────── */
+  --background:             0 0% 100%;
+  --foreground:             222.2 84% 4.9%;
+  --card:                   0 0% 100%;
+  --card-foreground:        222.2 84% 4.9%;
+  --popover:                0 0% 100%;
+  --popover-foreground:     222.2 84% 4.9%;
+  --primary:                222.2 47.4% 11.2%;
+  --primary-foreground:     210 40% 98%;
+  --secondary:              210 40% 96.1%;
+  --secondary-foreground:   222.2 47.4% 11.2%;
+  --muted:                  210 40% 96.1%;
+  --muted-foreground:       215.4 16.3% 46.9%;
+  --accent:                 210 40% 96.1%;
+  --accent-foreground:      222.2 47.4% 11.2%;
+  --destructive:            0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border:                 214.3 31.8% 91.4%;
+  --input:                  214.3 31.8% 91.4%;
+  --ring:                   222.2 84% 4.9%;
+  --radius:                 0.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE
+   ─────────────────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Rubik", system-ui, sans-serif;
+    background-color: rgb(var(--brand-white));
+    color: rgb(var(--ink));
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Crimson Pro", Georgia, serif;
+    line-height: 1.1;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITIES
+   ─────────────────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .brand-container {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--section-pad-x);
+    padding-right: var(--section-pad-x);
+    width: 100%;
+  }
+
+  .section-y {
+    padding-top: var(--U);
+    padding-bottom: var(--section-pad-y);
+  }
+
+  /* Responsive overrides matching Framer breakpoints */
+  @media (max-width: 1199px) {
+    :root {
+      --section-pad-x: 48px;
+      --section-pad-y: 72px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    :root {
+      --section-pad-x: 24px;
+      --section-pad-y: 60px;
+    }
+  }
+}
