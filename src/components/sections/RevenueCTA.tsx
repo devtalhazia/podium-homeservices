@@ -3,22 +3,22 @@ export default function RevenueCTA() {
     <section className="bg-brand-section py-12 md:py-16 px-4 md:px-8 relative overflow-hidden">
 
       <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 55% 130% at -2% 9%, rgba(30,80,160,0.32) 0%, transparent 65%)",
-          }}
-          aria-hidden="true"
-        />
-        {/* Rust glow — right */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 50% 110% at 102% 90%, rgba(157,64,60,0.42) 0%, transparent 65%)",
-          }}
-          aria-hidden="true"
-        />
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 130% at -2% 9%, rgba(30,80,160,0.32) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Rust glow — right */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 110% at 102% 90%, rgba(157,64,60,0.42) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
         
       <div className="brand-container">
         <div className="relative overflow-hidden rounded-[20px] md:rounded-[28px] bg-brand-dark border border-ink-light/[0.06]">

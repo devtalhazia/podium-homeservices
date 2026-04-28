@@ -120,28 +120,20 @@ function ProductPanel({ panel }: { panel: Panel }) {
   const textCol = (
     <div className="flex flex-col gap-7 max-w-lg">
       {/* Tag */}
-      <span
-        className={`inline-flex self-start items-center px-3 py-1 rounded-brand-md text-label font-sans font-medium uppercase tracking-widest ${
-          panel.dark ? "bg-azure/15 text-azure" : "bg-brand-cream text-ink-mid"
-        }`}
-      >
-        {panel.tag}
-      </span>
-
       <div>
         <p
           className={`text-label font-sans font-medium uppercase tracking-widest mb-3 ${
             panel.dark ? "text-ink-light/50" : "text-ink-muted"
           }`}
         >
-          {panel.eyebrow}
+          {panel.heading}
         </p>
         <h2
           className={`font-display font-bold leading-tight mb-3 text-[clamp(1.75rem,4vw,2.625rem)] ${
             panel.dark ? "text-ink-light" : "text-ink"
           }`}
         >
-          {panel.heading}
+          {panel.eyebrow}
         </h2>
         <p
           className={`font-sans text-body-md leading-relaxed ${
@@ -156,19 +148,18 @@ function ProductPanel({ panel }: { panel: Panel }) {
         {panel.features.map((f) => (
           <li
             key={f.title}
-            className={`flex gap-3 ${panel.dark ? "text-azure" : "text-ink-mid"}`}
+            className={`flex gap-5 ${panel.dark ? "text-azure" : "text-ink-mid"}`}
           >
-            <CheckIcon />
             <div>
               <p
-                className={`font-sans font-semibold text-body-sm mb-0.5 ${
+                className={`font-semibold text-2xl mb-2 ${
                   panel.dark ? "text-ink-light" : "text-ink"
                 }`}
               >
                 {f.title}
               </p>
               <p
-                className={`font-sans text-body-sm leading-relaxed ${
+                className={`leading-relaxed ${
                   panel.dark ? "text-[rgba(247,244,237,0.55)]" : "text-ink-muted"
                 }`}
               >
@@ -194,9 +185,27 @@ function ProductPanel({ panel }: { panel: Panel }) {
   );
 
   const imageCol = (
-    <div className="flex-1 flex items-center justify-center">
+    <div className="bg-brand-section flex-1 flex items-center justify-center relative w-full rounded-3xl overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 130% at -2% 9%, rgba(30,80,160,0.32) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Rust glow — right */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 50% 110% at 102% 90%, rgba(157,64,60,0.42) 0%, transparent 65%)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="relative w-full max-w-md">
-        {panel.dark && (
+        {true && (
           <div
             className="absolute inset-0 rounded-brand-xl blur-3xl opacity-15 bg-azure"
             aria-hidden="true"
@@ -216,7 +225,7 @@ function ProductPanel({ panel }: { panel: Panel }) {
     <section className={`py-12 ${panel.dark ? "bg-brand-section" : "bg-brand-cream"}`}>
       <div
         className={[
-          "brand-container flex flex-col items-center gap-14 lg:gap-20",
+          "brand-container flex flex-col gap-14",
           panel.imageRight ? "lg:flex-row" : "lg:flex-row-reverse",
         ].join(" ")}
       >
