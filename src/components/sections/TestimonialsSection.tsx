@@ -1,3 +1,5 @@
+import AnimateIn from "@/components/ui/AnimateIn";
+
 // ─── Image constants ──────────────────────────────────────────────────────────
 const BG_GLASS  = "https://framerusercontent.com/images/P0THBLG3vQlUfO7v2IGMNxQ.png";
 const BG_PROD   = "https://framerusercontent.com/images/FkBx4GckClyDkXH5v8umNe8Gj8.png";
@@ -251,7 +253,7 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 brand-container mb-10 text-center">
+      <AnimateIn className="relative z-10 brand-container mb-10 text-center">
         <p className="font-sans font-medium text-[13px] text-ink-light/50 uppercase tracking-[0.1em] mb-3">
           Real results for real businesses
         </p>
@@ -260,11 +262,11 @@ export default function TestimonialsSection() {
           <span className="font-bold text-white">9,000+</span>{" "}
           home service businesses
         </h2>
-      </div>
+      </AnimateIn>
 
       {/* Marquee — edge-faded */}
       <div className="relative z-10 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]">
-        <div className="flex items-stretch gap-[10px] animate-marquee w-max h-[500px]">
+        <div className="flex items-stretch gap-[10px] animate-marquee w-max h-[260px] sm:h-[380px] md:h-[500px]">
           {doubled.map((item, i) => (
             <TrackCard key={i} item={item} />
           ))}
@@ -284,7 +286,7 @@ export default function TestimonialsSection() {
 
         <div className="relative z-10 brand-container pt-20">
           {/* 3-column pillars with vertical dividers */}
-          <div className="grid grid-cols-1 md:grid-cols-3 mb-14 text-center">
+          <AnimateIn className="grid grid-cols-1 md:grid-cols-3 mb-14 text-center">
             {pillars.map((p, i) => (
               <div
                 key={p.title}
@@ -293,13 +295,13 @@ export default function TestimonialsSection() {
                   i > 0 ? "border-t border-ink-light/10 md:border-t-0 md:border-l md:border-ink-light/10" : "",
                 ].join(" ")}
               >
-                <h3 className="font-sans font-semibold text-body-md text-ink-light">{p.title}</h3>
+                <h3 className="font-display font-semibold text-body-md text-ink-light">{p.title}</h3>
                 <p className="font-sans text-body-sm text-ink-light/50 leading-relaxed">{p.desc}</p>
               </div>
             ))}
-          </div>
+          </AnimateIn>
 
-          <div className="text-center">
+          <AnimateIn delay={0.15} className="text-center">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-rust text-white font-sans font-semibold text-body-md hover:opacity-90 transition-opacity"
@@ -309,7 +311,7 @@ export default function TestimonialsSection() {
                 <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

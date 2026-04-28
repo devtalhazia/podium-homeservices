@@ -1,3 +1,5 @@
+import AnimateIn from "@/components/ui/AnimateIn";
+
 type Feature = { title: string; desc: string };
 
 type Panel = {
@@ -107,19 +109,9 @@ const panels: Panel[] = [
   },
 ];
 
-function CheckIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 mt-0.5">
-      <circle cx="9" cy="9" r="8.25" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 function ProductPanel({ panel }: { panel: Panel }) {
   const textCol = (
     <div className="flex flex-col gap-7 max-w-lg">
-      {/* Tag */}
       <div>
         <p
           className={`text-label font-sans font-medium uppercase tracking-widest mb-3 ${
@@ -129,7 +121,7 @@ function ProductPanel({ panel }: { panel: Panel }) {
           {panel.heading}
         </p>
         <h2
-          className={`font-display font-bold leading-tight mb-3 text-[clamp(1.75rem,4vw,2.625rem)] ${
+          className={`font-display leading-tight mb-3 text-[clamp(1.75rem,4vw,2.625rem)] ${
             panel.dark ? "text-ink-light" : "text-ink"
           }`}
         >
@@ -152,14 +144,14 @@ function ProductPanel({ panel }: { panel: Panel }) {
           >
             <div>
               <p
-                className={`font-semibold text-2xl mb-2 ${
+                className={`font-display font-semibold text-[17px] md:text-[19px] mb-1.5 ${
                   panel.dark ? "text-ink-light" : "text-ink"
                 }`}
               >
                 {f.title}
               </p>
               <p
-                className={`leading-relaxed ${
+                className={`font-sans text-body-md leading-relaxed ${
                   panel.dark ? "text-[rgba(247,244,237,0.55)]" : "text-ink-muted"
                 }`}
               >
@@ -172,8 +164,8 @@ function ProductPanel({ panel }: { panel: Panel }) {
 
       <a
         href={panel.ctaHref}
-        className={`inline-flex self-start items-center gap-2 px-6 py-3 rounded-brand-2xl font-sans font-semibold text-body-sm text-white transition-colors ${
-          panel.dark ? "bg-azure" : "bg-ink"
+        className={`text-rust border-rust border-b-2 inline-flex self-start items-center gap-1.5 font-sans font-semibold text-lg transition-opacity hover:opacity-70 ${
+          panel.dark ? "text-azure" : "text-ink"
         }`}
       >
         {panel.cta}
@@ -185,7 +177,7 @@ function ProductPanel({ panel }: { panel: Panel }) {
   );
 
   const imageCol = (
-    <div className="bg-brand-section flex-1 flex items-center justify-center relative w-full rounded-3xl overflow-hidden">
+    <div className="bg-brand-section flex-1 flex h-full items-center justify-center relative w-full rounded-3xl overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -194,7 +186,6 @@ function ProductPanel({ panel }: { panel: Panel }) {
         }}
         aria-hidden="true"
       />
-      {/* Rust glow — right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -203,14 +194,11 @@ function ProductPanel({ panel }: { panel: Panel }) {
         }}
         aria-hidden="true"
       />
-
       <div className="relative w-full max-w-md">
-        {true && (
-          <div
-            className="absolute inset-0 rounded-brand-xl blur-3xl opacity-15 bg-azure"
-            aria-hidden="true"
-          />
-        )}
+        <div
+          className="absolute inset-0 rounded-brand-xl blur-3xl opacity-15 bg-azure"
+          aria-hidden="true"
+        />
         <img
           src={panel.image}
           alt={panel.imageAlt}
@@ -221,16 +209,23 @@ function ProductPanel({ panel }: { panel: Panel }) {
     </div>
   );
 
+  const textDirection = panel.imageRight ? "left" : "right";
+  const imageDirection = panel.imageRight ? "right" : "left";
+
   return (
-    <section className={`py-12 ${panel.dark ? "bg-brand-section" : "bg-brand-cream"}`}>
+    <section className={`py-12 md:py-20 ${panel.dark ? "bg-brand-section" : "bg-brand-cream"}`}>
       <div
         className={[
-          "brand-container flex flex-col gap-14",
+          "brand-container flex flex-col gap-8 lg:gap-14",
           panel.imageRight ? "lg:flex-row" : "lg:flex-row-reverse",
         ].join(" ")}
       >
-        <div className="flex-1 w-full">{textCol}</div>
-        {imageCol}
+        <AnimateIn direction={textDirection} className="flex-1 w-full">
+          {textCol}
+        </AnimateIn>
+        <AnimateIn delay={0.15} direction={imageDirection} className="flex-1 w-full">
+          {imageCol}
+        </AnimateIn>
       </div>
     </section>
   );
@@ -240,13 +235,15 @@ export default function ProductSection() {
   return (
     <div id="plans">
       <div className="bg-brand-cream section-y">
-        <div className="text-center max-w-5xl mx-auto">
-          <p className="text-label font-sans font-medium text-ink-muted uppercase tracking-widest mb-4">
-            Your AI Booking, Communications, and Marketing Guru
-          </p>
-          <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
-            Larry improves operations, customer experience, and profitability
-          </h2>
+        <div className="brand-container">
+          <AnimateIn className="text-center max-w-3xl mx-auto">
+            <p className="text-label font-sans font-medium text-ink-muted uppercase tracking-widest mb-4">
+              Your AI Booking, Communications, and Marketing Guru
+            </p>
+            <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
+              Larry improves operations, customer experience, and profitability
+            </h2>
+          </AnimateIn>
         </div>
         {panels.map((panel) => (
           <ProductPanel key={panel.tag} panel={panel} />

@@ -37,7 +37,7 @@ export default function SupportSection() {
                 i > 0 ? "border-t border-ink-light/10 md:border-t-0 md:border-l md:border-ink-light/10" : "",
               ].join(" ")}
             >
-              <h3 className="font-sans font-semibold text-body-md text-ink-light">{p.title}</h3>
+              <h3 className="font-display font-semibold text-body-md text-ink-light">{p.title}</h3>
               <p className="font-sans text-body-sm text-ink-light/50 leading-relaxed">{p.desc}</p>
             </div>
           ))}

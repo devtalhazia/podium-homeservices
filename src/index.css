@@ -2,6 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Grenette ───────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Grenette";
+  src: url("/fonts/Grenette-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Grenette";
+  src: url("/fonts/Grenette-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Grenette";
+  src: url("/fonts/Grenette-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Grenette";
+  src: url("/fonts/Grenette-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Grenette";
+  src: url("/fonts/Grenette-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Graphik ────────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Graphik";
+  src: url("/fonts/Graphik-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("/fonts/Graphik-RegularItalic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("/fonts/Graphik-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("/fonts/Graphik-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Graphik";
+  src: url("/fonts/Graphik-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    PODIUM DESIGN TOKENS
    Edit any variable below to restyle the entire page.
@@ -32,8 +106,8 @@
   --border-line:   132 124 115;  /* dark warm hairline                         */
 
   /* ── Typography ─────────────────────────────────────────────────────────── */
-  --font-display: "Crimson Pro"; /* serif headings */
-  --font-sans:    "Rubik";       /* body / UI text  */
+  --font-display: "Grenette";    /* serif headings */
+  --font-sans:    "Graphik";     /* body / UI text  */
   --font-mono:    "ui-monospace";
 
   /* ── Type Scale ─────────────────────────────────────────────────────────── */
@@ -102,7 +176,7 @@
   }
 
   body {
-    font-family: "Rubik", system-ui, sans-serif;
+    font-family: "Graphik", system-ui, sans-serif;
     background-color: rgb(var(--brand-white));
     color: rgb(var(--ink));
     line-height: 1.6;
@@ -110,7 +184,7 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: "Crimson Pro", Georgia, serif;
+    font-family: "Grenette", Georgia, serif;
     line-height: 1.1;
   }
 }

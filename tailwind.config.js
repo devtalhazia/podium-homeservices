@@ -76,8 +76,8 @@ export default {
 
       // ─── Podium Font Families ────────────────────────────────────────────────
       fontFamily: {
-        display: ["Crimson Pro", "Georgia", "Times New Roman", "serif"],
-        sans:    ["Rubik", "system-ui", "sans-serif"],
+        display: ["Grenette", "Georgia", "Times New Roman", "serif"],
+        sans:    ["Graphik", "system-ui", "sans-serif"],
         mono:    ["var(--font-mono)", "ui-monospace", "monospace"],
       },
 

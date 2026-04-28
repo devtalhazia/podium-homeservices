@@ -1,7 +1,8 @@
+import AnimateIn from "@/components/ui/AnimateIn";
+
 export default function RevenueCTA() {
   return (
-    <section className="bg-brand-section py-12 md:py-16 px-4 md:px-8 relative overflow-hidden">
-
+    <section className="bg-brand-section py-12 md:py-16 relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -10,7 +11,6 @@ export default function RevenueCTA() {
         }}
         aria-hidden="true"
       />
-      {/* Rust glow — right */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -19,10 +19,9 @@ export default function RevenueCTA() {
         }}
         aria-hidden="true"
       />
-        
+
       <div className="brand-container">
         <div className="relative overflow-hidden rounded-[20px] md:rounded-[28px] bg-brand-dark border border-ink-light/[0.06]">
-          {/* Blue glow — left */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -31,7 +30,6 @@ export default function RevenueCTA() {
             }}
             aria-hidden="true"
           />
-          {/* Rust glow — right */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -41,7 +39,7 @@ export default function RevenueCTA() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 px-8 py-10 md:px-16 md:py-24">
+          <AnimateIn className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 px-8 py-10 md:px-16 md:py-24">
             <h2 className="font-display text-ink-light leading-tight text-[clamp(1.75rem,3.5vw,2.625rem)]">
               See how Larry helps grow your revenue by{" "}
               <span className="text-rust">30%</span>{" "}
@@ -57,7 +55,7 @@ export default function RevenueCTA() {
                 <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

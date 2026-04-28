@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { motion } from "framer-motion";
+import AnimateIn from "@/components/ui/AnimateIn";
 
 const faqs = [
   {
@@ -32,74 +34,89 @@ Our goal is to minimize disruption so your business stays up and running during 
   },
 ];
 
+const listVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section className="bg-brand-white section-y border-t border-border-warm/40">
       <div className="brand-container">
-        {/* Header — mirrors AiEmployeeSection header */}
-        <div className="text-center mb-14 max-w-5xl mx-auto">
+        <AnimateIn className="text-center mb-14 max-w-5xl mx-auto">
           <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
             Frequently Asked Questions
           </h2>
-        </div>
+        </AnimateIn>
 
-        {/* Accordion — 400 px max, centered */}
-        <div className="max-w-4xl mx-auto">
+        <motion.div
+          className="max-w-4xl mx-auto"
+          variants={listVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           {faqs.map((faq, i) => {
             const isOpen = open === i;
             return (
-              <button
-                key={i}
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="w-full text-left focus:outline-none"
-                aria-expanded={isOpen}
-              >
-                <div className="w-full h-0.5 bg-border-warm/50" />
+              <motion.div key={i} variants={itemVariants}>
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full text-left focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <div className="w-full h-0.5 bg-border-warm/50" />
 
-                <div className={`pt-8 px-6 ${isOpen ? "pb-12" : "pb-8"}`}>
-                  <div className="flex items-start justify-between gap-4">
-                    <h3
-                      className={`font-display font-semibold text-xl leading-snug transition-colors duration-200 ${
-                        isOpen ? "text-ink" : "text-ink-muted"
+                  <div className={`pt-8 px-6 ${isOpen ? "pb-12" : "pb-8"}`}>
+                    <div className="flex items-start justify-between gap-4">
+                      <h3
+                        className={`font-display font-semibold text-[17px] md:text-[24px] leading-snug transition-colors duration-200 ${
+                          isOpen ? "text-ink" : "text-ink-muted"
+                        }`}
+                      >
+                        {faq.q}
+                      </h3>
+                      {isOpen
+                        ? <ChevronUp size={18} className="text-ink-muted shrink-0 mt-1" />
+                        : <ChevronDown size={18} className="text-ink-muted shrink-0 mt-1" />
+                      }
+                    </div>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isOpen ? "max-h-[600px] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
                       }`}
                     >
-                      {faq.q}
-                    </h3>
-                    {isOpen
-                      ? <ChevronUp size={18} className="text-ink-muted shrink-0 mt-1" />
-                      : <ChevronDown size={18} className="text-ink-muted shrink-0 mt-1" />
-                    }
+                      <p className="font-sans text-ink-muted leading-relaxed whitespace-pre-line">
+                        {faq.a}
+                      </p>
+                      {i === 0 && (
+                        <a
+                          href="#contact"
+                          className="inline-flex items-center gap-1 mt-4 text-body-sm font-sans font-semibold text-azure hover:underline"
+                        >
+                          Book a meeting today to learn more
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
-
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? "max-h-[600px] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
-                    }`}
-                  >
-                    <p className="font-sans text-body-sm text-ink-muted leading-relaxed whitespace-pre-line">
-                      {faq.a}
-                    </p>
-                    {i === 0 && (
-                      <a
-                        href="#contact"
-                        className="inline-flex items-center gap-1 mt-4 text-body-sm font-sans font-semibold text-azure hover:underline"
-                      >
-                        Book a meeting today to learn more
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                          <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </button>
+                </button>
+              </motion.div>
             );
           })}
 
           <div className="w-full h-0.5 bg-border-warm/50" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
