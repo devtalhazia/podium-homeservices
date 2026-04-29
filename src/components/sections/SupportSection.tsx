@@ -45,7 +45,7 @@ export default function SupportSection() {
 
         <div className="text-center">
           <a
-            href="#contact"
+            href="https://calendly.com/umar-softaims/hvac-automation"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-rust text-white font-sans font-semibold text-body-md hover:opacity-90 transition-opacity"
           >
             Grow with us

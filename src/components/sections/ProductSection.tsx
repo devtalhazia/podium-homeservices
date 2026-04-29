@@ -1,4 +1,5 @@
 import AnimateIn from "@/components/ui/AnimateIn";
+import { ArrowRight } from 'lucide-react';
 
 type Feature = { title: string; desc: string };
 
@@ -21,7 +22,7 @@ const panels: Panel[] = [
     tag: "AI Booking",
     eyebrow: "Your #1 converting CSR",
     heading: "Schedules jobs autonomously",
-    subheading: "Larry improves operations, customer experience, and profitability",
+    subheading: "",
     features: [
       {
         title: "Responds immediately, 24/7",
@@ -42,7 +43,7 @@ const panels: Panel[] = [
     ],
     cta: "Learn more about Larry",
     ctaHref: "#larry",
-    image: "https://framerusercontent.com/images/8wmwG210q7leKcnS41mbrXxd60.png",
+    image: "https://framerusercontent.com/images/VzJWSnR4e6aFeMKZLu0em2bjvg.png?width=659&height=1108",
     imageAlt: "Larry AI booking dashboard showing calendar and technician scheduling",
     imageRight: true,
     dark: false,
@@ -72,7 +73,7 @@ const panels: Panel[] = [
     ],
     cta: "Learn more about Communications",
     ctaHref: "#comms",
-    image: "https://framerusercontent.com/images/FkBx4GckClyDkXH5v8umNe8Gj8.png",
+    image: "https://framerusercontent.com/images/vSxOIJVxSpPnS87DyXv5pEKOuu0.png?width=732&height=1002",
     imageAlt: "Podium unified inbox showing calls, texts, and webchat in one view",
     imageRight: false,
     dark: false,
@@ -102,7 +103,7 @@ const panels: Panel[] = [
     ],
     cta: "Learn more about Marketing Tools",
     ctaHref: "#marketing",
-    image: "https://framerusercontent.com/images/IIKhl5W1MKCLJIrD3QcidtHcUZU.png",
+    image: "https://framerusercontent.com/images/590U6sGPVih9vWZyy59xoHynwlM.png?width=1104&height=1237",
     imageAlt: "Podium marketing tools showing membership management and automated re-engagement campaigns",
     imageRight: true,
     dark: false,
@@ -111,68 +112,67 @@ const panels: Panel[] = [
 
 function ProductPanel({ panel }: { panel: Panel }) {
   const textCol = (
-    <div className="flex flex-col gap-7 max-w-lg">
-      <div>
-        <p
-          className={`text-label font-sans font-medium uppercase tracking-widest mb-3 ${
-            panel.dark ? "text-ink-light/50" : "text-ink-muted"
-          }`}
-        >
-          {panel.heading}
-        </p>
-        <h2
-          className={`font-display leading-tight mb-3 text-[clamp(1.75rem,4vw,2.625rem)] ${
-            panel.dark ? "text-ink-light" : "text-ink"
-          }`}
-        >
-          {panel.eyebrow}
-        </h2>
-        <p
-          className={`font-sans text-body-md leading-relaxed ${
-            panel.dark ? "text-[rgba(247,244,237,0.55)]" : "text-ink-muted"
-          }`}
-        >
-          {panel.subheading}
-        </p>
+    <div className="flex flex-col gap-9 max-w-lg">
+      <div className="flex flex-col gap-7">
+        <div>
+          <p
+            className={`font-sans font-medium uppercase tracking-widest mb-3 text-ink-muted`}
+          >
+            {panel.heading}
+          </p>
+          <h2
+            className={`font-display leading-tight mb-3 text-[clamp(1.75rem,4vw,2.25rem)] ${
+              panel.dark ? "text-ink-light" : "text-ink"
+            }`}
+          >
+            {panel.eyebrow}
+          </h2>
+          <p
+            className={`font-sans text-body-md leading-relaxed ${
+              panel.dark ? "text-[rgba(247,244,237,0.55)]" : "text-ink-muted"
+            }`}
+          >
+            {panel.subheading}
+          </p>
+        </div>
+
+        <ul className="flex flex-col gap-8">
+          {panel.features.map((f) => (
+            <li
+              key={f.title}
+              className={`flex gap-5 text-brand-dark`}
+            >
+              <div>
+                <p
+                  className={`font-display font-semibold text-[17px] md:text-[24px] mb-1.5 ${
+                    panel.dark ? "text-ink-light" : "text-ink"
+                  }`}
+                >
+                  {f.title}
+                </p>
+                <p
+                  className={`font-sans text-body-md leading-relaxed text-brand-dark/80 `}
+                >
+                  {f.desc}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <ul className="flex flex-col gap-5">
-        {panel.features.map((f) => (
-          <li
-            key={f.title}
-            className={`flex gap-5 ${panel.dark ? "text-azure" : "text-ink-mid"}`}
-          >
-            <div>
-              <p
-                className={`font-display font-semibold text-[17px] md:text-[19px] mb-1.5 ${
-                  panel.dark ? "text-ink-light" : "text-ink"
-                }`}
-              >
-                {f.title}
-              </p>
-              <p
-                className={`font-sans text-body-md leading-relaxed ${
-                  panel.dark ? "text-[rgba(247,244,237,0.55)]" : "text-ink-muted"
-                }`}
-              >
-                {f.desc}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="py-6 ">
+        <a
+          href={panel.ctaHref}
+          className={`text-rust border-rust border-b-2 inline-flex self-start items-center gap-2.5 font-sans font-semibold text-lg transition-opacity hover:opacity-70 whitespace-nowrap ${
+            panel.dark ? "text-azure" : "text-ink"
+          }`}
+        >
+          {panel.cta}
+          <ArrowRight className="w-6 h-6" />
+        </a>
+      </div>
 
-      <a
-        href={panel.ctaHref}
-        className={`text-rust border-rust border-b-2 inline-flex self-start items-center gap-1.5 font-sans font-semibold text-lg transition-opacity hover:opacity-70 ${
-          panel.dark ? "text-azure" : "text-ink"
-        }`}
-      >
-        {panel.cta}
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
     </div>
   );
 
@@ -194,15 +194,11 @@ function ProductPanel({ panel }: { panel: Panel }) {
         }}
         aria-hidden="true"
       />
-      <div className="relative w-full max-w-md">
-        <div
-          className="absolute inset-0 rounded-brand-xl blur-3xl opacity-15 bg-azure"
-          aria-hidden="true"
-        />
+      <div className="relative w-full p-14 group">
         <img
           src={panel.image}
           alt={panel.imageAlt}
-          className="relative w-full rounded-brand-xl object-cover shadow-2xl"
+          className="relative w-full rounded-brand-xl object-contain max-h-[550px] mx-auto group-hover:scale-[1.05] transition-transform"
           loading="lazy"
         />
       </div>
@@ -213,11 +209,11 @@ function ProductPanel({ panel }: { panel: Panel }) {
   const imageDirection = panel.imageRight ? "right" : "left";
 
   return (
-    <section className={`py-12 md:py-20 ${panel.dark ? "bg-brand-section" : "bg-brand-cream"}`}>
+    <section className={`pt-12 md:pb-12 pb-0 md:py-16 ${panel.dark ? "bg-brand-section" : "bg-brand-cream"}`}>
       <div
         className={[
-          "brand-container flex flex-col gap-8 lg:gap-14",
-          panel.imageRight ? "lg:flex-row" : "lg:flex-row-reverse",
+          "brand-container flex flex-col gap-[30px]",
+          panel.imageRight ? "lg:flex-row flex-col-reverse" : "lg:flex-row-reverse flex-col-reverse",
         ].join(" ")}
       >
         <AnimateIn direction={textDirection} className="flex-1 w-full">
@@ -226,7 +222,7 @@ function ProductPanel({ panel }: { panel: Panel }) {
         <AnimateIn delay={0.15} direction={imageDirection} className="flex-1 w-full">
           {imageCol}
         </AnimateIn>
-      </div>
+      </div>  
     </section>
   );
 }
@@ -234,13 +230,13 @@ function ProductPanel({ panel }: { panel: Panel }) {
 export default function ProductSection() {
   return (
     <div id="plans">
-      <div className="bg-brand-cream section-y">
+      <div className="bg-brand-cream section-y px-6 md:px-0">
         <div className="brand-container">
-          <AnimateIn className="text-center max-w-3xl mx-auto">
-            <p className="text-label font-sans font-medium text-ink-muted uppercase tracking-widest mb-4">
+          <AnimateIn className="text-center max-w-[1080px] mx-auto">
+            <p className="font-sans font-medium text-ink-muted uppercase tracking-widest mb-6 text-sm md:text-normal">
               Your AI Booking, Communications, and Marketing Guru
             </p>
-            <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
+            <h2 className="font-display text-ink leading-tight text-[clamp(2rem,4vw,2.5rem)]">
               Larry improves operations, customer experience, and profitability
             </h2>
           </AnimateIn>

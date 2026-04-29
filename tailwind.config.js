@@ -30,6 +30,7 @@ export default {
         // Accents
         azure:           "rgb(var(--azure)          / <alpha-value>)",
         rust:            "rgb(var(--rust)           / <alpha-value>)",
+        "rust-dark":     "rgb(var(--rust-dark)      / <alpha-value>)",
         steel:           "rgb(var(--steel)          / <alpha-value>)",
         silver:          "rgb(var(--silver)         / <alpha-value>)",
 

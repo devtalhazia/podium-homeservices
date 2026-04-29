@@ -45,13 +45,13 @@ const itemVariants = {
 };
 
 export default function FAQSection() {
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
     <section className="bg-brand-white section-y border-t border-border-warm/40">
       <div className="brand-container">
         <AnimateIn className="text-center mb-14 max-w-5xl mx-auto">
-          <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
+          <h2 className="font-display text-ink leading-tight text-[clamp(2rem,4vw,2.5rem)]">
             Frequently Asked Questions
           </h2>
         </AnimateIn>
@@ -77,7 +77,7 @@ export default function FAQSection() {
                   <div className={`pt-8 px-6 ${isOpen ? "pb-12" : "pb-8"}`}>
                     <div className="flex items-start justify-between gap-4">
                       <h3
-                        className={`font-display font-semibold text-[17px] md:text-[24px] leading-snug transition-colors duration-200 ${
+                        className={`font-display font-semibold text-[17px] md:text-[24px] leading-snug transition-colors duration-200 text-brand-dark ${
                           isOpen ? "text-ink" : "text-ink-muted"
                         }`}
                       >
@@ -91,16 +91,16 @@ export default function FAQSection() {
 
                     <div
                       className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        isOpen ? "max-h-[600px] opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"
+                        isOpen ? "max-h-[600px] opacity-100 mt-8" : "max-h-0 opacity-0 mt-0"
                       }`}
                     >
-                      <p className="font-sans text-ink-muted leading-relaxed whitespace-pre-line">
+                      <p className="font-sans text-brand-dark/80 leading-relaxed whitespace-pre-line">
                         {faq.a}
                       </p>
                       {i === 0 && (
                         <a
-                          href="#contact"
-                          className="inline-flex items-center gap-1 mt-4 text-body-sm font-sans font-semibold text-azure hover:underline"
+                          href="https://calendly.com/umar-softaims/hvac-automation"
+                          className="inline-flex items-center gap-1 mt-4 font-sans font-semibold text-rust underline"
                         >
                           Book a meeting today to learn more
                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

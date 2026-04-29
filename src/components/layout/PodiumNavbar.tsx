@@ -1,15 +1,61 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import PodiumLogo from "./PodiumLogo";
 
 type NavLink = { label: string; href: string; special?: boolean; showIcon?: boolean };
 
 const desktopLinks: NavLink[] = [
-  { label: "Meet Larry",  href: "./ai/larry", showIcon: true, special: false },
+  { label: "Meet Larry",  href: "./ai/larry", showIcon: true, special: true },
   { label: "Why Podium?", href: "./why-podium"               },
-  { label: "Features",    href: "./features"                 },
   { label: "Plans",       href: "./plans"                    },
   { label: "Resources",   href: "./resources"                },
 ];
+
+const featuresMenu = [
+  {
+    title: "Communications",
+    subtitle: "Capture and convert every lead",
+    items: [
+      { label: "All-in-one Inbox",                   icon: true  },
+      { label: "Phones + Voice AI",                  icon: false },
+      { label: "Text Messaging",                     icon: false },
+      { label: "Third Party Leads",                  icon: false },
+      { label: "Website Chat",                       icon: false },
+      { label: "Emails",                             icon: false },
+      { label: "Web Forms, Pop-ups, & Landing Pages",icon: false },
+      { label: "Automations",                        icon: true  },
+    ],
+  },
+  {
+    title: "Book Jobs & Get Paid",
+    subtitle: "Consolidated workflows powered by AI",
+    items: [
+      { label: "Calendar & Booking",  icon: true },
+      { label: "Mobile App",          icon: true },
+      { label: "Estimates",           icon: true },
+      { label: "Payments",            icon: true },
+      { label: "Customer Profiles",   icon: true },
+    ],
+  },
+  {
+    title: "Marketing Tools",
+    subtitle: "Keep your calendar full automatically",
+    items: [
+      { label: "Membership Management", icon: true  },
+      { label: "Renewals & Upsells",    icon: true  },
+      { label: "Bulk Text Messaging",   icon: false },
+      { label: "Reviews",               icon: true  },
+      { label: "Surveys",               icon: false },
+    ],
+  },
+];
+
+function LightningIcon() {
+  return (
+    <svg className="w-3.5 h-3.5 shrink-0 text-rust group-hover:text-rust-dark" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z" />
+    </svg>
+  );
+}
 
 const mobileLinks = [
   { label: "Meet Larry",  href: "./ai/larry",  showIcon: true  },
@@ -54,36 +100,18 @@ function ChevronDown({ className }: { className?: string }) {
 
 function LarryAppIcon() {
   return (
-    <span
-      className="inline-flex items-center justify-center w-8 h-8 rounded-[9px] text-base shrink-0"
-      style={{ background: "linear-gradient(135deg, #8B3A2F 0%, #6B2A1F 100%)" }}
-    >
-      ⚡
-    </span>
-  );
-}
-
-function MeetLarryPill() {
-  return (
-    <a
-      href="./ai/larry"
-      className="inline-flex items-center gap-2 pl-1.5 pr-3.5 py-1 rounded-full font-sans font-semibold text-body-sm text-ink-light italic transition-opacity hover:opacity-80 italic"
-      style={{ background: "rgba(139,58,47,0.35)" }}
-    >
-      <span
-        className="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm shrink-0"
-        style={{ background: "linear-gradient(135deg, #8B3A2F 0%, #6B2A1F 100%)" }}
-      >
-        ⚡
-      </span>
-      Meet Larry
-    </a>
+    <img src="https://framerusercontent.com/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg?width=24&height=24" alt="" />
   );
 }
 
 export default function PodiumNavbar() {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [scrolled,      setScrolled]      = useState(false);
+  const [menuOpen,      setMenuOpen]      = useState(false);
+  const [featuresOpen,  setFeaturesOpen]  = useState(false);
+  const featuresTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openFeatures  = () => { if (featuresTimeout.current) clearTimeout(featuresTimeout.current); setFeaturesOpen(true);  };
+  const closeFeatures = () => { featuresTimeout.current = setTimeout(() => setFeaturesOpen(false), 120); };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -105,50 +133,135 @@ export default function PodiumNavbar() {
           scrolled ? "shadow-[0_4px_24px_0_rgba(0,0,0,0.35)]" : "",
         ].join(" ")}
       >
-        <div className="brand-container flex h-20 items-center justify-between gap-6">
+        <div className="brand-container px-[30px] flex h-[72px] items-center justify-between gap-4">
           {/* Logo */}
-          <a href="/" className="flex items-center shrink-0">
+          <a href="/" className="flex items-center shrink-0 py-[8.65px] px-[12.11px]">
             <PodiumLogo className="h-5 w-auto text-ink-light" />
           </a>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1 flex-1" aria-label="Primary navigation">
-            {desktopLinks.map(({ label, href, special, showIcon }) => {
-              if (special) return <MeetLarryPill key={label} />;
-              const active = isActivePath(href);
-              return (
-                <a
-                  key={label}
-                  href={href}
+            <div className="md:flex items-center gap-2 flex-1">
+              {/* Meet Larry link */}
+              {desktopLinks.slice(0, 2).map(({ label, href, special, showIcon }) => {
+                const active = isActivePath(href);
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    className={[
+                      "flex items-center gap-2 px-2.5 py-2 font-semibold rounded-md transition-colors duration-150",
+                      active ? "bg-rust text-white" : "text-white font-bold hover:text-white hover:bg-rust-dark",
+                      special ? "italic font-display" : "font-sans",
+                    ].join(" ")}
+                  >
+                    {showIcon && <LarryAppIcon />}
+                    {label}
+                  </a>
+                );
+              })}
+
+              {/* Features with dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={openFeatures}
+                onMouseLeave={closeFeatures}
+              >
+                <button
                   className={[
-                    "flex items-center gap-3 px-3.5 py-1.5 font-sans font-medium rounded-2xl transition-colors duration-150",
-                    active
-                      ? "bg-rust text-white"
-                      : "text-white font-bold hover:text-white hover:bg-rust",
+                    "flex items-center gap-1 px-2.5 py-2 font-sans font-bold rounded-md transition-colors duration-150 text-white",
+                    featuresOpen ? "bg-rust-dark" : "hover:bg-rust-dark",
                   ].join(" ")}
                 >
-                  {showIcon && <LarryAppIcon />}
-                  {label}
-                </a>
-              );
-            })}
-          </nav>
+                  Features
+                </button>
 
-          {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-2 shrink-0">
-            <a
-              href="./demo"
-              className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full font-sans font-semibold text-body-sm text-white transition-opacity hover:opacity-90 bg-rust"
-            >
-              Watch a demo
-            </a>
-            <a
-              href="https://auth.podium.com/"
-              className="inline-flex items-center px-5 py-1.5 rounded-full border-2 border-white text-body-sm font-sans font-semibold text-ink-light hover:border-ink-light/60 transition-colors"
-            >
-              Sign in
-            </a>
-          </div>
+                {featuresOpen && (
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 z-50 rounded-[10px] p-6"
+                    style={{
+                      width: "860px",
+                      backgroundColor: "rgb(24, 24, 28)",
+                      border: "1px solid rgb(74, 74, 77)",
+                      boxShadow: "rgba(0, 0, 0, 0.05) 0px 10px 20px 0px",
+                      willChange: "transform",
+                      transformOrigin: "50% 0% 0px",
+                    }}
+                    onMouseEnter={openFeatures}
+                    onMouseLeave={closeFeatures}
+                  >
+                    <div className="grid grid-cols-3 gap-[30px]">
+                      {featuresMenu.map((col) => (
+                        <div key={col.title}>
+                          <div className="mb-5">
+                            <div className="flex items-center justify-between">
+                              <span className="text-white font-sans font-medium text-[19px]">{col.title}</span>
+                              <ChevronDown className="w-4 h-4 text-white/20 -rotate-90" />
+                            </div>
+                            <p className="text-white text-xs mt-0.5">{col.subtitle}</p>
+                            <div className="mt-2 border-t border-white/80" />
+                          </div>
+                          <ul className="space-y-3">
+                            {col.items.map((item) => (
+                              <li className="flex items-center gap-2 group" key={item.label}>
+                                {item.icon && <LightningIcon />}
+                                <a
+                                  href="#"
+                                  className={[
+                                    "text-sm transition-all duration-100",
+                                    item.icon
+                                      ? "text-white font-medium hover:text-rust-dark group-hover:translate-x-1"
+                                      : "text-white/80 font-normal hover:text-white/80 pl-[22px] group-hover:text-rust-dark group-hover:translate-x-1",
+                                  ].join(" ")}
+                                > 
+                                  {item.label}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Remaining links: Plans, Resources */}
+              {desktopLinks.slice(2).map(({ label, href, special, showIcon }) => {
+                const active = isActivePath(href);
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    className={[
+                      "flex items-center gap-2 px-2.5 py-2 font-semibold rounded-md transition-colors duration-150",
+                      active ? "bg-rust text-white" : "text-white font-bold hover:text-white hover:bg-rust-dark",
+                      special ? "italic font-display" : "font-sans",
+                    ].join(" ")}
+                  >
+                    {showIcon && <LarryAppIcon />}
+                    {label}
+                  </a>
+                );
+              })}
+            </div>
+
+            {/* Desktop CTAs */}
+            <div className="hidden md:flex items-center gap-3 shrink-0">
+              <a
+                href="https://calendly.com/umar-softaims/hvac-automation"
+                className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full font-sans font-semibold text-body-sm text-white transition-opacity bg-rust hover:bg-rust-dark leading-none"
+              >
+                Watch a demo
+              </a>
+              <a
+                href="https://auth.podium.com/"
+                className="inline-flex items-center px-6 py-2 rounded-full border-2 border-white text-body-sm font-sans font-semibold text-ink-light hover:bg-rust transition-colors leading-none"
+              >
+                Sign in
+              </a>
+            </div>
+          </nav>
 
           {/* Mobile hamburger */}
           <button
@@ -218,8 +331,8 @@ export default function PodiumNavbar() {
         {/* Bottom CTAs */}
         <div className="shrink-0 border-t border-ink-light/10 px-5 py-5 flex gap-3">
           <a
-            href="./demo"
-            className="flex-1 flex items-center justify-center py-3.5 rounded-full font-sans font-semibold text-[15px] bg-white text-ink transition-opacity hover:opacity-90"
+            href="https://calendly.com/umar-softaims/hvac-automation"
+            className="flex-1 flex items-center justify-center py-3.5 rounded-full font-sans font-semibold text-[15px] bg-white text-ink transition-opacity hover:bg-rustDark"
           >
             Get a Demo
           </a>

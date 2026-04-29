@@ -1,25 +1,26 @@
 import AnimateIn from "@/components/ui/AnimateIn";
+import { Play } from 'lucide-react';
 
 const integrationLogos = [
   {
     name: "ServiceTitan",
     src: "https://framerusercontent.com/images/Rtmpb8jTnnHxFOVSECJrXF2P1aY.png",
-    height: 110,
+    height: 98,
   },
   {
     name: "Housecall Pro",
     src: "https://framerusercontent.com/images/TrODOlVpLdpVYgk4CzxDjIGa8.png",
-    height: 110,
+    height: 98,
   },
   {
     name: "intuit quickbooks",
     src: "https://framerusercontent.com/images/iinIutGChpcwgCgXNlBcjfDPsUQ.png",
-    height: 110,
+    height: 98,
   },
   {
     name: "Many More",
     src: "https://framerusercontent.com/images/cqK3npVvIsQ4bT9MEtc3KEyqCMs.png",
-    height: 60,
+    height: 50,
   },
 ];
 
@@ -27,7 +28,7 @@ export default function IntegrationsSection() {
   return (
     <section className="bg-brand-gray py-16">
       <AnimateIn className="brand-container text-center mb-10">
-        <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
+        <h2 className="font-display text-ink leading-tight text-[clamp(2rem,4vw,2.5rem)]">
           Connect with the tools you already use
         </h2>
       </AnimateIn>
@@ -38,7 +39,7 @@ export default function IntegrationsSection() {
             key={name}
             src={src}
             alt={name}
-            className={`w-auto object-contain`}
+            className={`w-auto max-w-[300px]  object-contain`}
             style={{ height }}
             loading="lazy"
           />
@@ -47,13 +48,11 @@ export default function IntegrationsSection() {
 
       <AnimateIn delay={0.2} className="text-center mt-10">
         <a
-          href="./demo"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-ink text-ink font-sans font-semibold text-xl hover:bg-ink hover:text-ink-light transition-colors"
+          href="https://calendly.com/umar-softaims/hvac-automation"
+          className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-ink text-ink font-sans font-semibold text-lg hover:bg-rust/50 hover:text-rust-dark hover:border-rust-dark transition-colors leading-none"
         >
           Watch a demo
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <Play size={18} strokeWidth={2.5} />
         </a>
       </AnimateIn>
     </section>

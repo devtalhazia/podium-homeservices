@@ -242,18 +242,19 @@ export default function TestimonialsSection() {
 
   return (
     <section className="relative bg-brand-dark section-y overflow-hidden" id="why">
-      {/* Carbon texture overlay */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle, #294669, black)]" aria-hidden="true">
         <img
-          src="https://framerusercontent.com/images/m0Kj9TWCn8QefI5R3Z21DwzZjIA.png"
+          src="https://framerusercontent.com/images/m0Kj9TWCn8QefI5R3Z21DwzZjIA.png?width=2880&height=1344"
           alt=""
-          className="w-full h-full object-cover"
-          loading="lazy"
+          className="w-full h-full object-cover object-top"
+          loading="eager"
         />
+        {/* <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,28,0.5)_0%,rgba(24,24,28,0.75)_70%,rgba(24,24,28,1)_100%)]" /> */}
       </div>
 
       {/* Header */}
-      <AnimateIn className="relative z-10 brand-container mb-10 text-center">
+      <AnimateIn className="relative z-30 brand-container mb-10 text-center">
         <p className="font-sans font-medium text-[13px] text-ink-light/50 uppercase tracking-[0.1em] mb-3">
           Real results for real businesses
         </p>
@@ -265,7 +266,7 @@ export default function TestimonialsSection() {
       </AnimateIn>
 
       {/* Marquee — edge-faded */}
-      <div className="relative z-10 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]">
+      <div className="relative z-30 w-full overflow-hidden ">
         <div className="flex items-stretch gap-[10px] animate-marquee w-max h-[260px] sm:h-[380px] md:h-[500px]">
           {doubled.map((item, i) => (
             <TrackCard key={i} item={item} />
@@ -273,7 +274,7 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="relative bg-brand-dark">
+      <div className="relative">
         {/* Carbon texture overlay */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <img
@@ -286,30 +287,27 @@ export default function TestimonialsSection() {
 
         <div className="relative z-10 brand-container pt-20">
           {/* 3-column pillars with vertical dividers */}
-          <AnimateIn className="grid grid-cols-1 md:grid-cols-3 mb-14 text-center">
+          <AnimateIn className="grid grid-cols-1 md:grid-cols-3 mb-14 text-center px-6 md:px-0 gap-2 md:gap-0">
             {pillars.map((p, i) => (
               <div
                 key={p.title}
                 className={[
-                  "flex flex-col gap-4 py-6 md:py-0 md:px-10",
-                  i > 0 ? "border-t border-ink-light/10 md:border-t-0 md:border-l md:border-ink-light/10" : "",
+                  "flex flex-col gap-4 py-6 px-12 md:px-10",
+                  i > 0 ? "border-t border-ink-light/10 md:border-t-0 md:border-l-[3px] md:border-ink-light/50" : "",
                 ].join(" ")}
               >
-                <h3 className="font-display font-semibold text-body-md text-ink-light">{p.title}</h3>
-                <p className="font-sans text-body-sm text-ink-light/50 leading-relaxed">{p.desc}</p>
+                <h3 className="font-display font-semibold text-xl text-ink-light">{p.title}</h3>
+                <p className="font-sans md:text-[15px] text-[13px] text-ink-light/80 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </AnimateIn>
 
           <AnimateIn delay={0.15} className="text-center">
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-rust text-white font-sans font-semibold text-body-md hover:opacity-90 transition-opacity"
+              href="https://calendly.com/umar-softaims/hvac-automation"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-rust text-white font-sans font-semibold text-lg hover:opacity-90 transition-opacity leading-none"
             >
               Grow with us
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </a>
           </AnimateIn>
         </div>

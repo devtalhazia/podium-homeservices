@@ -83,10 +83,10 @@
 :root {
   /* ── Backgrounds (space-separated RGB for Tailwind opacity support) ───────── */
   --brand-dark:    24 24 28;      /* #18181c  navbar / footer / dark sections  */
-  --brand-section: 24 24 28;     /* #18181c  dark interior sections (same)    */
-  --brand-cream:   240 240 243;  /* #f0f0f3  main light gray (cool)           */
-  --brand-white:   255 254 252;  /* #fffefc  near-white card / FAQ bg         */
-  --brand-gray:    240 240 243;  /* #f0f0f3  cool light gray                  */
+  --brand-section: 24 24 28;      /* #18181c  dark interior sections (same)    */
+  --brand-cream:   240 240 243;   /* #f0f0f3  main light gray (cool)           */
+  --brand-white:   255 254 252;   /* #fffefc  near-white card / FAQ bg         */
+  --brand-gray:    240 240 243;   /* #f0f0f3  cool light gray                  */
 
   /* ── Text ───────────────────────────────────────────────────────────────── */
   --ink:           28 27 24;     /* #1c1b18  primary dark text                 */
@@ -96,7 +96,8 @@
 
   /* ── Accent Colors ──────────────────────────────────────────────────────── */
   --azure:         0 153 255;    /* #0099ff  primary CTA blue                  */
-  --rust:          157 64 60;    /* #9d403c  rust / red accent                 */
+  --rust:          165 72 72;    /* #a54848  rust / red accent                 */
+  --rust-dark:     134 37 37;    /* #862525  rust / red accent                 */
   --steel:         102 126 153;  /* #667e99  steel blue                        */
   --silver:        194 186 171;  /* #c2baab  warm silver                       */
 
@@ -138,7 +139,7 @@
   --section-pad-x:    30px;
   --section-pad-y:    96px;   /* default (desktop > 1199px) */
   --U:                80px;
-  --marquee-duration: 55s;
+  --marquee-duration: 105s;
 
   /* ── shadcn / Radix (kept for component compatibility) ──────────────────── */
   --background:             0 0% 100%;
@@ -151,6 +152,7 @@
   --primary-foreground:     210 40% 98%;
   --secondary:              210 40% 96.1%;
   --secondary-foreground:   222.2 47.4% 11.2%;
+  --selection-background:   157 64 60;
   --muted:                  210 40% 96.1%;
   --muted-foreground:       215.4 16.3% 46.9%;
   --accent:                 210 40% 96.1%;
@@ -187,6 +189,11 @@
     font-family: "Grenette", Georgia, serif;
     line-height: 1.1;
   }
+
+  ::selection {
+    background-color: rgb(var(--selection-background));
+    color: rgb(var(--brand-white));
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -197,8 +204,8 @@
     max-width: var(--container-max);
     margin-left: auto;
     margin-right: auto;
-    padding-left: var(--section-pad-x);
-    padding-right: var(--section-pad-x);
+    /* padding-left: var(--section-pad-x);
+    padding-right: var(--section-pad-x); */
     width: 100%;
   }
 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import AnimateIn from "@/components/ui/AnimateIn";
 
-const DURATION = 5000; // ms per item
+const DURATION = 9000; // ms per item
 
 const items = [
   {
@@ -71,14 +71,14 @@ export default function AiEmployeeSection() {
   const progress = Math.min(elapsed / DURATION, 1);
 
   return (
-    <section id="features" className="bg-brand-gray section-y">
+    <section id="features" className="bg-brand-gray section-y px-6 md:px-0">
       <div className="brand-container">
         {/* Header */}
-        <AnimateIn className="text-center mb-14 max-w-5xl mx-auto">
-          <p className="text-label font-sans font-medium text-ink-muted uppercase tracking-widest mb-4">
+        <AnimateIn className="text-center mb-14 max-w-[1080px] mx-auto">
+          <p className="font-sans font-medium text-ink-muted uppercase tracking-widest mb-6 text-sm md:text-normal">
             Your AI Employee at work
           </p>
-          <h2 className="font-display text-ink leading-tight text-[clamp(1.75rem,4vw,2.625rem)]">
+          <h2 className="font-display text-ink leading-tight text-[clamp(2rem,4vw,2.5rem)]">
             Larry is the AI Employee that books more jobs, fills your calendar, and grows revenue
           </h2>
         </AnimateIn>
@@ -86,7 +86,7 @@ export default function AiEmployeeSection() {
         {/* Two-column layout */}
         <div className="flex flex-col lg:flex-row gap-10 items-center">
           {/* Left — accordion */}
-          <AnimateIn delay={0.1} direction="left" className="w-full lg:w-2/5 flex flex-col">
+          <AnimateIn delay={0.1} direction="left" className="w-full lg:w-2/6 flex flex-col">
             {items.map((item, i) => {
               const isActive = active === i;
               return (
@@ -97,9 +97,9 @@ export default function AiEmployeeSection() {
                   aria-expanded={isActive}
                 >
                   {/* Progress bar */}
-                  <div className="w-full h-0.5 bg-border-warm/50 overflow-hidden">
+                  <div className={`w-full bg-border-warm/50 overflow-hidden ${isActive ? "h-1" : "h-0.5"}`}>
                     <div
-                      className="h-full transition-none bg-azure"
+                      className="h-full transition-none bg-blue-700"
                       style={{ width: isActive ? `${progress * 100}%` : "0%" }}
                     />
                   </div>
@@ -108,9 +108,7 @@ export default function AiEmployeeSection() {
                   <div className={`pt-8 px-6 ${isActive ? "pb-12" : "pb-8"}`}>
                     <div className="flex items-center justify-between">
                       <h3
-                        className={`font-sans font-semibold text-xl transition-colors duration-200 ${
-                          isActive ? "text-ink mb-4 " : "text-ink-muted"
-                        }`}
+                        className={`text-ink font-display font-semibold text-xl transition-colors duration-200 mb-4`}
                       >
                         {item.title}
                       </h3>
@@ -124,7 +122,7 @@ export default function AiEmployeeSection() {
                         isActive ? "max-h-[600px] opacity-100 mt-2" : "max-h-0 opacity-0 mt-0"
                       }`}
                     >
-                      <p className="font-sans text-body-md text-ink-muted leading-relaxed">
+                      <p className="font-sans text-body-md text-ink-md leading-relaxed">
                         {item.desc}
                       </p>
                       {/* Mobile inline image — hidden on lg+ where sidebar takes over */}
@@ -146,7 +144,7 @@ export default function AiEmployeeSection() {
           </AnimateIn>
 
           {/* Right — image (desktop only) */}
-          <AnimateIn delay={0.2} direction="right" className="hidden lg:block lg:w-3/5 rounded-brand-2xl overflow-hidden max-h-[750px]">
+          <AnimateIn delay={0.2} direction="right" className="hidden lg:block lg:w-4/6 rounded-brand-2xl overflow-hidden max-h-[750px]">
             <img
               key={active}
               src={items[active].img}
