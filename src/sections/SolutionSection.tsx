@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import '../styles/solution.css'
+import { motion } from 'framer-motion'
+import Lottie from 'lottie-react'
+import neverMissesLeadAnimation from '../assets/animations/never-miss-a-lead.json'
+import booksWithoutOversightAnimation from '../assets/animations/books-without-oversight.json'
+import everyLeadInOnePlatformAnimation from '../assets/animations/every-lead-in-one-platform.json'
+import reengagesCustomersAnimation from '../assets/animations/reengage-customers.json'
+import eliminatesAdminWorkAnimation from '../assets/animations/eleminate-admin-work.json'
 
 const ITEM_DURATION = 5000
 
@@ -26,11 +32,19 @@ const ITEMS = [
   },
 ]
 
+const ANIMATION_BY_TITLE: Record<string, object> = {
+  'Never misses a lead': neverMissesLeadAnimation,
+  'Books without oversight': booksWithoutOversightAnimation,
+  'Every lead in one platform': everyLeadInOnePlatformAnimation,
+  'Re-engages customers': reengagesCustomersAnimation,
+  'Eliminates admin work': eliminatesAdminWorkAnimation,
+}
+
 /* ── Chevron SVG (exact path from Framer dump, fill rgb(28,27,24)) ── */
 const ChevronDown = () => (
   <svg
     width="24" height="24" viewBox="0 0 24 24" fill="none"
-    style={{ display: 'block', width: '100%', height: '100%' }}
+    className="block h-full w-full"
     aria-hidden="true"
   >
     <path
@@ -43,128 +57,60 @@ const ChevronDown = () => (
 interface ItemProps {
   title: string
   body: string
+  animationData: object
   isActive: boolean
   animKey: number
   onClick: () => void
 }
 
 /* ── Single accordion row ── */
-function AccordionItem({ title, body, isActive, animKey, onClick }: ItemProps) {
+function AccordionItem({ title, body, animationData, isActive, animKey, onClick }: ItemProps) {
   return (
-    /*
-     * framer-vzzFx.framer-1xsil0r:
-     *   flex-col, gap:16px, padding:var(--phklur)=32px 24px 48px 24px,
-     *   width:436px, overflow:hidden, cursor:pointer
-     * SAME padding for open and closed — body text conditionally rendered
-     */
     <div
-      className="solution-item"
+      className="relative flex w-full desktop:w-[436px] cursor-pointer flex-col items-start gap-[16px] overflow-hidden px-[24px] pt-[32px] pb-[48px] border-t border-[rgb(132,124,115)] tablet:border-t desktop:border-t-0 desktop:border-b desktop:border-[rgb(132,124,115)]"
       onClick={onClick}
-      style={{
-        position: 'relative',
-        width: '436px',
-        cursor: 'pointer',
-        padding: '32px 24px 48px 24px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        gap: '16px',
-        overflow: 'hidden',
-        borderBottom: '0.5px solid rgb(132, 124, 115)',
-      }}
     >
-      {/* ── Progress bar (framer-1onaeuf / framer-yfh2uc) ──
-           position:absolute, top:0, left:0, right:0, height:4px, z-index:1
-           track: rgb(195,195,200) | fill: rgb(102,126,153)
-           fill starts at translateX(-100%) = translateX(-436px), animates to 0 */}
       {isActive && (
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0,
-          height: '4px',
-          backgroundColor: 'rgb(195, 195, 200)',
-          overflow: 'hidden',
-          zIndex: 1,
-        }}>
-          <div
+        <div className="absolute left-0 right-0 top-0 z-[1] h-[4px] overflow-hidden bg-gray-200">
+          <motion.div
             key={animKey}
-            className="solution-progress-bar playing"
-            style={{ '--progress-duration': `${ITEM_DURATION}ms` } as React.CSSProperties}
+            className="h-full w-full bg-blue-600"
+            initial={{ x: '-100%' }}
+            animate={{ x: '0%' }}
+            transition={{ duration: ITEM_DURATION / 2000, ease: 'linear' }}
           />
         </div>
       )}
 
-      {/* ── Header row (framer-b5g0r7) ──
-           flex:none, flex-row, width:100%, align-items:center */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '100%',
-        flexShrink: 0,
-      }}>
-        {/* framer-1frbfsq: flex:1, flex-row, gap:16px, align-items:center
-            Contains title (flex:1) + arrow (24px) */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: '16px',
-          flex: '1 0 0',
-          minWidth: 0,
-        }}>
-          {/* framer-16hyh15 > framer-1r1o306:
-              title container flex:1, inner text width:348px
-              math: 436 - 24 - 24 (padding) - 16 (gap) - 24 (arrow) = 348 */}
-          <div style={{ flex: '1 0 0', minWidth: 0 }}>
-            <h6 style={{
-              fontFamily: '"Grenette SemiBold", "Grenette", sans-serif',
-              fontWeight: 600,
-              fontSize: '20px',
-              lineHeight: '150%',
-              letterSpacing: '0px',
-              color: 'rgb(28, 27, 24)',
-              margin: 0,
-              width: '348px',
-              maxWidth: '100%',
-              whiteSpace: 'pre-wrap',
-              wordBreak: 'break-word',
-            }}>
+      <div className="flex w-full shrink-0 flex-row items-center">
+        <div className="flex min-w-0 flex-[1_0_0] flex-row items-center gap-[16px]">
+          <div className="min-w-0 flex-[1_0_0]">
+            <h6 className="m-0 w-[348px] max-w-full break-words whitespace-pre-wrap font-grenette-semi text-[20px] font-semibold leading-[150%] tracking-[0px] text-ink">
               {title}
             </h6>
           </div>
 
-          {/* framer-vte9ex: arrow 24×24, rotates 180° when open */}
-          <div style={{
-            width: '24px',
-            height: '24px',
-            flexShrink: 0,
-            transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
-            transition: 'transform 0.2s ease',
-          }}>
+          <div className={`h-[24px] w-[24px] shrink-0 transition-transform duration-200 ${isActive ? 'rotate-180' : 'rotate-0'}`}>
             <ChevronDown />
           </div>
         </div>
       </div>
 
-      {/* ── Body text (framer-1xuj2qp) ──
-           flex:none, width:100%
-           Only rendered when active — closed items have compact height */}
       {isActive && (
-        <p style={{
-          fontFamily: '"Graphik Regular", "Graphik", sans-serif',
-          fontWeight: 400,
-          fontSize: '16px',
-          lineHeight: '150%',
-          letterSpacing: '0em',
-          color: 'rgb(78, 74, 68)',
-          margin: 0,
-          width: '100%',
-          whiteSpace: 'pre-wrap',
-          wordBreak: 'break-word',
-        }}>
+        <p className="m-0 w-full break-words whitespace-pre-wrap font-graphik text-[16px] font-normal leading-[150%] tracking-[0em] text-ink-soft">
           {body}
         </p>
+      )}
+
+      {isActive && (
+        <div className="w-full overflow-hidden desktop:hidden">
+          <Lottie
+            animationData={animationData}
+            loop
+            autoplay
+            className="h-full w-full"
+          />
+        </div>
       )}
     </div>
   )
@@ -193,124 +139,34 @@ export default function SolutionSection() {
   }
 
   return (
-    /*
-     * framer-q4g7c9:
-     *   background:#f0f0f3, flex-col, align-items:center,
-     *   gap:64px, width:100%, padding:80px, overflow:hidden
-     */
     <section
       id="solution"
-      className="solution-section"
-      style={{
-        backgroundColor: 'rgb(240, 240, 243)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '64px',
-        width: '100%',
-        padding: '80px',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
+      className="relative flex w-full flex-col items-center gap-[64px] overflow-hidden bg-gray-50 px-[24px] py-[60px] tablet:px-[48px] tablet:py-[72px] desktop:p-[80px]"
     >
-      {/* ── Heading block (framer-amti02-container: max-width:1080px, width:100%) ── */}
-      <div style={{ maxWidth: '1080px', width: '100%' }}>
-
-        {/* framer-RwRi6.framer-1etrr6s: flex-col, align-items:center, gap:0, padding:0 */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '0',
-          width: '100%',
-        }}>
-
-          {/* framer-4na7px (Headings/Preheader): flex-col, align-items:center, gap:48px, padding-bottom:24px */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '48px',
-            width: '100%',
-            paddingBottom: '24px',
-          }}>
-            <p style={{
-              fontFamily: '"Graphik Medium", "Graphik", sans-serif',
-              fontWeight: 500,
-              fontSize: '16px',
-              lineHeight: '150%',
-              letterSpacing: '0.1em',
-              textAlign: 'center',
-              color: 'rgb(98, 98, 101)',
-              margin: 0,
-            }}>
+      <div className="w-full max-w-[1080px]">
+        <div className="flex w-full flex-col items-center gap-0">
+          <div className="flex w-full flex-col items-center gap-[48px] pb-[24px]">
+            <p className="m-0 text-center font-graphik-medium text-[16px] font-medium leading-[150%] tracking-[0.1em] text-gray-mid">
               Your AI Employee at work
             </p>
           </div>
 
-          {/* framer-18n4kb3 (Heading): flex-col, align-items:center, gap:24px, padding-bottom:16px */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '24px',
-            width: '100%',
-            paddingBottom: '16px',
-          }}>
-            <h3
-              className="solution-h3"
-              style={{
-                fontFamily: '"Grenette Regular", "Grenette", sans-serif',
-                fontWeight: 400,
-                fontSize: '40px',
-                lineHeight: '120%',
-                letterSpacing: '0px',
-                textAlign: 'center',
-                color: 'rgb(28, 27, 24)',
-                margin: 0,
-                width: '100%',
-              }}
-            >
+          <div className="flex w-full flex-col items-center gap-[24px] pb-[16px]">
+            <h3 className="m-0 w-full text-center font-grenette text-[28px] font-normal leading-[120%] tracking-[0px] text-ink tablet:text-[40px]">
               Larry is the AI Employee that books more jobs, fills your calendar, and grows revenue
             </h3>
           </div>
         </div>
       </div>
 
-      {/* ── Accordion + Image panel ──
-           framer-k3KCg.framer-1q3gnnc: flex-row, gap:30px, width:1080px, align-items:center */}
-      <div
-        className="solution-layout"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          gap: '30px',
-          width: '1080px',
-          maxWidth: '100%',
-        }}
-      >
-        {/* Left: text block column
-             framer-j8m036: flex:1 0 0, min-width:326px, max-width:460px, padding-right:24px
-             Items inside are width:436px — exactly fits within 460px with 24px pad-right */}
-        <div
-          className="solution-text-block"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '1 0 0',
-            minWidth: '326px',
-            maxWidth: '460px',
-            paddingRight: '24px',
-            gap: '0',
-            alignItems: 'flex-start',
-          }}
-        >
+      <div className="flex w-full flex-col items-center justify-center gap-[30px] desktop:flex-row">
+        <div className="flex w-full flex-col items-center gap-0 desktop:min-w-[326px] desktop:max-w-[460px] desktop:flex-[1_0_0] desktop:items-start desktop:pr-[24px]">
           {ITEMS.map((item, idx) => (
             <AccordionItem
               key={item.title}
               title={item.title}
               body={item.body}
+              animationData={ANIMATION_BY_TITLE[item.title]}
               isActive={activeIdx === idx}
               animKey={activeIdx === idx ? animKey : 0}
               onClick={() => handleClick(idx)}
@@ -318,33 +174,14 @@ export default function SolutionSection() {
           ))}
         </div>
 
-        {/* Right: image panel
-             framer-l6jy3n: flex:1 0 0, aspect-ratio:1.42814
-             At 1080px row with 460px text + 30px gap → image = 590px wide → height ≈ 413px
-             Placeholder until per-item screenshots are sourced */}
-        <div
-          className="solution-image-panel"
-          style={{
-            flex: '1 0 0',
-            aspectRatio: '1.42814',
-            borderRadius: '16px',
-            backgroundColor: 'rgb(216, 216, 222)',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minWidth: 0,
-          }}
-        >
-          <span style={{
-            color: 'rgb(140, 140, 148)',
-            fontSize: '13px',
-            fontFamily: '"Graphik Regular", "Graphik", sans-serif',
-            textAlign: 'center',
-            padding: '0 24px',
-          }}>
-            {ITEMS[activeIdx].title}
-          </span>
+        <div className="hidden min-w-0 flex-[1_0_0] items-center justify-center desktop:flex desktop:aspect-[1.42814]">
+          <Lottie
+            key={ITEMS[activeIdx].title}
+            animationData={ANIMATION_BY_TITLE[ITEMS[activeIdx].title]}
+            loop
+            autoplay
+            className="h-full w-full"
+          />
         </div>
       </div>
     </section>

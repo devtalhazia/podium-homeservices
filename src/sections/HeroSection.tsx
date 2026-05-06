@@ -1,10 +1,11 @@
-import '../styles/hero.css'
+import Lottie from 'lottie-react'
+import heroSectionAnimation from '../assets/animations/hero-section.json'
 
 const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 /* ── Arctic Air SVG (two-line logo, #DCDCE1 paths, embedded inline) ── */
 const ArcticAirTopLine = () => (
-  <svg width="241" height="21" viewBox="0 0 241 21" fill="none" aria-hidden="true" style={{ display: 'block' }}>
+  <svg width="241" height="21" viewBox="0 0 241 21" fill="none" aria-hidden="true" className="block">
     <path opacity="0.8" d="M58.0332 4.83936H53.5274V15.77H58.0332V4.83936Z" fill="#DCDCE1"/>
     <path opacity="0.8" d="M58.0332 0H53.5274V3.31675H58.0332V0Z" fill="#DCDCE1"/>
     <path opacity="0.8" d="M105.886 4.83936H101.38V15.77H105.886V4.83936Z" fill="#DCDCE1"/>
@@ -27,7 +28,7 @@ const ArcticAirTopLine = () => (
 )
 
 const ArcticAirBottomLine = () => (
-  <svg width="208" height="13" viewBox="0 0 208 13" fill="none" aria-hidden="true" style={{ display: 'block' }}>
+  <svg width="208" height="13" viewBox="0 0 208 13" fill="none" aria-hidden="true" className="block">
     <path opacity="0.8" d="M14.6211 3.04541H11.9301V10.1587H14.6211V3.04541Z" fill="#DCDCE1"/>
     <path opacity="0.8" d="M14.6211 0.0206299H11.9301V1.98148H14.6211V0.0206299Z" fill="#DCDCE1"/>
     <path opacity="0.8" d="M71.739 3.04541H69.048V10.1587H71.739V3.04541Z" fill="#DCDCE1"/>
@@ -64,74 +65,68 @@ function LogoItems() {
   return (
     <>
       {/* 1. Trouth Cooling and Heating — w:136 h:59 opacity:0.6 contain */}
-      <li style={{ opacity: 0.6 }}>
+      <li className="list-none shrink-0 flex items-center opacity-60">
         <img
           src="/images/logo-trouth.png"
           alt="Trouth Cooling and Heating"
-          style={{ width: '136px', height: '59px', objectFit: 'contain', display: 'block' }}
+          className="block h-[59px] w-[136px] object-contain"
         />
       </li>
 
       {/* 2. Kate Somerville — w:197 h:42 opacity:0.5 cover */}
-      <li style={{ opacity: 0.5 }}>
+      <li className="list-none shrink-0 flex items-center opacity-50">
         <img
           src="/images/logo-kate.png"
           alt=""
-          style={{ width: '197px', height: '42px', objectFit: 'cover', display: 'block' }}
+          className="block h-[42px] w-[197px] object-cover"
         />
       </li>
 
       {/* 3. Air Design — w:103 h:59 opacity:0.5 contain */}
-      <li style={{ opacity: 0.5 }}>
+      <li className="list-none shrink-0 flex items-center opacity-50">
         <img
           src="/images/logo-air-design.png"
           alt="Air Design"
-          style={{ width: '103px', height: '59px', objectFit: 'contain', display: 'block' }}
+          className="block h-[59px] w-[103px] object-contain"
         />
       </li>
 
       {/* 4. Arctic Air Company — w:243 h:44 opacity:0.6, inline SVG (two lines) */}
-      <li style={{ opacity: 0.6 }}>
-        <div style={{ position: 'relative', width: '243px', height: '44px', flexShrink: 0 }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, width: '241px', height: '21px' }}>
+      <li className="list-none shrink-0 flex items-center opacity-60">
+        <div className="relative h-[44px] w-[243px] shrink-0">
+          <div className="absolute left-0 top-0 h-[21px] w-[241px]">
             <ArcticAirTopLine />
           </div>
-          <div style={{
-            position: 'absolute',
-            bottom: '1px',
-            left: 'calc(49.3827% - 104px)',
-            width: '208px',
-            height: '13px',
-          }}>
+          <div className="absolute bottom-[1px] left-[calc(49.3827%_-_104px)] h-[13px] w-[208px]">
             <ArcticAirBottomLine />
           </div>
         </div>
       </li>
 
       {/* 5. Southern Heating and Cooling — w:169 h:48 opacity:0.9 cover */}
-      <li style={{ opacity: 0.9 }}>
+      <li className="list-none shrink-0 flex items-center opacity-90">
         <img
           src="/images/logo-southern.png"
           alt="Southern Heating and Cooling"
-          style={{ width: '169px', height: '48px', objectFit: 'cover', display: 'block' }}
+          className="block h-[48px] w-[169px] object-cover"
         />
       </li>
 
       {/* 6. Pride Air Conditioning & Plumbing — w:100 h:55 opacity:0.9 cover */}
-      <li style={{ opacity: 0.9 }}>
+      <li className="list-none shrink-0 flex items-center opacity-90">
         <img
           src="/images/logo-pride.png"
           alt="Pride Air Conditioning and Plumbing"
-          style={{ width: '100px', height: '55px', objectFit: 'cover', display: 'block' }}
+          className="block h-[55px] w-[100px] object-cover"
         />
       </li>
 
       {/* 7. AAA Service — w:201 h:59 opacity:0.9 cover */}
-      <li style={{ opacity: 0.9 }}>
+      <li className="list-none shrink-0 flex items-center opacity-90">
         <img
           src="/images/logo-aaa.png"
           alt="AAA Service"
-          style={{ width: '201px', height: '59px', objectFit: 'cover', display: 'block' }}
+          className="block h-[59px] w-[201px] object-cover"
         />
       </li>
     </>
@@ -140,142 +135,40 @@ function LogoItems() {
 
 export default function HeroSection() {
   return (
-    <section
-      style={{
-        position: 'relative',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '70px',
-        /* desktop padding: 80px all sides */
-        padding: '80px',
-        overflow: 'hidden',
-      }}
-      className="hero-section"
-    >
+    <section className="relative flex w-full flex-col items-center gap-[70px] overflow-hidden px-0 pt-[50px] tablet:pt-[80px] desktop:p-[80px]">
       {/* Background image */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        zIndex: 0,
-      }}>
+      <div className="absolute inset-0 z-0">
         <img
           src="/images/hero-bg.png"
           alt=""
-          style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          className="block h-full w-full object-cover object-center"
         />
       </div>
 
-      {/* Section split — bottom gradient fade */}
-      {/* <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: '240px',
-        background: 'linear-gradient(to bottom, transparent 0%, #f0f0f3 100%)',
-        zIndex: 1,
-        pointerEvents: 'none',
-      }} /> */}
-
       {/* ── Hero Content ── */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '48px',
-          width: '100%',
-          maxWidth: '1900px',
-          padding: '0 80px',
-        }}
-        className="hero-content"
-      >
+      <div className="relative z-[2] flex w-full max-w-[1900px] flex-col items-center gap-[48px] px-[24px] tablet:px-[48px] desktop:px-[80px]">
         {/* Text block */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '24px',
-          width: '100%',
-          maxWidth: '1200px',
-        }}>
+        <div className="flex w-full max-w-[1200px] flex-col items-center gap-[24px]">
           {/* H1 */}
-          <h1
-            style={{
-              fontFamily: '"Grenette Regular", "Grenette", sans-serif',
-              fontWeight: 400,
-              fontSize: '52px',
-              lineHeight: '110%',
-              textAlign: 'center',
-              color: 'rgb(255, 255, 255)',
-              margin: 0,
-              width: '100%',
-            }}
-            className="hero-h1"
-          >
+          <h1 className="m-0 w-full text-center font-grenette text-[42px] font-normal leading-[110%] text-cream-white tablet:text-[52px]">
             The #1 converting AI Employee for HVAC, plumbing and electrical
           </h1>
 
           {/* Body text */}
-          <p
-            style={{
-              fontFamily: '"Graphik Regular", "Graphik", sans-serif',
-              fontWeight: 400,
-              fontSize: '16px',
-              lineHeight: '150%',
-              textAlign: 'center',
-              color: 'rgb(255, 255, 255)',
-              margin: 0,
-              width: '100%',
-              maxWidth: '750px',
-            }}
-            className="hero-body"
-          >
+          <p className="m-0 w-full max-w-[750px] text-center font-graphik text-[14px] font-normal leading-[150%] text-cream-white tablet:text-[16px]">
             Larry is your new AI Employee who answers calls 24/7, books jobs, manages memberships, and proactively markets your services, so you can grow your business.
           </p>
         </div>
 
         {/* CTA */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '48px',
-          width: '92%',
-        }}>
+        <div className="flex w-[92%] flex-row items-center justify-center gap-[48px]">
           <a
             href={DEMO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: '10px',
-              backgroundColor: 'rgb(157, 64, 60)',
-              borderRadius: '50px',
-              padding: '16px 32px',
-              cursor: 'pointer',
-              textDecoration: 'none',
-              transition: 'opacity 0.15s',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
-            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+            className="flex cursor-pointer flex-row items-center justify-center gap-[10px] rounded-[50px] bg-crimson px-[32px] py-[16px] no-underline transition-opacity duration-150 hover:opacity-90"
           >
-            <span style={{
-              fontFamily: '"Graphik Semibold", "Graphik", sans-serif',
-              fontWeight: 600,
-              fontSize: '18px',
-              lineHeight: '18px',
-              color: 'rgb(247, 244, 237)',
-              whiteSpace: 'nowrap',
-            }}>
+            <span className="whitespace-nowrap font-graphik-semi text-[18px] font-semibold leading-[18px] text-cream">
               Watch a demo
             </span>
           </a>
@@ -283,86 +176,32 @@ export default function HeroSection() {
       </div>
 
       {/* ── Media Section (video placeholder) ── */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '10px',
-          width: '100%',
-          maxWidth: '1080px',
-        }}
-        className="hero-media"
-      >
-        <div
-          style={{
-            borderRadius: '32px',
-            overflow: 'hidden',
-            width: '100%',
-            aspectRatio: '2.13333',
-            maxWidth: '1280px',
-            background: 'linear-gradient(135deg, rgba(30,30,40,0.95) 0%, rgba(18,18,28,0.98) 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          className="hero-video-container"
-        >
-          <div style={{
-            width: '64px',
-            height: '64px',
-            borderRadius: '50%',
-            border: '2px solid rgba(255,255,255,0.3)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-          }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M8 5.14v14l11-7-11-7z" fill="rgba(255,255,255,0.7)" />
-            </svg>
-          </div>
-        </div>
+      <div className="relative z-[2] flex w-full max-w-[1080px] flex-col items-center gap-[10px]">
+        
+          <Lottie
+            animationData={heroSectionAnimation}
+            loop
+            autoplay
+            className="h-full w-full"
+          />
       </div>
 
       {/* ── Logo Ticker ── */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          /* 116% wide on desktop — overflow handled by parent overflow:hidden */
-          width: '116%',
-          height: '102px',
-        }}
-        className="hero-ticker"
-      >
+      <div className="relative z-[2] h-[102px] w-full desktop:w-[116%]">
         {/* Masked section wrapper */}
         <section
-          className="hero-ticker-wrap"
-          style={{
-            display: 'flex',
-            width: '100%',
-            height: '100%',
-            alignItems: 'center',
-            margin: 0,
-            padding: '10px',
-            overflow: 'hidden',
-            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-            maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)',
-          }}
+          className="group m-0 flex h-full w-full items-center overflow-hidden p-[10px] [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(0,0,0,0)_100%)] [webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(0,0,0,0)_100%)]"
           aria-label="Trusted by"
         >
           {/* Duplicated track for seamless infinite loop */}
-          <ul
-            className="hero-ticker-track"
-            style={{ margin: 0, padding: 0 }}
-            aria-hidden="true"
-          >
-            <LogoItems />
-            <LogoItems />
-          </ul>
+          <div className="flex w-max animate-hero-marquee will-change-transform [animation-duration:32s] [animation-timing-function:linear] [animation-iteration-count:infinite] group-hover:[animation-play-state:paused]">
+            <ul className="m-0 flex w-max flex-row items-center gap-[72px] p-0" aria-hidden="true">
+              <LogoItems />
+            </ul>
+            <ul className="m-0 flex w-max flex-row items-center gap-[72px] p-0" aria-hidden="true">
+              <LogoItems />
+            </ul>
+          </div>
         </section>
       </div>
     </section>

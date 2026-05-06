@@ -17,8 +17,7 @@ const NAV_LINKS = [
 ]
 
 // Nav link: padding:8px 10px, height:45px, Graphik weight-600 16px 100% line-height
-const linkCls = 'flex items-center gap-1 px-[10px] py-[8px] rounded-lg text-white cursor-pointer hover:bg-white/10 transition-colors whitespace-nowrap'
-const linkStyle = { fontFamily: '"Graphik", sans-serif', fontWeight: 600, fontSize: '16px', lineHeight: '100%' }
+const linkCls = 'flex h-[45px] items-center gap-1 whitespace-nowrap rounded-lg px-[10px] py-[8px] font-graphik-semi text-[16px] leading-[100%] text-cream-white transition-colors hover:bg-white/10'
 
 export default function NavSection() {
   const [mobileOpen,     setMobileOpen]     = useState(false)
@@ -44,19 +43,18 @@ export default function NavSection() {
 
   return (
     <nav
-      className="sticky top-0 z-50 w-full"
-      style={{ backgroundColor: 'rgb(24, 24, 28)', boxShadow: '0px 4px 4px 0px rgba(28, 29, 24, 0.08)' }}
+      className="sticky top-0 z-50 w-full bg-nav shadow-[0px_4px_4px_0px_rgba(28,29,24,0.08)]"
     >
 
       {/* ── Desktop bar (tablet+) ── */}
       <div className="hidden tablet:flex items-center py-[12px] px-[30px] max-w-[1440px] mx-auto">
 
         {/* Logo — 238×20px SVG, white fill */}
-        <a href="/" className="flex-shrink-0 flex items-center" style={{ padding: '7px 0' }}>
+        <a href="/" className="flex shrink-0 items-center py-[7px]">
           <img
             src="/images/logo-white.svg"
             alt="Podium Home Services"
-            style={{ width: '238px', height: '20px' }}
+            className="h-[20px] w-[238px]"
           />
         </a>
 
@@ -64,22 +62,20 @@ export default function NavSection() {
         <div className="flex flex-1 items-center justify-between pl-[16px]">
 
           {/* Nav links: Meet Larry + standard links — gap:8px */}
-          <div className="flex items-center gap-[8px]" style={{ height: '44px' }}>
+          <div className="flex h-[44px] items-center gap-[8px]">
 
             {/* Meet Larry — icon 24×24 + Grenette SemiBold Italic */}
             <a
               href="https://homeservices.podium.com/ai/larry"
-              className="flex items-center gap-[8px] px-[10px] py-[8px] rounded-lg hover:bg-white/10 transition-colors"
-              style={{ borderRadius: '8px' }}
+              className="flex items-center gap-[8px] rounded-lg px-[10px] py-[8px] transition-colors hover:bg-white/10"
             >
               <img
                 src="/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg"
                 alt=""
-                style={{ width: '24px', height: '24px', flexShrink: 0 }}
+                className="h-[24px] w-[24px] shrink-0"
               />
               <span
-                className="text-white whitespace-nowrap"
-                style={{ fontFamily: '"Grenette SemiBold Italic", sans-serif', fontStyle: 'italic', fontWeight: 600, fontSize: '16px', lineHeight: '100%' }}
+                className="whitespace-nowrap font-grenette-semi-italic text-[16px] font-semibold leading-[100%] text-cream-white italic"
               >
                 Meet Larry
               </span>
@@ -88,11 +84,10 @@ export default function NavSection() {
             {/* Standard nav links */}
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
-                <div key={item.label} ref={dropdownRef} className="relative flex items-center" style={{ height: '44px' }}>
+                <div key={item.label} ref={dropdownRef} className="relative flex h-[44px] items-center">
                   <button
                     onClick={() => setFeaturesOpen((v) => !v)}
                     className={linkCls}
-                    style={{ ...linkStyle, height: '45px' }}
                   >
                     {item.label}
                     <svg
@@ -104,21 +99,12 @@ export default function NavSection() {
                   </button>
 
                   {featuresOpen && (
-                    <div
-                      className="absolute top-full left-0 mt-1 w-52 py-2 z-50"
-                      style={{
-                        backgroundColor: 'rgb(34, 34, 40)',
-                        borderRadius: '12px',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-                      }}
-                    >
+                    <div className="absolute left-0 top-full z-50 mt-1 w-52 rounded-[12px] border border-white/10 bg-[#222228] py-2 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
                       {item.dropdown.map((sub) => (
                         <a
                           key={sub.label}
                           href={sub.href}
-                          className="block px-4 py-[10px] text-[14px] text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-                          style={{ fontFamily: '"Graphik Regular", sans-serif' }}
+                          className="block px-4 py-[10px] font-graphik text-[14px] text-white/70 transition-colors hover:bg-white/5 hover:text-white"
                         >
                           {sub.label}
                         </a>
@@ -131,7 +117,6 @@ export default function NavSection() {
                   key={item.label}
                   href={item.href}
                   className={linkCls}
-                  style={{ ...linkStyle, height: '45px' }}
                 >
                   {item.label}
                 </a>
@@ -146,14 +131,7 @@ export default function NavSection() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white text-[14px] leading-[18px] whitespace-nowrap transition-opacity hover:opacity-90"
-              style={{
-                fontFamily: '"Graphik Semibold", sans-serif',
-                fontWeight: 600,
-                backgroundColor: 'rgb(157, 64, 60)',
-                borderRadius: '50px',
-                padding: '8px 24px',
-              }}
+              className="whitespace-nowrap rounded-[50px] bg-crimson px-[24px] py-[8px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-opacity hover:opacity-90"
             >
               Watch a demo
             </a>
@@ -163,15 +141,7 @@ export default function NavSection() {
               href={SIGN_IN}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white text-[14px] leading-[18px] whitespace-nowrap transition-opacity hover:opacity-90"
-              style={{
-                fontFamily: '"Graphik Semibold", sans-serif',
-                fontWeight: 600,
-                backgroundColor: 'transparent',
-                border: '2px solid rgb(245, 236, 235)',
-                borderRadius: '50px',
-                padding: '6px 24px',
-              }}
+              className="whitespace-nowrap rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[6px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-opacity hover:opacity-90"
             >
               Sign in
             </a>
@@ -185,7 +155,7 @@ export default function NavSection() {
           <img
             src="/images/logo-white.svg"
             alt="Podium Home Services"
-            style={{ width: '160px', height: '13px' }}
+            className="h-[13px] w-[160px]"
           />
         </a>
         <button
@@ -207,17 +177,14 @@ export default function NavSection() {
 
       {/* ── Mobile drawer ── */}
       {mobileOpen && (
-        <div
-          className="tablet:hidden border-t px-5 pb-6 flex flex-col"
-          style={{ borderColor: 'rgba(255,255,255,0.1)', backgroundColor: 'rgb(24,24,28)' }}
-        >
+        <div className="tablet:hidden flex flex-col border-t border-white/10 bg-nav px-5 pb-6">
           {/* Meet Larry */}
           <a
             href="https://homeservices.podium.com/ai/larry"
-            className="flex items-center gap-3 py-3 text-white"
+            className="flex items-center gap-3 py-3 text-cream-white"
           >
-            <img src="/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg" alt="" style={{ width: '20px', height: '20px' }} />
-            <span style={{ fontFamily: '"Grenette SemiBold Italic", sans-serif', fontStyle: 'italic', fontWeight: 600, fontSize: '16px', lineHeight: '100%' }}>
+            <img src="/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg" alt="" className="h-[20px] w-[20px]" />
+            <span className="font-grenette-semi-italic text-[16px] font-semibold leading-[100%] italic">
               Meet Larry
             </span>
           </a>
@@ -227,8 +194,7 @@ export default function NavSection() {
               <div key={item.label}>
                 <button
                   onClick={() => setMobileFeatOpen((v) => !v)}
-                  className="w-full flex items-center justify-between py-3 text-white/80 hover:text-white"
-                  style={{ fontFamily: '"Graphik", sans-serif', fontSize: '16px', fontWeight: 600, lineHeight: '100%' }}
+                  className="flex w-full items-center justify-between py-3 font-graphik-semi text-[16px] leading-[100%] text-white/80 hover:text-white"
                 >
                   {item.label}
                   <svg
@@ -244,8 +210,7 @@ export default function NavSection() {
                       <a
                         key={sub.label}
                         href={sub.href}
-                        className="py-2 text-[14px] text-white/60 hover:text-white"
-                        style={{ fontFamily: '"Graphik Regular", sans-serif' }}
+                        className="py-2 font-graphik text-[14px] text-white/60 hover:text-white"
                       >
                         {sub.label}
                       </a>
@@ -257,8 +222,7 @@ export default function NavSection() {
               <a
                 key={item.label}
                 href={item.href}
-                className="py-3 text-white/80 hover:text-white transition-colors"
-                style={{ fontFamily: '"Graphik Semibold", sans-serif', fontSize: '14px', fontWeight: 600 }}
+                className="py-3 font-graphik-semi text-[14px] text-white/80 transition-colors hover:text-white"
               >
                 {item.label}
               </a>
@@ -270,14 +234,7 @@ export default function NavSection() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-white text-[14px] transition-opacity hover:opacity-90"
-              style={{
-                fontFamily: '"Graphik Semibold", sans-serif',
-                fontWeight: 600,
-                backgroundColor: 'rgb(157, 64, 60)',
-                borderRadius: '50px',
-                padding: '10px 24px',
-              }}
+              className="rounded-[50px] bg-crimson px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-opacity hover:opacity-90"
             >
               Watch a demo
             </a>
@@ -285,15 +242,7 @@ export default function NavSection() {
               href={SIGN_IN}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center text-white text-[14px] transition-opacity hover:opacity-90"
-              style={{
-                fontFamily: '"Graphik Semibold", sans-serif',
-                fontWeight: 600,
-                backgroundColor: 'transparent',
-                border: '2px solid rgb(245, 236, 235)',
-                borderRadius: '50px',
-                padding: '10px 24px',
-              }}
+              className="rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-opacity hover:opacity-90"
             >
               Sign in
             </a>
