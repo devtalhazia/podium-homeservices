@@ -1,6 +1,6 @@
 # Agent Prompt: Build a New Section
 
-Copy this prompt verbatim and fill in Integrations (logo grid) before sending to an agent.
+Copy this prompt verbatim and fill in `[SECTION_NAME]` before sending to an agent.
 
 ---
 
@@ -8,7 +8,7 @@ Copy this prompt verbatim and fill in Integrations (logo grid) before sending to
 
 You are building a pixel-perfect React section for a marketing landing page. The site is a React 18 + Vite + TypeScript + Tailwind CSS rebuild of homeservices.podium.com. Zero Framer runtime dependencies.
 
-**Section to build:** Integrations (logo grid)
+**Section to build:** `[SECTION_NAME]`
 (e.g., "Solution", "Testimonials", "FAQ", "CTA", "Footer")
 
 ---

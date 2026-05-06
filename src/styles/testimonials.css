@@ -1,0 +1,15 @@
+/* ── Testimonials Section ──────────────────────────────────── */
+
+/* Tablet (768–1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .testimonials-section { gap: 60px !important; }
+  .testimonials-header  { gap: 20px !important; padding: 0 48px !important; }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+  .testimonials-section { gap: 56px !important; padding: 60px 0 !important; }
+  .testimonials-header  { order: 0; gap: 16px !important; padding: 0 24px !important; }
+  .testimonials-preheader { height: auto !important; }
+  .testimonials-carousel  { order: 1; }
+}

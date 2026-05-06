@@ -2,6 +2,7 @@ import NavSection from '../sections/NavSection'
 import HeroSection from '../sections/HeroSection'
 import SolutionSection from '../sections/SolutionSection'
 import IntegrationsSection from '../sections/IntegrationsSection'
+import TestimonialsSection from '../sections/TestimonialsSection'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection />
       <SolutionSection />
       <IntegrationsSection />
+      <TestimonialsSection />
       {/* sections added here one by one */}
     </div>
   )
