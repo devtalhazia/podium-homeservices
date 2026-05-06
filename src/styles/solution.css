@@ -1,0 +1,80 @@
+/* ── Solution / Accordion section responsive layout ── */
+
+/* Tablet (768–1199px): section padding + stacked layout */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .solution-section {
+    padding: 72px 48px !important;
+  }
+  .solution-layout {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  .solution-text-block {
+    max-width: unset !important;
+    min-width: unset !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  .solution-item {
+    width: 100% !important;
+  }
+  /* items get border-top on stacked layout, border-bottom removed */
+  .solution-item {
+    border-bottom: none !important;
+    border-top: 0.5px solid rgb(132, 124, 115) !important;
+  }
+  .solution-image-panel {
+    display: none !important;
+  }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767px) {
+  .solution-section {
+    padding: 60px 24px !important;
+  }
+  .solution-layout {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  .solution-text-block {
+    max-width: unset !important;
+    min-width: unset !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  .solution-item {
+    width: 100% !important;
+    border-bottom: none !important;
+    border-top: 0.5px solid rgb(132, 124, 115) !important;
+  }
+  .solution-image-panel {
+    display: none !important;
+  }
+  .solution-h3 {
+    font-size: 28px !important;
+  }
+}
+
+/* ── Progress bar fill animation ──
+   Starts fully left (translateX(-100%) = -436px for desktop items),
+   animates to translateX(0) over ITEM_DURATION ms */
+@keyframes solution-progress {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+.solution-progress-bar {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(102, 126, 153);
+  transform: translateX(-100%);
+}
+
+.solution-progress-bar.playing {
+  animation: solution-progress var(--progress-duration, 5s) linear forwards;
+}
