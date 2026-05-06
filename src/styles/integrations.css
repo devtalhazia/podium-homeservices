@@ -1,0 +1,44 @@
+/* ── Integrations section responsive layout ── */
+
+/* Tablet (768–1199px)
+   framer: .framer-BSR4p .framer-o50g4r{padding:64px}
+   framer: .framer-BSR4p .framer-s3euqz,.framer-BSR4p .framer-a41w7f,.framer-BSR4p .framer-co90o5{height:74px;width:225px}
+   framer: .framer-BSR4p .framer-1w3cu4t{width:134px;height:36px}
+*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .integrations-section {
+    padding: 64px !important;
+  }
+  .integrations-logo-img {
+    width: 225px !important;
+    height: 74px !important;
+  }
+  .integrations-badge-img {
+    width: 134px !important;
+    height: 36px !important;
+  }
+}
+
+/* Mobile (<768px)
+   framer: .framer-BSR4p .framer-o50g4r{padding:64px 32px}
+   framer: .framer-BSR4p .framer-1fftqv2{flex-direction:column;gap:0;padding:0 0 24px}
+   framer: .framer-BSR4p .framer-1ukc6sc,.framer-BSR4p .framer-gpkbnm,.framer-BSR4p .framer-1k2ur2o,.framer-BSR4p .framer-15jvj6i{flex:none;width:100%}
+*/
+@media (max-width: 767px) {
+  .integrations-section {
+    padding: 64px 32px !important;
+  }
+  .integrations-logo-grid {
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0 0 24px !important;
+  }
+  .integrations-logo-col {
+    flex: none !important;
+    width: 100% !important;
+  }
+  .integrations-logo-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
