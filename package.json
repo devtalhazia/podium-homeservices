@@ -8,13 +8,11 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "download-framer": "node scripts/download-framer-bundle.mjs"
+    "download-images": "node scripts/download-images.mjs"
   },
   "dependencies": {
-    "framer-motion": "^11.18.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
