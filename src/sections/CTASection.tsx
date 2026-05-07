@@ -17,7 +17,7 @@ interface CTASectionProps {
 export default function CTASection({
   headline = 'See how Larry helps grow your revenue by 30% without adding headcount.',
   buttonText = 'Show me how',
-  buttonHref = '/demo',
+  buttonHref = 'https://calendly.com/umar-softaims/hvac-automation',
 }: CTASectionProps = {}) {
   return (
     /* ── Outer section: full-width dark gradient ── */
@@ -158,6 +158,8 @@ export default function CTASection({
         <div style={{ position: 'relative', zIndex: 1, flexShrink: 0 }}>
           <a
             href={buttonHref}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'flex',
               flexDirection: 'row',

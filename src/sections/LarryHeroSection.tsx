@@ -1,6 +1,6 @@
 import '../styles/larry-hero.css'
 
-const DEMO_URL = '/demo'
+const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 export default function LarryHeroSection() {
   return (
@@ -179,6 +179,8 @@ export default function LarryHeroSection() {
         <div className="larry-hero-cta-wrap" style={{ display: 'flex', alignItems: 'flex-start' }}>
           <a
             href={DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
               flexFlow: 'row',

@@ -63,34 +63,33 @@ const PodiumWordmarkSvg = () => (
 
 // ── Link data ────────────────────────────────────────────────────────────────
 
+const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
+
 const col1Links = [
-  { label: 'Meet Larry', href: 'https://homeservices.podium.com/ai/larry.html' },
-  { label: 'Communications', href: 'https://homeservices.podium.com/features/communications.html' },
-  { label: 'Calendar & Booking', href: 'https://homeservices.podium.com/features/booking-and-payments.html' },
-  { label: 'Marketing Tools', href: 'https://homeservices.podium.com/features/marketing-tools.html' },
-  { label: 'Plans', href: 'https://homeservices.podium.com/plans.html' },
-  { label: 'Contact Sales', href: 'https://homeservices.podium.com/demo.html' },
+  { label: 'Meet Larry',         href: '/ai/larry',  external: false },
+  { label: 'Communications',     href: '/#larry-jtbd', external: false },
+  { label: 'Calendar & Booking', href: '/#larry-jtbd', external: false },
+  { label: 'Marketing Tools',    href: '/#larry-jtbd', external: false },
+  { label: 'Plans',              href: '/plans',     external: false },
+  { label: 'Contact Sales',      href: DEMO_URL,     external: true },
 ]
 
 const col2Links = [
-  { label: 'Podium Home', href: 'https://www.podium.com/', external: true },
-  { label: 'Blogs & Guides', href: 'https://www.podium.com/blog', external: true },
-  { label: 'Download Podium Apps', href: 'https://www.podium.com/download', external: true },
+  { label: 'Why Larry?', href: '/why-podium', external: false },
+  { label: 'FAQ',        href: '/#faq',       external: false },
+  { label: 'Plans',      href: '/plans',      external: false },
 ]
 
 const finePrintLinks = [
-  { label: 'Sitemap', href: 'https://www.podium.com/sitemap', external: true },
-  { label: 'Terms & Conditions', href: 'https://legal.podium.com/#termsofservice-us', external: true },
-  { label: 'Privacy Policy', href: 'https://legal.podium.com/#privacypolicy-us', external: true },
-  { label: 'Privacy Center', href: 'https://privacy.podium.com/', external: true },
-  { label: 'Do Not Sell or Share My Personal Information', href: 'https://privacy.podium.com/requests', external: false },
+  { label: 'Terms & Conditions', href: 'https://softaims.com/terms-and-conditions', external: true },
+  { label: 'Privacy Policy',     href: 'https://softaims.com/privacy-policy', external: true },
 ]
 
 const socialLinks: { label: string; href: string; Icon: () => JSX.Element }[] = [
-  { label: 'Facebook', href: 'https://www.facebook.com/Podium/', Icon: FacebookIcon },
-  { label: 'Instagram', href: 'https://www.instagram.com/podium/', Icon: InstagramIcon },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/podium', Icon: LinkedInIcon },
-  { label: 'X (Twitter)', href: 'https://x.com/PodiumHQ', Icon: XIcon },
+  { label: 'Facebook',  href: '#', Icon: FacebookIcon },
+  { label: 'Instagram', href: '#', Icon: InstagramIcon },
+  { label: 'LinkedIn',  href: '#', Icon: LinkedInIcon },
+  { label: 'X (Twitter)', href: '#', Icon: XIcon },
 ]
 
 // ── Shared style objects ─────────────────────────────────────────────────────
@@ -188,7 +187,9 @@ export default function FooterSection() {
               Learn to grow revenue with the #1 AI Employee for Home Services.
             </h6>
             <a
-              href="https://homeservices.podium.com/demo.html"
+              href={DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 flexDirection: 'row',
@@ -244,8 +245,15 @@ export default function FooterSection() {
             >
               <h6 style={colHeaderStyle}>Podium Home Services</h6>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px', width: '100%' }}>
-                {col1Links.map(({ label, href }) => (
-                  <a key={label} href={href} className="footer-link" style={linkTextStyle}>
+                {col1Links.map(({ label, href, external }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    className="footer-link"
+                    style={linkTextStyle}
+                    target={external ? '_blank' : undefined}
+                    rel={external ? 'noopener noreferrer' : undefined}
+                  >
                     {label}
                   </a>
                 ))}
@@ -298,8 +306,6 @@ export default function FooterSection() {
             <a
               key={label}
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label={label}
               style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
             >

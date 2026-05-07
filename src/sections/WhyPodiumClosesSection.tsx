@@ -265,7 +265,7 @@ export default function WhyPodiumClosesSection() {
       {/* framer-tap6xd: "Graphik Semibold" 18px rgb(247,244,237)            */}
       <div style={{ flexShrink: 0, width: 'auto', height: 'auto' }}>
         <a
-          href="/larry"
+          href="/ai/larry"
           style={{
             display: 'flex',
             flexFlow: 'row' as const,

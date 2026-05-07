@@ -386,7 +386,7 @@ function CommsSideBySide() {
           heading="All-in-one communications"
           features={COMMS_FEATURES}
         />
-        <CTALink href="/features/communications" label="Learn more about Communications" />
+        <CTALink href="/#larry-jtbd" label="Learn more about Communications" />
       </div>
     </div>
   )
@@ -438,7 +438,7 @@ function MarketingSideBySide() {
           heading="AI marketing tools that book"
           features={MKTG_FEATURES}
         />
-        <CTALink href="/features/marketing-tools" label="Learn more about Marketing Tools" />
+        <CTALink href="/#larry-jtbd" label="Learn more about Marketing Tools" />
       </div>
 
       {/* Image panel RIGHT (framer-1vtt8jy) */}

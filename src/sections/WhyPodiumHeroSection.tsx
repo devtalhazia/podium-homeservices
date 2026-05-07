@@ -146,7 +146,9 @@ export default function WhyPodiumHeroSection() {
 
           {/* CTA button */}
           <a
-            href="/demo"
+            href="https://calendly.com/umar-softaims/hvac-automation"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

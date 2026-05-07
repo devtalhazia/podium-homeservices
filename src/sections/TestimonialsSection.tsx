@@ -724,7 +724,9 @@ export default function TestimonialsSection() {
         }}
       >
         <a
-          href="https://homeservices.podium.com/demo.html"
+          href="https://calendly.com/umar-softaims/hvac-automation"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: 'inline-flex',
             flexDirection: 'row',

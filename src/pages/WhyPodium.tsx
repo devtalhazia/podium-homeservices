@@ -20,7 +20,7 @@ export default function WhyPodium() {
       <CTASection
         headline="Your best employee doesn't take days off. Ready to hire Larry and grow your business?"
         buttonText="Get a demo"
-        buttonHref="/demo"
+        buttonHref="https://calendly.com/umar-softaims/hvac-automation"
       />
       <WhyPodiumFaqSection />
       <FooterSection />
