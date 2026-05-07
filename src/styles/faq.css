@@ -1,0 +1,17 @@
+/* ── FAQ Section responsive layout ── */
+
+/* Tablet (768–1199px) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .faq-section    { padding: 60px 48px !important; min-width: unset !important; }
+  .faq-list-area  { flex-direction: column !important; gap: 40px !important; }
+  .faq-list       { width: 100% !important; }
+  .faq-heading-wrap { gap: 24px !important; }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 767.98px) {
+  .faq-section    { padding: 60px 24px !important; min-width: unset !important; }
+  .faq-list-area  { flex-direction: column !important; gap: 40px !important; }
+  .faq-list       { width: 100% !important; }
+  .faq-heading    { font-size: 32px !important; }
+}
