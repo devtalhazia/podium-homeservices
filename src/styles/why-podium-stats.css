@@ -1,0 +1,127 @@
+/*
+ * Responsive overrides for WhyPodiumStatsSection
+ * Source: dump/homeservices.podium.com/why-podium.html
+ * Scope: .framer-JMKor
+ *
+ * Element map:
+ *   .wp-stats-outer       → framer-6j180o  (outer section)
+ *   .wp-stats-inner       → framer-rs0vgl  (inner content, max-width 1080px)
+ *   .wp-stats-grid        → framer-10rzzt5 (12-col CSS grid, height 781px)
+ *   .wp-card-arctic       → framer-jgssaa-container  (span 5)
+ *   .wp-card-air-texas    → framer-17smjh0-container (span 7)
+ *   .wp-card-premier      → framer-o7d6zv-container  (span 7)
+ *   .wp-card-air-design   → framer-10bne66-container (span 5)
+ */
+
+/* ─── Tablet: 768–1199px ─────────────────────────────────────────────────── */
+/* Source: @media (min-width:768px) and (max-width:1199.98px) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  /* framer-JMKor .framer-6j180o { padding:72px 0 } */
+  .wp-stats-outer {
+    padding: 72px 0;
+  }
+
+  /* framer-JMKor .framer-rs0vgl { padding:0 48px } */
+  .wp-stats-inner {
+    padding: 0 48px;
+  }
+
+  /*
+   * framer-JMKor .framer-10rzzt5 {
+   *   flex-flow:column; align-content:center; align-items:center;
+   *   height:min-content; display:flex
+   * }
+   * Grid collapses to single-column flex
+   */
+  .wp-stats-grid {
+    display: flex !important;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: auto !important;
+    width: 100%;
+  }
+
+  /*
+   * Tablet card order:
+   *   framer-jgssaa   order:0  → Arctic Air
+   *   framer-17smjh0  order:1  → Air Texas
+   *   framer-10bne66  order:2  → Air Design   ← swapped vs mobile
+   *   framer-o7d6zv   order:3  → Premier Heating
+   */
+  .wp-card-arctic     { order: 0; align-self: unset; height: auto; }
+  .wp-card-air-texas  { order: 1; align-self: unset; height: auto; }
+  .wp-card-air-design { order: 2; align-self: unset; height: auto; }
+  .wp-card-premier    { order: 3; align-self: unset; height: auto; }
+
+  /* All cards full-width in single-col layout */
+  .wp-card-arctic,
+  .wp-card-air-texas,
+  .wp-card-premier,
+  .wp-card-air-design {
+    width: 100%;
+  }
+}
+
+/* ─── Mobile: < 768px ────────────────────────────────────────────────────── */
+/* Source: @media (max-width:767.98px) */
+@media (max-width: 767.98px) {
+  /* framer-JMKor .framer-6j180o { padding:48px 0 } */
+  .wp-stats-outer {
+    padding: 48px 0;
+  }
+
+  /* framer-JMKor .framer-rs0vgl { gap:48px; padding:0 24px } */
+  .wp-stats-inner {
+    gap: 48px;
+    padding: 0 24px;
+  }
+
+  /* Same as tablet: grid → flex column */
+  .wp-stats-grid {
+    display: flex !important;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: auto !important;
+    width: 100%;
+  }
+
+  /*
+   * Mobile card order:
+   *   framer-jgssaa   order:0  → Arctic Air
+   *   framer-17smjh0  order:1  → Air Texas
+   *   framer-o7d6zv   order:2  → Premier Heating  ← swapped vs tablet
+   *   framer-10bne66  order:3  → Air Design
+   */
+  .wp-card-arctic     { order: 0; align-self: unset; height: auto; }
+  .wp-card-air-texas  { order: 1; align-self: unset; height: auto; }
+  .wp-card-premier    { order: 2; align-self: unset; height: auto; }
+  .wp-card-air-design { order: 3; align-self: unset; height: auto; }
+
+  /* All cards full-width in single-col layout */
+  .wp-card-arctic,
+  .wp-card-air-texas,
+  .wp-card-premier,
+  .wp-card-air-design {
+    width: 100%;
+  }
+
+  /* Image+text cards: stack vertically on mobile */
+  .wp-card-with-image {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .wp-card-bg-image {
+    width: 100% !important;
+    height: 200px !important;
+    flex: none !important;
+    align-self: unset !important;
+  }
+
+  .wp-card-content {
+    width: 100% !important;
+    flex: none !important;
+  }
+}
