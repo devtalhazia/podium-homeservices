@@ -1,0 +1,42 @@
+/* Plans Testimonials Section — responsive overrides */
+
+/* Tablet: 768–1199px */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .plans-testimonials-section {
+    padding: 0 24px 72px !important;
+  }
+  .plans-testimonials-inner {
+    max-width: 100% !important;
+  }
+  .plans-testimonials-divider {
+    padding: 0 !important;
+  }
+}
+
+/* Mobile: ≤767px */
+@media (max-width: 767.98px) {
+  .plans-testimonials-section {
+    padding: 0 24px 40px !important;
+  }
+  .plans-testimonials-inner {
+    max-width: 100% !important;
+  }
+  .plans-testimonials-divider {
+    padding: 0 !important;
+  }
+  .plans-testimonials-card {
+    padding: 0 16px !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .plans-testimonials-attribution {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .plans-testimonials-quote-text {
+    font-size: 18px !important;
+  }
+  .plans-testimonials-nav-arrow {
+    display: none !important;
+  }
+}
