@@ -14,7 +14,6 @@ export default function PlansHeroSection() {
         width: '100%',
         padding: '80px 80px 0',
         position: 'relative',
-        overflow: 'hidden',
         zIndex: 0,
       }}
     >
@@ -45,7 +44,7 @@ export default function PlansHeroSection() {
           borderRadius: '100%',
           backgroundColor: '#653130',
           filter: 'blur(125px)',
-          top: 'calc(24.2% - 365.5px)',
+          top: 'calc(24.2%)',
           right: -422,
           zIndex: 0,
           pointerEvents: 'none',
