@@ -1,0 +1,38 @@
+/* WhyPodiumWorksSection — responsive overrides */
+
+/* Tablet: 768–1199px */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .wp-works-section {
+    gap: 60px !important;
+    padding: 72px 80px !important;
+  }
+  .wp-works-cards {
+    gap: 10px !important;
+  }
+}
+
+/* Mobile: ≤767px */
+@media (max-width: 767.98px) {
+  .wp-works-section {
+    gap: 56px !important;
+    padding: 48px 24px !important;
+  }
+  .wp-works-cards {
+    display: flex !important;
+    flex-flow: column wrap !important;
+    gap: 8px !important;
+  }
+  .wp-works-h2 {
+    font-size: 36px !important;
+  }
+  .wp-works-card-title {
+    font-size: 20px !important;
+  }
+  .wp-works-card-body {
+    font-size: 14px !important;
+  }
+  .wp-works-card-bordered {
+    border-bottom: 1px solid #4a4a4d;
+    padding-bottom: 20px !important;
+  }
+}
