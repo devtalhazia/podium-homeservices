@@ -112,4 +112,4 @@ State which files were created/modified, confirm TypeScript passes, and list any
 - Do not skip the TypeScript check
 - Do not commit if TypeScript errors exist
 - Do not add features, abstractions, or utilities beyond what the section requires
-- Do not touch `NavSection.tsx` or `HeroSection.tsx` unless explicitly fixing a cross-section spacing issue
+- Do not touch `NavSection.tsx`, `HeroSection.tsx`, `SolutionSection.tsx`, `IntegrationsSection` or `TestimonialsSection.tsx` unless explicitly fixing a cross-section spacing issue
