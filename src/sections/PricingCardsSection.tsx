@@ -530,7 +530,7 @@ export default function PricingCardsSection() {
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-        padding: '0 80px 80px',
+        padding: '0 80px 0',
         position: 'relative',
       }}
     >

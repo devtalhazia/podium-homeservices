@@ -8,7 +8,17 @@ const CRIMSON = 'rgb(157, 64, 60)'
 const CREAM   = 'rgb(247, 244, 237)'
 const WHITE   = 'rgb(255, 255, 255)'
 
-export default function CTASection() {
+interface CTASectionProps {
+  headline?: string
+  buttonText?: string
+  buttonHref?: string
+}
+
+export default function CTASection({
+  headline = 'See how Larry helps grow your revenue by 30% without adding headcount.',
+  buttonText = 'Show me how',
+  buttonHref = '/demo',
+}: CTASectionProps = {}) {
   return (
     /* ── Outer section: full-width dark gradient ── */
     <div
@@ -139,7 +149,7 @@ export default function CTASection() {
                 wordBreak: 'break-word',
               }}
             >
-              See how Larry helps grow your revenue by 30% without adding headcount.
+              {headline}
             </h3>
           </div>
         </div>
@@ -147,7 +157,7 @@ export default function CTASection() {
         {/* ── Button ── */}
         <div style={{ position: 'relative', zIndex: 1, flexShrink: 0 }}>
           <a
-            href="/demo"
+            href={buttonHref}
             style={{
               display: 'flex',
               flexDirection: 'row',
@@ -174,7 +184,7 @@ export default function CTASection() {
                 color: CREAM,
               }}
             >
-              Show me how
+              {buttonText}
             </p>
           </a>
         </div>

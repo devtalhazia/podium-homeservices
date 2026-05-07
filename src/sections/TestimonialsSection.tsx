@@ -481,6 +481,277 @@ export default function TestimonialsSection() {
 
       {/* ── Carousel ─────────────────────────────────────────── */}
       <InfiniteMarquee />
+
+      {/* ── Feature cards row ────────────────────────────────── */}
+      <div
+        className="tc-cards-row"
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '100%',
+          maxWidth: 1600,
+          padding: '0 80px',
+          boxSizing: 'border-box',
+        }}
+      >
+        {/* Card 1 — Premium onboarding */}
+        <motion.div
+          className="tc-card"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55, ease: EASE }}
+          style={{
+            borderRadius: 32,
+            flex: '1 0 0',
+            minWidth: 340,
+            maxWidth: 460,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            className="tc-card-inner"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 16,
+              width: '100%',
+              padding: '48px 32px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <h6 style={{
+              fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
+              fontSize: 20,
+              fontWeight: 600,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              textAlign: 'center',
+              color: 'rgb(247, 244, 237)',
+              margin: 0,
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              width: '100%',
+            }}>
+              Premium onboarding
+            </h6>
+            <p style={{
+              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
+              fontSize: 15,
+              fontWeight: 400,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              textAlign: 'center',
+              color: 'rgb(170, 170, 173)',
+              margin: 0,
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              width: '100%',
+            }}>
+              Our white-glove onboarding service ensures you're set up for success. You'll have a Podium team member available every step.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Divider 1 */}
+        <div className="tc-divider" style={{ flexShrink: 0, width: 3, height: 250 }}>
+          <svg
+            className="tc-divider-line"
+            viewBox="0 0 2 321"
+            style={{ width: '100%', height: '100%', display: 'block' }}
+            aria-hidden="true"
+          >
+            <line x1="1" y1="240" x2="1" y2="81" stroke="#7B7C79" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </div>
+
+        {/* Card 2 — Dedicated customer support */}
+        <motion.div
+          className="tc-card"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
+          style={{
+            borderRadius: 32,
+            flex: '1 0 0',
+            minWidth: 340,
+            maxWidth: 460,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            className="tc-card-inner"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 16,
+              width: '100%',
+              padding: '48px 32px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <h6 style={{
+              fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
+              fontSize: 20,
+              fontWeight: 600,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              textAlign: 'center',
+              color: 'rgb(247, 244, 237)',
+              margin: 0,
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              width: '100%',
+            }}>
+              Dedicated customer support
+            </h6>
+            <p style={{
+              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
+              fontSize: 15,
+              fontWeight: 400,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              textAlign: 'center',
+              color: 'rgb(170, 170, 173)',
+              margin: 0,
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              width: '100%',
+            }}>
+              Whatever your business needs, our expert support team is here to help you so you can focus on what you do best.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Divider 2 */}
+        <div className="tc-divider" style={{ flexShrink: 0, width: 3, height: 250 }}>
+          <svg
+            className="tc-divider-line"
+            viewBox="0 0 2 321"
+            style={{ width: '100%', height: '100%', display: 'block' }}
+            aria-hidden="true"
+          >
+            <line x1="1" y1="240" x2="1" y2="81" stroke="#7B7C79" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </div>
+
+        {/* Card 3 — Works with your systems */}
+        <motion.div
+          className="tc-card"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55, ease: EASE, delay: 0.2 }}
+          style={{
+            borderRadius: 32,
+            flex: '1 0 0',
+            minWidth: 340,
+            maxWidth: 460,
+            overflow: 'hidden',
+          }}
+        >
+          <div
+            className="tc-card-inner"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 16,
+              width: '100%',
+              padding: '48px 32px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <h6 style={{
+              fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
+              fontSize: 20,
+              fontWeight: 600,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              textAlign: 'center',
+              color: 'rgb(247, 244, 237)',
+              margin: 0,
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              width: '100%',
+            }}>
+              Works with your systems
+            </h6>
+            <p style={{
+              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
+              fontSize: 15,
+              fontWeight: 400,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              textAlign: 'center',
+              color: 'rgb(170, 170, 173)',
+              margin: 0,
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              width: '100%',
+            }}>
+              Podium integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* ── CTA row ───────────────────────────────────────────── */}
+      <motion.div
+        className="tc-cta-row"
+        initial={{ opacity: 0, y: -10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.45, ease: EASE }}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 48,
+          width: '100%',
+          maxWidth: 1440,
+          padding: '0 80px',
+          boxSizing: 'border-box',
+        }}
+      >
+        <a
+          href="https://homeservices.podium.com/demo.html"
+          style={{
+            display: 'inline-flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 10,
+            padding: '16px 32px',
+            backgroundColor: 'rgb(157, 64, 60)',
+            borderRadius: 50,
+            textDecoration: 'none',
+            cursor: 'pointer',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          <span style={{
+            fontFamily: '"Graphik Semibold", "Graphik Semibold Placeholder", sans-serif',
+            fontSize: 18,
+            fontWeight: 600,
+            lineHeight: '18px',
+            letterSpacing: 0,
+            textAlign: 'center',
+            color: 'rgb(247, 244, 237)',
+          }}>
+            Grow with us
+          </span>
+        </a>
+      </motion.div>
     </section>
   )
 }
