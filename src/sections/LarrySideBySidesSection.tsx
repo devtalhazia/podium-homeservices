@@ -221,7 +221,7 @@ export default function LarrySideBySidesSection() {
       </div>
 
       {/* Feature cards — alternating backgrounds */}
-      {FEATURES.map((feature, i) => (
+      {FEATURES.map((feature) => (
         <FeatureCard
           key={feature.title}
           feature={feature}

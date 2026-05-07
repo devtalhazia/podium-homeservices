@@ -1,0 +1,33 @@
+/* WhyPodiumHeroSection — responsive overrides */
+
+/* Tablet (768px – 1199px) */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .why-podium-hero-outer {
+    padding: 72px 48px !important;
+  }
+  .why-podium-hero-photo {
+    width: 723px !important;
+  }
+  .why-podium-hero-content {
+    padding: 0 48px !important;
+  }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767.98px) {
+  .why-podium-hero-outer {
+    padding: 60px 24px !important;
+  }
+  .why-podium-hero-photo {
+    opacity: 0.5 !important;
+    left: 0 !important;
+    right: unset !important;
+    width: 751px !important;
+  }
+  .why-podium-hero-spacer {
+    display: none !important;
+  }
+  .why-podium-hero-h1 {
+    font-size: 42px !important;
+  }
+}
