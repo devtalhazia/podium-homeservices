@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import TestFaq from './pages/TestFaq'
+import Plans from './pages/Plans'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/test/faq" element={<TestFaq />} />
+        <Route path="/plans" element={<Plans />} />
       </Routes>
     </BrowserRouter>
   )

@@ -19,6 +19,9 @@ export default {
         'slate-mid':  'rgb(78, 97, 118)',
         'slate-light':'rgb(102, 126, 153)',
         'gray-200':   'rgb(195, 195, 200)',
+        'gray-300':   'rgb(216, 216, 222)',
+        'gray-400':   'rgb(140, 140, 148)',
+        'ink-soft':   'rgb(78, 74, 68)',
       },
       fontFamily: {
         'graphik':       ['"Graphik Regular"', 'sans-serif'],
@@ -27,6 +30,7 @@ export default {
         'graphik-bold':  ['"Graphik Bold"', 'sans-serif'],
         'grenette':      ['"Grenette Regular"', 'serif'],
         'grenette-semi': ['"Grenette SemiBold"', 'serif'],
+        'grenette-semi-italic': ['"Grenette SemiBold Italic"', 'serif'],
         'grenette-bold': ['"Grenette Bold"', 'serif'],
         'editors-note':  ['"Editor\'s Note Regular"', 'serif'],
         'editors-semi':  ['"Editor\'s Note Semibold"', 'serif'],
@@ -38,6 +42,20 @@ export default {
         // Match Framer breakpoints exactly
         'tablet': '768px',
         'desktop': '1200px',
+      },
+      keyframes: {
+        'hero-marquee': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'solution-progress': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'hero-marquee': 'hero-marquee 32s linear infinite',
+        'solution-progress': 'solution-progress 5s linear forwards',
       },
     },
   },

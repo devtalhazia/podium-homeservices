@@ -1,34 +1,50 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import '../styles/faq.css'
 
-const FAQ_DATA = [
+/* ── Colors ── */
+const INK       = '#1c1b18'
+const INK_SOFT  = '#4e4a44'
+const DIVIDER   = 'rgb(233, 225, 216)'
+const ICON_CLR  = 'rgb(78, 97, 118)'
+const CRIMSON   = 'rgb(157, 64, 60)'
+
+/* ── FAQ data (source: dump/homeservices.podium.com/index.html, SSR + live site) ── */
+interface FaqItem {
+  question: string
+  answer: JSX.Element
+}
+
+const FAQ_ITEMS: FaqItem[] = [
   {
-    id: 'switch',
     question: 'How difficult is it to switch to Podium from another scheduling software?',
     answer: (
       <>
-        <p dir="auto" className="framer-text framer-styles-preset-zmyn5w">
-          {"Podium's onboarding team aims to have you up and running in days, not months. Our onboarding team makes the transition as smooth as possible:"}
-          <br className="framer-text" />
-          <br className="framer-text trailing-break" />
+        <p style={{ margin: '0 0 20px' }}>
+          Podium's onboarding team aims to have you up and running in days, not months. Our
+          onboarding team makes the transition as smooth as possible:
         </p>
-        <ul dir="auto" className="framer-text">
-          {[
-            'White-glove onboarding within 48 hours of signing',
-            'Dedicated team to answer questions',
-            'Data migration (customers, jobs, history, etc.)',
-            'We test and refine your AI Employee until it reflects your business',
-            'Staff training for your entire team',
-          ].map((item) => (
-            <li key={item} data-preset-tag="p" className="framer-text framer-styles-preset-zmyn5w">
-              <p className="framer-text framer-styles-preset-zmyn5w">{item}</p>
-            </li>
-          ))}
+        <ul style={{ margin: '0 0 20px', paddingLeft: '1.2em' }}>
+          <li>White-glove onboarding within 48 hours of signing</li>
+          <li>Dedicated team to answer questions</li>
+          <li>Data migration (customers, jobs, history, etc.)</li>
+          <li>We test and refine your AI Employee until it reflects your business</li>
+          <li>Staff training for your entire team</li>
         </ul>
-        <p dir="auto" className="framer-text framer-styles-preset-zmyn5w">
-          {'Our goal is to minimize disruption so your business stays up and running during the change. '}
-          <a className="framer-text framer-styles-preset-1eycndh" href="demo.html">
-            <strong className="framer-text">Book a meeting today to learn more.</strong>
+        <p style={{ margin: 0 }}>
+          Our goal is to minimize disruption so your business stays up and running during the
+          change.{' '}
+          <a
+            href="/demo"
+            style={{
+              color: CRIMSON,
+              textDecoration: 'underline',
+              textDecorationColor: 'rgb(226, 198, 196)',
+              textDecorationThickness: '2px',
+              textUnderlineOffset: '1px',
+              fontWeight: 700,
+            }}
+          >
+            Book a meeting today to learn more.
           </a>
         </p>
       </>
@@ -36,190 +52,227 @@ const FAQ_DATA = [
   },
 ]
 
-const BORDER_LINE_STYLE = {
-  '--border-bottom-width': '1px',
-  '--border-color': 'var(--token-0d370e99-f85c-4d8b-8383-980b00d4aaf8, rgb(78, 97, 118))',
-  '--border-left-width': '1px',
-  '--border-right-width': '1px',
-  '--border-style': 'solid',
-  '--border-top-width': '1px',
-  backgroundColor: 'var(--token-0d370e99-f85c-4d8b-8383-980b00d4aaf8, rgb(78, 97, 118))',
-} as React.CSSProperties
+/* ── Plus/Minus icon (28×28, lines are 2×12 px, color rgb(78,97,118)) ── */
+function AccordionIcon({ open }: { open: boolean }) {
+  return (
+    <button
+      aria-hidden="true"
+      style={{
+        width: 28,
+        height: 28,
+        borderRadius: 100,
+        flexShrink: 0,
+        position: 'relative',
+        cursor: 'pointer',
+        background: 'none',
+        border: 'none',
+        padding: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      {/* Horizontal line (always visible) */}
+      <span
+        style={{
+          position: 'absolute',
+          top: 'calc(50% - 1px)',
+          left: 'calc(50% - 6px)',
+          width: 12,
+          height: 2,
+          backgroundColor: ICON_CLR,
+          borderRadius: 1,
+        }}
+      />
+      {/* Vertical line (hidden when open) */}
+      {!open && (
+        <span
+          style={{
+            position: 'absolute',
+            top: 'calc(50% - 6px)',
+            left: 'calc(50% - 1px)',
+            width: 2,
+            height: 12,
+            backgroundColor: ICON_CLR,
+            borderRadius: 1,
+          }}
+        />
+      )}
+    </button>
+  )
+}
 
-export default function FaqSection() {
-  const [openId, setOpenId] = useState<string>('switch')
+/* ── Single accordion item ── */
+function AccordionItem({ item }: { item: FaqItem }) {
+  const [open, setOpen] = useState(true)
 
   return (
-    <div className="framer-23t8eo" data-framer-name="Page Section/FAQ-WIP" id="faq">
-      {/* Heading */}
-      <div className="ssr-variant">
-        <div className="framer-oty6pl-container">
+    <div
+      style={{
+        width: '100%',
+        padding: '32px 0',
+        borderTop: `1px solid ${DIVIDER}`,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: open ? 32 : 0,
+        cursor: 'pointer',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Question row */}
+      <div
+        role="button"
+        tabIndex={0}
+        aria-expanded={open}
+        onClick={() => setOpen(o => !o)}
+        onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setOpen(o => !o)}
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          width: '100%',
+          cursor: 'pointer',
+          outline: 'none',
+        }}
+      >
+        <h6
+          style={{
+            margin: 0,
+            flex: '1 0 0',
+            maxWidth: 840,
+            fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
+            fontSize: 24,
+            fontWeight: 600,
+            lineHeight: '120%',
+            letterSpacing: 0,
+            color: INK,
+            userSelect: 'none',
+          }}
+        >
+          {item.question}
+        </h6>
+        <AccordionIcon open={open} />
+      </div>
+
+      {/* Answer */}
+      {open && (
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+          }}
+        >
           <div
-            className="framer-RwRi6 framer-mpaIx framer-WLYKn framer-aQP8P framer-h9oxO framer-1etrr6s framer-v-1mzkp2b"
-            data-framer-name="H3"
-            style={{ '--hz6pv8': '0px', maxWidth: '100%', width: '100%' } as React.CSSProperties}
+            style={{
+              flex: '1 0 0',
+              maxWidth: '88%',
+              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
+              fontSize: 16,
+              fontWeight: 400,
+              lineHeight: '150%',
+              letterSpacing: 0,
+              color: INK_SOFT,
+            }}
           >
-            <div className="framer-18n4kb3" data-framer-name="Heading">
-              <div
-                className="framer-l6pu9u"
-                data-framer-name="Heading 2"
-                data-framer-component-type="RichTextContainer"
-                style={
-                  {
-                    justifyContent: 'flex-end',
-                    '--framer-paragraph-spacing': '0px',
-                    transform: 'none',
-                  } as React.CSSProperties
-                }
-              >
-                <h3
-                  className="framer-text framer-styles-preset-19h1oaz"
-                  data-styles-preset="kMm6Jx4vg"
-                  dir="auto"
-                  style={{ '--framer-text-alignment': 'center' } as React.CSSProperties}
-                >
-                  Frequently Asked Questions
-                </h3>
-              </div>
-            </div>
+            {item.answer}
           </div>
         </div>
-      </div>
-
-      {/* FAQ list */}
-      <div className="framer-18dcb4c">
-        <div className="framer-10mf0n0" data-framer-name="List">
-          <div className="ssr-variant">
-            {FAQ_DATA.map((faq) => {
-              const isOpen = openId === faq.id
-              return (
-                <motion.div
-                  key={faq.id}
-                  className="framer-1jd6l4i-container"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
-                >
-                  <div
-                    className={`framer-SLAP6 framer-1xuaV framer-gm0hU framer-WLYKn framer-aQP8P framer-zhgfh framer-MQ9VS framer-J5aJG framer-h9oxO framer-wm6Ds framer-Giurq framer-NKMBL framer-1epd33h${isOpen ? ' framer-v-1epd33h' : ''}`}
-                    data-border="true"
-                    data-framer-name={isOpen ? 'Open' : 'Closed'}
-                    style={
-                      {
-                        '--border-bottom-width': '0px',
-                        '--border-color': 'rgb(233, 225, 216)',
-                        '--border-left-width': '0px',
-                        '--border-right-width': '0px',
-                        '--border-style': 'solid',
-                        '--border-top-width': '1px',
-                        width: '100%',
-                      } as React.CSSProperties
-                    }
-                  >
-                    {/* Question row — clickable */}
-                    <div
-                      className="framer-1vbh5ho"
-                      data-framer-name="Question"
-                      data-highlight="true"
-                      tabIndex={0}
-                      role="button"
-                      aria-expanded={isOpen}
-                      onClick={() => setOpenId(isOpen ? '' : faq.id)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault()
-                          setOpenId(isOpen ? '' : faq.id)
-                        }
-                      }}
-                    >
-                      <div
-                        className="framer-kfx8s8"
-                        data-framer-name="Question"
-                        data-framer-component-type="RichTextContainer"
-                        style={
-                          {
-                            '--framer-link-text-color': 'rgb(0, 153, 255)',
-                            '--framer-link-text-decoration': 'underline',
-                            transform: 'none',
-                          } as React.CSSProperties
-                        }
-                      >
-                        <h6
-                          className="framer-text framer-styles-preset-1963bkz"
-                          data-styles-preset="WECHwDZ8N"
-                          dir="auto"
-                        >
-                          {faq.question}
-                        </h6>
-                      </div>
-
-                      {/* +/− icon */}
-                      <button
-                        className="framer-absii9"
-                        data-framer-name="Icon"
-                        data-reset="button"
-                        style={{
-                          borderBottomLeftRadius: '100px',
-                          borderBottomRightRadius: '100px',
-                          borderTopLeftRadius: '100px',
-                          borderTopRightRadius: '100px',
-                        }}
-                        aria-label={isOpen ? 'Collapse' : 'Expand'}
-                        tabIndex={-1}
-                      >
-                        <motion.div
-                          className="framer-17jayhm"
-                          data-border="true"
-                          data-framer-name="Line 2"
-                          animate={{ rotate: isOpen ? 270 : 0 }}
-                          transition={{ duration: 0.2, ease: 'easeInOut' }}
-                          style={BORDER_LINE_STYLE}
-                        />
-                        <motion.div
-                          className="framer-b4cqkn"
-                          data-border="true"
-                          data-framer-name="Line 1"
-                          animate={{ rotate: isOpen ? 90 : 90 }}
-                          transition={{ duration: 0.2, ease: 'easeInOut' }}
-                          style={BORDER_LINE_STYLE}
-                        />
-                      </button>
-                    </div>
-
-                    {/* Answer panel */}
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          key="answer"
-                          className="framer-1mp8ga4"
-                          data-framer-appear-id="1mp8ga4"
-                          data-framer-name="Answer"
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3, ease: 'easeInOut' }}
-                          style={{ overflow: 'hidden' }}
-                        >
-                          <div
-                            className="framer-1npzsui"
-                            data-framer-name="Answer - formatted text"
-                            data-selection="true"
-                            data-framer-component-type="RichTextContainer"
-                            style={{ transform: 'none' }}
-                          >
-                            {faq.answer}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-      </div>
+      )}
     </div>
+  )
+}
+
+/* ── Main component ── */
+export default function FAQSection() {
+  return (
+    <section
+      id="faq"
+      className="faq-section"
+      style={{
+        backgroundColor: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 0,
+        width: '100%',
+        minWidth: 1200,
+        padding: '80px',
+        position: 'relative',
+        overflow: 'visible',
+      }}
+    >
+      {/* Heading */}
+      <div
+        className="faq-heading-wrap"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 16,
+          width: '100%',
+          padding: '0 0 16px',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: 1080,
+            maxWidth: '100%',
+          }}
+        >
+          <h3
+            className="faq-heading"
+            style={{
+              margin: 0,
+              width: '100%',
+              fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
+              fontSize: 40,
+              fontWeight: 400,
+              lineHeight: '120%',
+              letterSpacing: 0,
+              color: INK,
+              textAlign: 'center',
+            }}
+          >
+            Frequently Asked Questions
+          </h3>
+        </div>
+      </div>
+
+      {/* List area */}
+      <div
+        className="faq-list-area"
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+          gap: 72,
+          width: '100%',
+          maxWidth: 1440,
+        }}
+      >
+        {/* Accordion list */}
+        <div
+          className="faq-list"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            gap: 0,
+            width: '83%',
+            maxWidth: 925,
+          }}
+        >
+          {FAQ_ITEMS.map((item, i) => (
+            <AccordionItem key={i} item={item} />
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
