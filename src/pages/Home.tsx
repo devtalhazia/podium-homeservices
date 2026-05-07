@@ -6,6 +6,7 @@ import TestimonialsSection from '../sections/TestimonialsSection'
 import CommunicationsSection from '../sections/CommunicationsSection'
 import CTASection from '../sections/CTASection'
 import FAQSection from '../sections/FAQSection'
+import FooterSection from '../sections/FooterSection'
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
       <CommunicationsSection />
       <CTASection />
       <FAQSection />
-      {/* sections added here one by one */}
+      <FooterSection />
     </div>
   )
 }
