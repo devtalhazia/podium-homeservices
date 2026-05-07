@@ -4,6 +4,7 @@ import SolutionSection from '../sections/SolutionSection'
 import IntegrationsSection from '../sections/IntegrationsSection'
 import TestimonialsSection from '../sections/TestimonialsSection'
 import CommunicationsSection from '../sections/CommunicationsSection'
+import CTASection from '../sections/CTASection'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <IntegrationsSection />
       <TestimonialsSection />
       <CommunicationsSection />
+      <CTASection />
       {/* sections added here one by one */}
     </div>
   )
