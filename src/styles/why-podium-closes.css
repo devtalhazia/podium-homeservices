@@ -1,0 +1,122 @@
+/* WhyPodiumClosesSection responsive overrides
+   Source: framer-2lgwja and children from why-podium.html
+   ────────────────────────────────────────────────────── */
+
+/* ── Outer section ───────────────────────────────────── */
+/* framer-2lgwja desktop: padding:80px  */
+/* framer-2lgwja tablet: padding:72px 48px */
+/* framer-2lgwja mobile: padding:48px 24px */
+.wp-closes-outer {
+  padding: 80px;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .wp-closes-outer {
+    padding: 72px 48px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .wp-closes-outer {
+    padding: 48px 24px;
+  }
+}
+
+/* ── Background image (framer-1hyx1qq) ───────────────── */
+/* Desktop: left:-13px right:-14px height:334px          */
+/* Tablet:  left:-99px right:-101px height:283px         */
+/* Mobile:  left:-240px right:-241px height:262px        */
+.wp-closes-bg-img {
+  position: absolute;
+  top: 0;
+  left: -13px;
+  right: -14px;
+  aspect-ratio: 3.08217;
+  height: 334px;
+  z-index: 0;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .wp-closes-bg-img {
+    height: 283px;
+    left: -99px;
+    right: -101px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .wp-closes-bg-img {
+    height: 262px;
+    left: -240px;
+    right: -241px;
+  }
+}
+
+/* ── Feature cards row (framer-x0g5pw) ───────────────── */
+/* Desktop: flex-flow:row                                 */
+/* Mobile:  flex-direction:column                        */
+.wp-closes-cards-row {
+  flex-flow: row;
+}
+
+@media (max-width: 767.98px) {
+  .wp-closes-cards-row {
+    flex-direction: column;
+  }
+}
+
+/* ── Individual feature cards ───────────────────────── */
+/* Desktop: flex:1 0 0; width:1px; align-self:stretch    */
+/* Mobile:  flex:none; width:100%; align-self:unset      */
+.wp-closes-card {
+  flex: 1 0 0;
+  width: 1px;
+  align-self: stretch;
+  height: auto;
+}
+
+@media (max-width: 767.98px) {
+  .wp-closes-card {
+    flex: none;
+    width: 100%;
+    align-self: unset;
+    height: min-content;
+  }
+}
+
+/* ── h3 heading size ─────────────────────────────────── */
+/* Desktop: 40px  Tablet: 32px (framer-styles-preset-19h1oaz) */
+.wp-closes-h3 {
+  font-size: 40px;
+}
+
+@media (max-width: 1199.98px) {
+  .wp-closes-h3 {
+    font-size: 32px;
+  }
+}
+
+/* ── h6 card title size ──────────────────────────────── */
+/* Desktop: 24px  Tablet/mobile: 20px (framer-styles-preset-1963bkz) */
+.wp-closes-card-title {
+  font-size: 24px;
+}
+
+@media (max-width: 1199.98px) {
+  .wp-closes-card-title {
+    font-size: 20px;
+  }
+}
+
+/* ── Card body font size ─────────────────────────────── */
+/* Desktop: 16px  Mobile: 14px (framer-styles-preset-zmyn5w) */
+.wp-closes-card-body {
+  font-size: 16px;
+}
+
+@media (max-width: 767.98px) {
+  .wp-closes-card-body {
+    font-size: 14px;
+  }
+}
