@@ -36,11 +36,11 @@ export default function NavSection() {
       <div className="hidden tablet:flex items-center py-[12px]  max-w-[1440px] mx-auto">
 
         {/* Logo — 238×20px SVG, white fill */}
-        <a href="/" className="flex shrink-0 items-center py-[7px]">
+        <a href="/" className="flex shrink-0 items-center px-4">
           <img
-            src="/images/logo-white.svg"
+            src="/logo/logo.svg"
             alt="CloseCrew Home Services"
-            className="h-[20px] w-[238px]"
+            className="h-[30px] w-auto"
           />
         </a>
 
