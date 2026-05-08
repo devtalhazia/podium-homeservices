@@ -1,4 +1,4 @@
-const DEMO_URL = '/demo'
+const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 interface Feature {
   title: string
@@ -95,6 +95,8 @@ function FeatureCard({ feature, bg }: { feature: Feature; bg: string }) {
       </div>
       <a
         href={DEMO_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
           fontFamily: '"Graphik Semibold", sans-serif',
           fontSize: '18px',

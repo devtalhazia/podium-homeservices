@@ -66,34 +66,33 @@ const PodiumWordmarkSvg = () => (
 
 // ── Link data ────────────────────────────────────────────────────────────────
 
+const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
+
 const col1Links = [
-  { label: 'Meet Larry', href: 'https://homeservices.podium.com/ai/larry.html' },
-  { label: 'Communications', href: 'https://homeservices.podium.com/features/communications.html' },
-  { label: 'Calendar & Booking', href: 'https://homeservices.podium.com/features/booking-and-payments.html' },
-  { label: 'Marketing Tools', href: 'https://homeservices.podium.com/features/marketing-tools.html' },
-  { label: 'Plans', href: 'https://homeservices.podium.com/plans.html' },
-  { label: 'Contact Sales', href: 'https://homeservices.podium.com/demo.html' },
+  { label: 'Meet Larry',         href: '/ai/larry',  external: false },
+  { label: 'Communications',     href: '/#larry-jtbd', external: false },
+  { label: 'Calendar & Booking', href: '/#larry-jtbd', external: false },
+  { label: 'Marketing Tools',    href: '/#larry-jtbd', external: false },
+  { label: 'Plans',              href: '/plans',     external: false },
+  { label: 'Contact Sales',      href: DEMO_URL,     external: true },
 ]
 
 const col2Links = [
-  { label: 'CloseCrew Home', href: 'https://www.podium.com/', external: true },
-  { label: 'Blogs & Guides', href: 'https://www.podium.com/blog', external: true },
-  { label: 'Download CloseCrew Apps', href: 'https://www.podium.com/download', external: true },
+  { label: 'Why Larry?', href: '/why-podium', external: false },
+  { label: 'FAQ',        href: '/#faq',       external: false },
+  { label: 'Plans',      href: '/plans',      external: false },
 ]
 
 const finePrintLinks = [
-  { label: 'Sitemap', href: 'https://www.podium.com/sitemap', external: true },
-  { label: 'Terms & Conditions', href: 'https://legal.podium.com/#termsofservice-us', external: true },
-  { label: 'Privacy Policy', href: 'https://legal.podium.com/#privacypolicy-us', external: true },
-  { label: 'Privacy Center', href: 'https://privacy.podium.com/', external: true },
-  { label: 'Do Not Sell or Share My Personal Information', href: 'https://privacy.podium.com/requests', external: false },
+  { label: 'Terms & Conditions', href: 'https://softaims.com/terms-and-conditions', external: true },
+  { label: 'Privacy Policy',     href: 'https://softaims.com/privacy-policy', external: true },
 ]
 
 const socialLinks: { label: string; href: string; Icon: () => JSX.Element }[] = [
-  { label: 'Facebook', href: 'https://www.facebook.com/Podium/', Icon: FacebookIcon },
-  { label: 'Instagram', href: 'https://www.instagram.com/podium/', Icon: InstagramIcon },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/podium', Icon: LinkedInIcon },
-  { label: 'X (Twitter)', href: 'https://x.com/PodiumHQ', Icon: XIcon },
+  { label: 'Facebook',  href: '#', Icon: FacebookIcon },
+  { label: 'Instagram', href: '#', Icon: InstagramIcon },
+  { label: 'LinkedIn',  href: '#', Icon: LinkedInIcon },
+  { label: 'X (Twitter)', href: '#', Icon: XIcon },
 ]
 
 // ── Main component ───────────────────────────────────────────────────────────
@@ -108,7 +107,7 @@ export default function FooterSection() {
               Learn to grow revenue with the #1 AI Employee for Home Services.
             </h6>
             <a
-              href="https://homeservices.podium.com/demo.html"
+              href={DEMO_URL}
               className="inline-flex cursor-pointer flex-row items-center justify-center whitespace-nowrap rounded-[50px] bg-[rgb(220,220,225)] px-[32px] py-[16px] no-underline"
             >
               <span className="font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-ink">
@@ -157,8 +156,6 @@ export default function FooterSection() {
             <a
               key={label}
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label={label}
               className="inline-flex items-center justify-center no-underline"
             >

@@ -1,4 +1,4 @@
-const DEMO_URL = '/demo'
+const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 export default function LarryHeroSection() {
   return (
@@ -52,6 +52,10 @@ export default function LarryHeroSection() {
         <div className="flex items-start">
           <a
             href={DEMO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onFocus={(e) => { (e.currentTarget as HTMLElement).style.outline = '2px solid #fff' }}
+            onBlur={(e) => { (e.currentTarget as HTMLElement).style.outline = 'none' }}
             className="inline-flex cursor-pointer flex-row items-center justify-center gap-[10px] rounded-[50px] bg-crimson px-[32px] py-[16px] no-underline outline-none focus:outline focus:outline-2 focus:outline-white"
           >
             <span className="whitespace-pre font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-cream">

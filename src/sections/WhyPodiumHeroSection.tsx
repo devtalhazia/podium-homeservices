@@ -25,7 +25,9 @@ export default function WhyPodiumHeroSection() {
           </div>
 
           <a
-            href="/demo"
+            href="https://calendly.com/umar-softaims/hvac-automation"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex shrink-0 cursor-pointer items-center justify-center rounded-[50px] bg-crimson px-[28px] py-[16px] no-underline"
           >
             <span className="whitespace-nowrap font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-cream">

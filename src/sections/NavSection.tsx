@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react'
 
 const DEMO_URL  = 'https://calendly.com/umar-softaims/hvac-automation'
-const SIGN_IN   = 'https://auth.podium.com/'
+const SIGN_IN   = 'https://calendly.com/umar-softaims/hvac-automation'
+
+// const FEATURES = [
+//   { label: 'Communications',     href: '/#larry-jtbd' },
+//   { label: 'Marketing Tools',    href: '/#larry-jtbd' },
+//   { label: 'Booking & Payments', href: '/#larry-jtbd' },
+// ]
 
 const NAV_LINKS = [
-  { label: 'Why CloseCrew?', href: 'https://homeservices.podium.com/why-podium' },
-  { label: 'Features',    href: 'https://homeservices.podium.com/features/communications' },
-  { label: 'Plans',       href: 'https://homeservices.podium.com/plans' },
+  { label: 'Why Larry?', href: '/why-podium' },
+  { label: 'Features',   href: '#larry-jtbd'},
+  { label: 'Plans',      href: '/plans' },
 ]
 
 // Nav link: padding:8px 10px, height:45px, Graphik weight-600 16px 100% line-height
@@ -46,7 +52,7 @@ export default function NavSection() {
 
             {/* Meet Larry — icon 24×24 + Grenette SemiBold Italic */}
             <a
-              href="https://homeservices.podium.com/ai/larry"
+              href="/ai/larry"
               className="flex items-center gap-[8px] rounded-lg px-[10px] py-[8px] transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               <img
@@ -62,11 +68,17 @@ export default function NavSection() {
             </a>
 
             {/* Standard nav links */}
-            {NAV_LINKS.map((item) => (
-              <a key={item.label} href={item.href} className={linkCls}>
-                {item.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((item) =>
+              (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={linkCls}
+                >
+                  {item.label}
+                </a>
+              )
+            )}
           </div>
 
           {/* Right: Watch a demo + Sign in — gap:12px */}
@@ -125,7 +137,7 @@ export default function NavSection() {
         <div className="tablet:hidden flex flex-col border-t border-white/10 bg-nav px-5 pb-6">
           {/* Meet Larry */}
           <a
-            href="https://homeservices.podium.com/ai/larry"
+            href="/ai/larry"
             className="flex items-center gap-3 py-3 text-cream-white"
           >
             <img src="/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg" alt="" className="h-[20px] w-[20px]" />
@@ -134,7 +146,8 @@ export default function NavSection() {
             </span>
           </a>
 
-          {NAV_LINKS.map((item) => (
+          {NAV_LINKS.map((item) =>
+            (
               <a
                 key={item.label}
                 href={item.href}

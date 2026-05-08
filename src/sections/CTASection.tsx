@@ -11,7 +11,7 @@ interface CTASectionProps {
 export default function CTASection({
   headline = 'See how Larry helps grow your revenue by 30% without adding headcount.',
   buttonText = 'Show me how',
-  buttonHref = '/demo',
+  buttonHref = 'https://calendly.com/umar-softaims/hvac-automation',
 }: CTASectionProps = {}) {
   return (
     <div
@@ -50,6 +50,8 @@ export default function CTASection({
         <div className="relative z-[1] shrink-0">
           <a
             href={buttonHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex cursor-pointer flex-row items-center justify-center gap-[10px] whitespace-nowrap rounded-[50px] bg-crimson px-[32px] py-[16px] no-underline"
           >
             <p className="m-0 text-center font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-cream">

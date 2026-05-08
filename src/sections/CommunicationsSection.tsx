@@ -224,7 +224,7 @@ export default function CommunicationsSection() {
               features={CSR_FEATURES}
               compactFeatureGap
             />
-            <CTALink href="/ai/larry" label="Learn more about Larry" />
+            <CTALink href="/#larry-jtbd" label="Learn more about Larry" />
           </>
         }
         image={
@@ -245,7 +245,7 @@ export default function CommunicationsSection() {
               heading="All-in-one communications"
               features={COMMS_FEATURES}
             />
-            <CTALink href="/features/communications" label="Learn more about Communications" />
+            <CTALink href="/#larry-jtbd" label="Learn more about Communications" />
           </>
         }
         image={
@@ -267,7 +267,7 @@ export default function CommunicationsSection() {
               heading="AI marketing tools that book"
               features={MKTG_FEATURES}
             />
-            <CTALink href="/features/marketing-tools" label="Learn more about Marketing Tools" />
+            <CTALink href="/#larry-jtbd" label="Learn more about Marketing Tools" />
           </>
         }
         image={

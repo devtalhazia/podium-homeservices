@@ -1,4 +1,4 @@
-const DEMO_URL = 'https://homeservices.podium.com/demo'
+const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 /* ── Arrow SVG (right-pointing triangle, stroke only, 24×24)
    Source: last <svg> in dump, path id="jSlXhnrbh"

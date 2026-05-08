@@ -138,7 +138,7 @@ export default function WhyPodiumClosesSection() {
       {/* framer-tap6xd: "Graphik Semibold" 18px rgb(247,244,237)            */}
       <div className="h-auto w-auto shrink-0">
         <a
-          href="/larry"
+          href="/ai/larry"
           className="flex h-min w-min cursor-pointer flex-row items-center justify-center gap-[10px] whitespace-nowrap rounded-[50px] bg-crimson px-[32px] py-[16px] no-underline"
         >
           <p className="m-0 text-center font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-cream">

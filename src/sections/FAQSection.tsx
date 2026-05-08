@@ -26,7 +26,7 @@ const FAQ_ITEMS: FaqItem[] = [
           Our goal is to minimize disruption so your business stays up and running during the
           change.{' '}
           <a
-            href="/demo"
+            href="https://calendly.com/umar-softaims/hvac-automation"
             className="font-bold text-crimson underline decoration-[rgb(226,198,196)] decoration-2 underline-offset-[1px]"
           >
             Book a meeting today to learn more.
