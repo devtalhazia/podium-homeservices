@@ -45,11 +45,11 @@ export default function LarryHeroSection() {
           </h1>
         </div>
 
-        <p className="m-0 break-words text-left font-graphik text-[16px] font-normal leading-[150%] text-white desktop:text-[18px]">
+        <p className="m-0 break-words text-left font-graphik md:text-[16px] text-sm font-normal leading-[150%] text-white desktop:text-[18px]">
           Your customers expect personal, always-on service. Larry knows your business and works to book more jobs, take on manual admin work, and respond to customers before your competition.
         </p>
 
-        <div className="flex items-start">
+        <div className="flex items-start md:justify-start justify-center w-full">
           <a
             href={DEMO_URL}
             target="_blank"
@@ -65,7 +65,7 @@ export default function LarryHeroSection() {
         </div>
       </div>
 
-      <div className="relative z-[1] flex w-full max-w-[705px] flex-col items-center justify-center gap-[10px] desktop:w-px desktop:min-w-[505px] desktop:flex-[1_0_0]">
+      <div className="relative z-[1] md:flex hidden w-full max-w-[705px] flex-col items-center justify-center gap-[10px] desktop:w-px desktop:min-w-[505px] desktop:flex-[1_0_0]">
         <div className="relative h-[240px] w-full overflow-visible tablet:h-[300px] desktop:h-[376px]">
           <img
             src="/images/larry-hero-mockup.png"

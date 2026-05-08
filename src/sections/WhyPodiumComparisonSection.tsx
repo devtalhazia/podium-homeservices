@@ -98,14 +98,14 @@ export default function WhyCloseCrewComparisonSection() {
         {/* heading group */}
         <div className="flex flex-col place-content-start items-center gap-[28px] w-full h-min pb-[24px]">
           <div className="w-full h-auto relative">
-            <h6 className="m-0 font-graphik-medium text-[16px] font-medium leading-[150%] tracking-[0.1em] uppercase text-center text-[rgb(170,170,173)]">
+            <h6 className="m-0 font-graphik-medium md:text-[16px] text-sm font-medium leading-[150%] tracking-[0.1em] uppercase text-center text-[rgb(170,170,173)]">
               what the wrong tools cost you
             </h6>
           </div>
 
           <div className="flex flex-col place-content-center items-center gap-[16px] w-full h-min pb-[16px]">
             <div className="w-full h-auto relative">
-              <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] tracking-[0] text-center text-white">
+              <h2 className="m-0 font-grenette md:text-[46px] text-4xl font-normal leading-[110%] tracking-[0] text-center text-white">
                 You run a great business. But why does the system you use make it harder?
               </h2>
             </div>

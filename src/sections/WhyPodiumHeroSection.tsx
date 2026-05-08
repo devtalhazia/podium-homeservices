@@ -2,12 +2,13 @@ export default function WhyCloseCrewHeroSection() {
   return (
     <section className="relative flex w-full flex-col items-center gap-[40px] overflow-hidden bg-nav px-[24px] py-[60px] tablet:px-[48px] tablet:py-[72px] desktop:flex-row desktop:place-content-center desktop:items-center desktop:gap-[64px] desktop:p-[80px]">
       {/* hero photo — full cover on mobile, right-side art on desktop */}
-      <div className="relative w-full h-[240px] overflow-hidden rounded-[16px] tablet:h-[300px] desktop:absolute desktop:bottom-0 desktop:right-0 desktop:top-0 desktop:h-auto desktop:w-[445px] desktop:rounded-none">
+      <div className="absolute right-0 top-0 bottom-0 w-full h-full overflow-hidden tablet:h-[300px] desktop:absolute desktop:bottom-0 desktop:right-0 desktop:top-0 desktop:h-auto">
         <img
           className="block h-full w-full object-cover object-center opacity-90 tablet:opacity-100 desktop:absolute desktop:bottom-0 desktop:left-auto desktop:right-0 desktop:top-0 desktop:w-[599px]"
           src="/images/why-podium-hero-photo.png"
           alt="Contractor professional"
         />
+        <div className="absolute top-0 left-0 right-0 bottom-0 bg-white/5 md:hidden block" />
       </div>
 
       {/* content wrapper */}

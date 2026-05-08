@@ -61,7 +61,7 @@ function CardContent({ card }: { card: StatCard }) {
 
   return (
     <div
-      className={`flex flex-col justify-center gap-[24px] p-[24px] h-full box-border ${isCenter ? 'items-center' : 'items-start'} ${card.image ? 'flex-[2_0_0] w-px' : 'w-full'}`}
+      className={`flex flex-col justify-center gap-[24px] p-[24px] h-full box-border ${isCenter ? 'items-center' : 'items-start'} ${card.image ? 'flex-[2_0_0]' : 'w-full'}`}
     >
       <div className={`flex flex-col w-full ${isCenter ? 'items-center' : 'items-start'}`}>
         {card.label && (
@@ -156,10 +156,10 @@ export default function WhyCloseCrewStatsSection() {
 
         {/* Heading */}
         <div className="flex flex-col items-center gap-[16px] pb-[16px] w-full">
-          <h6 className="m-0 font-graphik-medium text-[16px] font-medium leading-none tracking-[0.1em] uppercase text-[rgb(170,170,173)] text-center">
+          <h6 className="m-0 font-graphik-medium md:text-[16px] text-sm font-medium leading-none tracking-[0.1em] uppercase text-[rgb(170,170,173)] text-center">
             what contractors are saying
           </h6>
-          <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] text-white text-center">
+          <h2 className="m-0 font-grenette md:text-[46px] text-4xl font-normal leading-[110%] text-white text-center">
             Real businesses. Real numbers.
           </h2>
           <p className="m-0 font-graphik text-[16px] font-normal leading-[150%] text-[rgb(232,232,232)] text-center">

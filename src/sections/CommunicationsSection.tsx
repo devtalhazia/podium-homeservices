@@ -16,10 +16,10 @@ const ArrowSVG = () => (
 function FeatureItem({ title, body, compact = false }: { title: string; body: string; compact?: boolean }) {
   return (
     <div className={`flex w-full flex-col overflow-hidden py-[16px] ${compact ? 'gap-[4px]' : 'gap-[6px]'}`}>
-      <h6 className="m-0 font-grenette-semi text-[24px] font-semibold leading-[120%] tracking-[0] text-ink">
+      <h6 className="m-0 font-grenette-semi md:text-[24px] text-xl  font-semibold leading-[120%] tracking-[0] text-ink">
         {title}
       </h6>
-      <p className="m-0 font-graphik text-[16px] font-normal leading-[150%] tracking-[0] text-ink-soft">
+      <p className="m-0 font-graphik md:text-[16px] text-sm font-normal leading-[150%] tracking-[0] text-ink-soft">
         {body}
       </p>
     </div>
@@ -59,12 +59,12 @@ function CopyBlockInner({ preheader, heading, features, compactFeatureGap }: Cop
       <div className="flex w-full flex-col gap-0">
         <div className="flex w-full flex-col gap-[5px]">
           <div className="flex w-full flex-col gap-[10px] pb-[8px]">
-            <h6 className="m-0 break-words whitespace-pre-wrap text-left font-graphik-medium text-[16px] font-medium uppercase leading-[150%] tracking-[0.1em] text-gray-mid">
+            <h6 className="m-0 break-words whitespace-pre-wrap text-left font-graphik-medium md:text-[16px] text-sm font-medium uppercase leading-[150%] tracking-[0.1em] text-gray-mid">
               {preheader}
             </h6>
           </div>
           <div className="w-full pb-[16px]">
-            <h4 className="m-0 break-words whitespace-pre-wrap text-left font-grenette text-[36px] font-normal leading-[120%] tracking-[0] text-ink">
+            <h4 className="m-0 break-words whitespace-pre-wrap text-left font-grenette md:text-4xl text-3xl font-normal leading-[120%] tracking-[0] text-ink">
               {heading}
             </h4>
           </div>
@@ -200,14 +200,14 @@ export default function CommunicationsSection() {
       id="larry-jtbd"
       className="relative flex w-full flex-col items-center gap-[56px] overflow-hidden bg-[#f0f0f3] px-[24px] py-[56px] tablet:gap-[60px] tablet:px-[48px] tablet:py-[72px] desktop:gap-[64px] desktop:p-[80px]"
     >
-      <div className="flex w-full max-w-[1080px] flex-col items-center gap-[24px]">
-        <div className="flex w-full flex-col items-start gap-[48px] pb-[24px]">
-          <p className="m-0 w-full text-center font-graphik-medium text-[16px] font-medium uppercase leading-[150%] tracking-[0.1em] text-gray-mid">
+      <div className="flex w-full max-w-[1080px] flex-col items-center md:gap-6 gap-2">
+        <div className="flex w-full flex-col items-start  md:pb-5 pb-2">
+          <p className="m-0 w-full text-center font-graphik-medium md:text-[16px] text-sm font-medium uppercase tracking-[0.1em] text-gray-mid">
             Your AI Booking, Communications, and Marketing Guru
           </p>
         </div>
         <div className="flex w-full flex-col items-center gap-[16px] pb-[16px]">
-          <h3 className="m-0 w-full text-center font-grenette text-[30px] font-normal leading-[120%] tracking-[0] text-ink tablet:text-[36px] desktop:text-[40px]">
+          <h3 className="m-0 w-full text-center font-grenette text-3xl font-normal leading-[120%] tracking-[0] text-ink tablet:text-[36px] desktop:text-[40px]">
             Larry improves operations, customer experience, and profitability
           </h3>
         </div>

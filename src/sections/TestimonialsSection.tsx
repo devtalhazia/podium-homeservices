@@ -302,7 +302,7 @@ export default function TestimonialsSection() {
         transition={{ duration: 0.55, ease: EASE }}
       >
         <div className="w-full h-auto desktop:h-[25px] relative">
-          <h6 className="m-0 font-graphik-medium text-[16px] font-medium tracking-[0.1em] leading-[150%] uppercase text-center text-[rgb(170,170,173)]">
+          <h6 className="m-0 font-graphik-medium md:text-[16px] text-sm font-medium tracking-[0.1em] leading-[150%] uppercase text-center text-[rgb(170,170,173)]">
             Real results for real businesses
           </h6>
         </div>
@@ -313,7 +313,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
         >
-          <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] text-center text-cream">
+          <h2 className="m-0 font-grenette md:text-[46px] text-4xl font-normal leading-[110%] text-center text-cream">
             Trusted by{' '}
             <strong style={{ fontFamily: '"Grenette Bold", "Grenette Bold Placeholder", sans-serif', fontWeight: 700 }}>
               9,000+

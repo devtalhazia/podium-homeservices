@@ -35,7 +35,7 @@ export default function WhyCloseCrewClosesSection() {
 
         {/* bg chat screenshot */}
         <img
-          className="absolute top-0 -left-[240px] -right-[241px] h-[262px] z-0 object-cover aspect-[3.08217] tablet:-left-[99px] tablet:-right-[101px] tablet:h-[283px] desktop:-left-[13px] desktop:-right-[14px] desktop:h-[334px]"
+          className="absolute top-0 left-0 right-0 h-[262px] z-0 object-cover aspect-[3.08217] tablet:-left-[99px] tablet:-right-[101px] tablet:h-[283px] desktop:-left-[13px] desktop:-right-[14px] desktop:h-[334px]"
           src="/images/why-podium-closes-bg.png"
           alt=""
           aria-hidden="true"

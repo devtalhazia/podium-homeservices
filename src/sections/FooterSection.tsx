@@ -128,10 +128,10 @@ export default function FooterSection() {
 
           <div className="flex w-full flex-col items-start justify-end gap-[32px] tablet:flex-row tablet:gap-[24px] desktop:min-w-[500px] desktop:flex-[1_0_0] desktop:gap-[30px]">
             <div className="flex w-full max-w-[265px] flex-col items-start gap-[16px] desktop:flex-[1_0_0]">
-              <h6 className="m-0 w-full break-words whitespace-pre-wrap font-grenette-semi text-[24px] font-semibold leading-[120%] tracking-[0] text-cream">
+              <h6 className="m-0 w-full break-words whitespace-pre-wrap font-grenette-semi md:text-[24px] text-base font-semibold leading-[120%] tracking-[0] text-cream">
                 CloseCrew Home Services
               </h6>
-              <div className="flex w-full flex-col items-start gap-[16px]">
+              <div className="flex w-full flex-col items-start md:gap-[16px] gap-3">
                 {col1Links.map(({ label, href }) => (
                   <a key={label} href={href} className="font-graphik text-[14px] font-normal leading-[18px] tracking-[0] text-[rgb(194,186,171)] no-underline">
                     {label}
@@ -141,10 +141,10 @@ export default function FooterSection() {
             </div>
 
             <div className="flex w-full max-w-[250px] flex-col items-start gap-[16px] desktop:flex-[1_0_0]">
-              <h6 className="m-0 w-full break-words whitespace-pre-wrap font-grenette-semi text-[24px] font-semibold leading-[120%] tracking-[0] text-cream">
+              <h6 className="m-0 w-full break-words whitespace-pre-wrap font-grenette-semi md:text-[24px] text-base font-semibold leading-[120%] tracking-[0] text-cream">
                 Resources
               </h6>
-              <div className="flex w-full flex-col items-start gap-[16px]">
+              <div className="flex w-full flex-col items-start md:gap-[16px] gap-3">
                 {col2Links.map(({ label, href, external }) => (
                   <a
                     key={label}
@@ -161,7 +161,7 @@ export default function FooterSection() {
           </div>
         </div>
 
-        <div className="flex w-full flex-row items-center justify-start gap-[20px] desktop:justify-end">
+        <div className="flex w-full flex-row items-center justify-end gap-[20px]">
           {socialLinks.map(({ label, href, Icon }) => (
             <a
               key={label}

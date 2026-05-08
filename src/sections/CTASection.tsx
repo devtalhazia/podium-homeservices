@@ -31,7 +31,7 @@ export default function CTASection({
         className="pointer-events-none absolute bottom-[-640px] right-[-627px] z-0 h-[1147px] w-[1147px] object-fill"
       />
 
-      <div className="relative z-[1] flex w-full max-w-[1440px] flex-col items-start gap-[32px] overflow-hidden rounded-[24px] p-[28px] tablet:p-[48px] desktop:flex-row desktop:items-center desktop:gap-[48px] desktop:rounded-[32px] desktop:p-[80px]">
+      <div className="relative z-[1] flex w-full max-w-[1440px] flex-col items-start gap-[32px] overflow-hidden rounded-[24px] px-[28px] py-[48px] tablet:p-[48px] desktop:flex-row desktop:items-center desktop:gap-[48px] desktop:rounded-[32px] desktop:p-[80px]">
         <img
           src={CARD_BG}
           alt=""

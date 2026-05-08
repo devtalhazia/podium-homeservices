@@ -104,13 +104,13 @@ function PlanCard({
   return (
     <div className="bg-[#f0f0f3] border border-[#dcdce1] rounded-[16px] flex flex-col items-start gap-[24px] w-full py-[48px] px-[16px] relative overflow-visible">
       {/* Plan Title area */}
-      <div className="flex flex-col items-start gap-[16px] w-full px-[24px] pb-[8px] tablet:px-[20px]">
+      <div className="flex flex-col items-start gap-[16px] w-full pb-[8px] tablet:px-[20px]">
         <h5 className="m-0 font-grenette text-[28px] font-normal leading-[110%] text-ink text-left">
           {name}
         </h5>
         <div className="flex flex-wrap gap-[8px] w-full">
           {tags && tags[0] && (
-            <div className="flex flex-row items-center gap-[3px] px-[6px] py-[2px] bg-[#667e99] border-[0.5px] border-[#b2c3d7] rounded-[4px] overflow-hidden">
+            <div className="flex flex-row items-center gap-[3px] px-[6px] py-[2px] bg-[#2959d0] border-[0.5px] border-[#b2c3d7] rounded-[4px] overflow-hidden">
               <BoltLarge />
               <p className="m-0 font-graphik-medium text-[14px] font-medium leading-[150%] text-white whitespace-nowrap">
                 {tags[0]}
@@ -118,14 +118,14 @@ function PlanCard({
             </div>
           )}
           {tags && tags.slice(1).map((tag) => (
-            <div key={tag} className="flex flex-row items-center px-[6px] py-[2px] bg-[#667e99] border-[0.5px] border-[#b2c3d7] rounded-[4px]">
+            <div key={tag} className="flex flex-row items-center px-[6px] py-[2px] bg-[#2959d0] border-[0.5px] border-[#b2c3d7] rounded-[4px]">
               <p className="m-0 font-graphik-medium text-[14px] font-medium leading-[150%] text-white whitespace-nowrap">
                 {tag}
               </p>
             </div>
           ))}
           {addonTag && (
-            <div className="flex flex-row items-center px-[6px] py-[2px] bg-[#667e99] border border-[#b2c3d7] rounded-[4px] shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+            <div className="flex flex-row items-center px-[6px] py-[2px] bg-[#2959d0] border border-[#b2c3d7] rounded-[4px] shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
               <p className="m-0 font-graphik-medium text-[14px] font-medium leading-[150%] text-white">
                 {addonTag}
               </p>
@@ -135,12 +135,12 @@ function PlanCard({
       </div>
 
       {/* Get a quote button */}
-      <div className="w-full px-[24px]">
+      <div className="w-full md:px-6">
         <a
           href={CTA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-row items-center justify-center w-full px-[24px] py-[14px] bg-crimson rounded-[50px] no-underline cursor-pointer"
+          className="flex flex-row items-center justify-center w-full px-6 py-[14px] bg-crimson rounded-[50px] no-underline cursor-pointer"
         >
           <p className="m-0 font-graphik-semi text-[18px] font-semibold leading-[18px] text-cream text-center whitespace-pre">
             Get a quote
@@ -149,7 +149,7 @@ function PlanCard({
       </div>
 
       {/* Feature Container */}
-      <div className="flex flex-col gap-[32px] w-full px-[24px]">
+      <div className="flex flex-col gap-[32px] w-full md:px-6 px-4">
         {showHeaderImage && (
           <img
             src={CARD_HEADER_IMG}
@@ -181,7 +181,7 @@ function PlanCard({
 export default function PricingCardsSection() {
   return (
     <section className="flex flex-col items-center w-full pb-[40px] tablet:pb-0 desktop:px-[80px]">
-      <div className="flex flex-row items-start justify-start overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-none pb-[16px] gap-[16px] pl-[16px] w-full max-w-[1440px] tablet:justify-center tablet:overflow-x-visible tablet:pb-0 tablet:gap-[16px] tablet:pl-0 tablet:px-[24px] desktop:gap-[30px] desktop:px-0">
+      <div className="flex flex-row items-start justify-start overflow-x-auto [&::-webkit-scrollbar]:hidden scrollbar-none pb-[16px] pl-[16px] w-full max-w-[1440px] tablet:justify-center tablet:overflow-x-visible tablet:pb-0 tablet:gap-[16px] tablet:pl-0 tablet:px-6 desktop:gap-[30px] desktop:px-0">
         <div className="flex-[0_0_320px] min-w-[300px] max-w-[340px] p-[12px] tablet:flex-[1_0_0] tablet:max-w-[520px] tablet:p-[20px]">
           <PlanCard
             name="AI Employee + Booking"
