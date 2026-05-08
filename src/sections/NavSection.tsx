@@ -11,7 +11,7 @@ const SIGN_IN   = 'https://calendly.com/umar-softaims/hvac-automation'
 
 const NAV_LINKS = [
   { label: 'Why CloseCrew?', href: '/why-closecrew' },
-  { label: 'Features',   href: '#larry-jtbd'},
+  { label: 'Features',   href: '/#larry-jtbd'},
   { label: 'Plans',      href: '/plans' },
 ]
 

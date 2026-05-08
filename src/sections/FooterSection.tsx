@@ -88,7 +88,7 @@ const col1Links = [
 ]
 
 const col2Links = [
-  { label: 'Why Larry?', href: '/why-closecrew', external: false },
+  { label: 'Why CloseCrew?', href: '/why-closecrew', external: false },
   { label: 'FAQ',        href: '/#faq',       external: false },
   { label: 'Plans',      href: '/plans',      external: false },
 ]
