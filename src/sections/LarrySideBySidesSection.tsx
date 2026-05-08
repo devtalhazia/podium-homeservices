@@ -20,7 +20,7 @@ const FEATURES: Feature[] = [
   },
   {
     title: 'Handles complex scenarios by using your playbooks',
-    body: 'Larry selects the right playbook based on context from the customer\u2019s question and history, then drives to the outcomes you determine. He reflects how you would handle\u00a0every interaction.',
+    body: 'Larry selects the right playbook based on context from the customer’s question and history, then drives to the outcomes you determine. He reflects how you would handle every interaction.',
     cta: 'Get started with Larry',
     image: '/images/larry-feature-2.png',
     imageAlt: 'Larry AI playbooks',
@@ -44,7 +44,7 @@ const FEATURES: Feature[] = [
   },
   {
     title: 'Gives you complete control and full visibility',
-    body: 'See exactly how Larry reasons through your instructions and simulate changes before they go live\u2014giving you total clarity and confidence in every outcome.',
+    body: 'See exactly how Larry reasons through your instructions and simulate changes before they go live—giving you total clarity and confidence in every outcome.',
     cta: 'See Larry in action',
     image: '/images/larry-feature-5.png',
     imageAlt: 'Larry AI visibility and control',
@@ -54,42 +54,12 @@ const FEATURES: Feature[] = [
 
 function FeatureCard({ feature, bg }: { feature: Feature; bg: string }) {
   const textCol = (
-    <div
-      style={{
-        display: 'flex',
-        flexFlow: 'column',
-        flex: '1 0 0',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        gap: '32px',
-        width: '1px',
-        minWidth: '505px',
-        padding: '0 48px 0 0',
-      }}
-    >
-      <div style={{ display: 'flex', flexFlow: 'column', gap: '16px' }}>
-        <h4
-          style={{
-            fontFamily: '"Grenette Regular", sans-serif',
-            fontSize: '36px',
-            fontWeight: 400,
-            lineHeight: '110%',
-            color: '#1c1b18',
-            margin: 0,
-          }}
-        >
+    <div className="flex flex-col flex-[1_0_0] items-start justify-start gap-[32px] w-full desktop:w-px desktop:min-w-[505px] desktop:pr-[48px]">
+      <div className="flex flex-col gap-[16px]">
+        <h4 className="m-0 font-grenette text-[36px] font-normal leading-[110%] text-[#1c1b18]">
           {feature.title}
         </h4>
-        <p
-          style={{
-            fontFamily: '"Graphik Regular", sans-serif',
-            fontSize: '18px',
-            fontWeight: 400,
-            lineHeight: '150%',
-            color: '#44433f',
-            margin: 0,
-          }}
-        >
+        <p className="m-0 font-graphik text-[18px] font-normal leading-[150%] text-[#44433f]">
           {feature.body}
         </p>
       </div>
@@ -97,16 +67,7 @@ function FeatureCard({ feature, bg }: { feature: Feature; bg: string }) {
         href={DEMO_URL}
         target="_blank"
         rel="noopener noreferrer"
-        style={{
-          fontFamily: '"Graphik Semibold", sans-serif',
-          fontSize: '18px',
-          fontWeight: 600,
-          lineHeight: '18px',
-          color: 'rgb(157, 64, 60)',
-          textDecoration: 'none',
-          borderBottom: '2px solid rgb(157, 64, 60)',
-          paddingBottom: '2px',
-        }}
+        className="font-graphik-semi text-[18px] font-semibold leading-[18px] text-crimson no-underline border-b-2 border-crimson pb-[2px]"
       >
         {feature.cta}
       </a>
@@ -114,53 +75,18 @@ function FeatureCard({ feature, bg }: { feature: Feature; bg: string }) {
   )
 
   const imgCol = (
-    <div
-      style={{
-        display: 'flex',
-        flexFlow: 'column',
-        flex: '1 0 0',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '1px',
-        minWidth: '505px',
-      }}
-    >
+    <div className="flex flex-col flex-[1_0_0] items-center justify-center w-full desktop:w-px desktop:min-w-[505px]">
       <img
         src={feature.image}
         alt={feature.imageAlt}
-        style={{
-          display: 'block',
-          width: '100%',
-          height: 'auto',
-          borderRadius: '16px',
-        }}
+        className="block w-full h-auto rounded-[16px]"
       />
     </div>
   )
 
   return (
-    <div
-      style={{
-        backgroundColor: bg,
-        display: 'flex',
-        flexFlow: 'column',
-        alignItems: 'center',
-        width: '100%',
-        padding: '30px 80px',
-      }}
-    >
-      <div
-        className="larry-sbs-row"
-        style={{
-          display: 'flex',
-          flexFlow: 'row',
-          alignItems: 'center',
-          gap: '30px',
-          width: '100%',
-          maxWidth: '1440px',
-          flexWrap: 'wrap',
-        }}
-      >
+    <div className="flex flex-col items-center w-full px-[24px] py-[30px] tablet:px-[48px] desktop:px-[80px]" style={{ backgroundColor: bg }}>
+      <div className="flex flex-col desktop:flex-row items-center gap-[30px] w-full max-w-[1440px]">
         {feature.imageLeft ? (
           <>
             {imgCol}
@@ -179,56 +105,18 @@ function FeatureCard({ feature, bg }: { feature: Feature; bg: string }) {
 
 export default function LarrySideBySidesSection() {
   return (
-    <div style={{ width: '100%' }}>
-      {/* Section header */}
-      <div
-        style={{
-          backgroundColor: '#ffffff',
-          display: 'flex',
-          flexFlow: 'column',
-          alignItems: 'center',
-          gap: '16px',
-          width: '100%',
-          padding: '80px 80px 24px',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: '"Graphik Semibold", sans-serif',
-            fontSize: '14px',
-            fontWeight: 600,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: '#888',
-            margin: 0,
-            textAlign: 'center',
-          }}
-        >
+    <div className="w-full">
+      <div className="bg-white flex flex-col items-center gap-[16px] w-full px-[24px] pt-[60px] pb-[24px] tablet:px-[48px] tablet:pt-[72px] desktop:px-[80px] desktop:pt-[80px]">
+        <p className="m-0 font-graphik-semi text-[14px] font-semibold tracking-[0.08em] uppercase text-[#888] text-center">
           The #1 Converting AI Employee On The Market
         </p>
-        <h3
-          style={{
-            fontFamily: '"Grenette Regular", sans-serif',
-            fontSize: '46px',
-            fontWeight: 400,
-            lineHeight: '110%',
-            color: '#1c1b18',
-            margin: 0,
-            textAlign: 'center',
-            maxWidth: '800px',
-          }}
-        >
+        <h3 className="m-0 font-grenette text-[46px] font-normal leading-[110%] text-[#1c1b18] text-center max-w-[800px]">
           Larry is the most intelligent AI for home services and fully customized to your business
         </h3>
       </div>
 
-      {/* Feature cards — alternating backgrounds */}
       {FEATURES.map((feature) => (
-        <FeatureCard
-          key={feature.title}
-          feature={feature}
-          bg={'#ffffff'}
-        />
+        <FeatureCard key={feature.title} feature={feature} bg="#ffffff" />
       ))}
     </div>
   )

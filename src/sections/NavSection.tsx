@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const DEMO_URL  = 'https://calendly.com/umar-softaims/hvac-automation'
 const SIGN_IN   = 'https://calendly.com/umar-softaims/hvac-automation'
@@ -19,20 +19,7 @@ const NAV_LINKS = [
 const linkCls = 'flex h-[45px] items-center gap-1 whitespace-nowrap rounded-lg px-[10px] py-[8px] font-graphik-semi text-[16px] leading-[100%] text-cream-white transition-colors hover:bg-white/10'
 
 export default function NavSection() {
-  const [mobileOpen,     setMobileOpen]     = useState(false)
-  const [featuresOpen,   setFeaturesOpen]   = useState(false)
-  const [mobileFeatOpen, setMobileFeatOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    function onClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setFeaturesOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', onClickOutside)
-    return () => document.removeEventListener('mousedown', onClickOutside)
-  }, [])
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     function onResize() { if (window.innerWidth >= 768) setMobileOpen(false) }
