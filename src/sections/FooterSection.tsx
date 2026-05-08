@@ -69,12 +69,12 @@ const PodiumWordmarkSvg = () => (
 const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 const col1Links = [
-  { label: 'Meet Larry',         href: '/ai/larry',  external: false },
+  { label: 'Meet Larry',         href: '/ai/larry',    external: false },
   { label: 'Communications',     href: '/#larry-jtbd', external: false },
   { label: 'Calendar & Booking', href: '/#larry-jtbd', external: false },
   { label: 'Marketing Tools',    href: '/#larry-jtbd', external: false },
-  { label: 'Plans',              href: '/plans',     external: false },
-  { label: 'Contact Sales',      href: DEMO_URL,     external: true },
+  { label: 'Plans',              href: '/plans',        external: false },
+  { label: 'Contact Sales',      href: DEMO_URL,        external: true },
 ]
 
 const col2Links = [
@@ -85,13 +85,13 @@ const col2Links = [
 
 const finePrintLinks = [
   { label: 'Terms & Conditions', href: 'https://softaims.com/terms-and-conditions', external: true },
-  { label: 'Privacy Policy',     href: 'https://softaims.com/privacy-policy', external: true },
+  { label: 'Privacy Policy',     href: 'https://softaims.com/privacy-policy',       external: true },
 ]
 
 const socialLinks: { label: string; href: string; Icon: () => JSX.Element }[] = [
-  { label: 'Facebook',  href: '#', Icon: FacebookIcon },
-  { label: 'Instagram', href: '#', Icon: InstagramIcon },
-  { label: 'LinkedIn',  href: '#', Icon: LinkedInIcon },
+  { label: 'Facebook',    href: '#', Icon: FacebookIcon },
+  { label: 'Instagram',   href: '#', Icon: InstagramIcon },
+  { label: 'LinkedIn',    href: '#', Icon: LinkedInIcon },
   { label: 'X (Twitter)', href: '#', Icon: XIcon },
 ]
 

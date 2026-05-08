@@ -9,7 +9,7 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  headline = 'See how Larry helps grow your revenue by 30% without adding headcount.',
+  headline  = 'See how Larry helps grow your revenue by 30% without adding headcount.',
   buttonText = 'Show me how',
   buttonHref = 'https://calendly.com/umar-softaims/hvac-automation',
 }: CTASectionProps = {}) {

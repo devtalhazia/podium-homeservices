@@ -1,24 +1,3 @@
-// ─── Source ──────────────────────────────────────────────────────────────────
-// Outer section: framer-2lgwja (within framer-1sqbg4q comparison section)
-// why-podium.html position ~287931
-//
-// Layout summary:
-//   framer-2lgwja       — bg:#e8e8ed; flex-col; align-items:center; gap:32px; padding:80px; overflow:hidden
-//   framer-1ur3g84      — flex-col; max-width:1000px; padding:120px 0 20px; position:relative
-//   framer-1hyx1qq      — absolute img; top:0 left:-13px right:-14px; height:334px; aspect-ratio:3.08217
-//   framer-2zddz2       — flex-row; width:min-content (avatar overlay)
-//   framer-o5azrq       — w:255px h:100px (AI employee avatar)
-//   framer-1ol82hi      — width:100% heading wrapper
-//   framer-18n4kb3      — flex-col; align-items:center; gap:16px; padding:0 0 16px
-//   framer-x0g5pw       — flex-row; gap:24px; max-width:1200px; align-items:flex-start
-//   framer-ir41jw/1ombsff/1dns4ox — white cards; border-radius:16px; flex:1 0 0; padding:40px 32px; gap:12px
-//   framer-de4hd6/hggclt/66bprx   — h6 text wrappers (white-space:pre-wrap)
-//   framer-1c5heio/9cwpxo/xyhmvm  — body text wrappers (white-space:pre-wrap)
-//   framer-rd9wgt       — CTA button wrapper; flex:none; width/height:auto
-// ─────────────────────────────────────────────────────────────────────────────
-
-// ─── Feature card data ───────────────────────────────────────────────────────
-// Source: framer-ir41jw, framer-1ombsff, framer-1dns4ox
 const FEATURES = [
   {
     title: 'He answers before your competitors do.',
@@ -34,49 +13,29 @@ const FEATURES = [
   },
 ]
 
-// ─── Feature card sub-component ─────────────────────────────────────────────
 function FeatureCard({ title, body }: { title: string; body: string }) {
   return (
-    <div
-      className="relative flex flex-col items-start gap-[12px] overflow-hidden rounded-[16px] bg-white px-[20px] py-[28px] tablet:px-[28px] tablet:py-[34px] desktop:px-[32px] desktop:py-[40px]"
-    >
-      {/* h6 title — framer-de4hd6/hggclt/66bprx + framer-styles-preset-1963bkz
-          "Grenette SemiBold" fontWeight:600
-          Desktop: 24px  Tablet/mobile: 20px  lineHeight:120%
-          color: #1c1b18 (token-f884ba8b) */}
-      <h6
-        className="m-0 break-words whitespace-pre-wrap font-grenette-semi text-[20px] font-semibold leading-[120%] tracking-[0] text-ink desktop:text-[24px]"
-      >
+    <div className="flex-none w-full tablet:flex-[1_0_0] tablet:w-px tablet:self-stretch bg-white rounded-[16px] flex flex-col items-start gap-[12px] p-[40px_32px] overflow-hidden relative">
+      <h6 className="text-[20px] desktop:text-[24px] m-0 font-grenette-semi font-semibold leading-[120%] tracking-[0] text-ink whitespace-pre-wrap break-words">
         {title}
       </h6>
-
-      {/* body — framer-1c5heio/9cwpxo/xyhmvm + framer-styles-preset-zmyn5w
-          "Graphik Regular" fontWeight:400
-          Desktop: 16px  Mobile: 14px  lineHeight:150%  textAlign:left
-          color: rgb(78,74,68) (token-5ab45095) */}
-      <p
-        className="m-0 break-words whitespace-pre-wrap text-left font-graphik text-[14px] font-normal leading-[150%] text-[rgb(78,74,68)] desktop:text-[16px]"
-      >
+      <p className="text-[14px] tablet:text-[16px] m-0 font-graphik font-normal leading-[150%] text-ink-soft whitespace-pre-wrap break-words text-left">
         {body}
       </p>
     </div>
   )
 }
 
-// ─── Main export ─────────────────────────────────────────────────────────────
 export default function WhyPodiumClosesSection() {
   return (
-    <section
-      className="relative flex w-full flex-col items-center gap-[32px] overflow-hidden bg-[#e8e8ed] px-[24px] py-[56px] tablet:px-[48px] tablet:py-[64px] desktop:p-[80px]"
-    >
-      {/* ── Image frame — framer-1ur3g84 ──────────────────────────────────── */}
-      {/* flex-col; max-width:1000px; width:100%; padding:120px 0 20px; relative */}
-      <div className="relative flex w-full max-w-[1000px] shrink-0 flex-col items-center gap-0 overflow-visible pb-[20px] pt-[80px] desktop:pt-[120px]">
-        {/* ── Background chat screenshot — framer-1hyx1qq ──────────────────── */}
-        {/* absolute; top:0 left:-13px right:-14px; aspect-ratio:3.08217; height:334px */}
-        {/* Responsive sizes handled by .wp-closes-bg-img CSS class */}
+    <section className="px-[24px] py-[48px] tablet:px-[48px] tablet:py-[72px] desktop:p-[80px] relative w-full flex flex-col place-content-start items-center gap-[32px] overflow-hidden bg-[#e8e8ed]">
+
+      {/* image frame */}
+      <div className="relative flex flex-col place-content-center items-center gap-0 w-full max-w-[1000px] pt-[120px] pb-[20px] shrink-0 overflow-visible">
+
+        {/* bg chat screenshot */}
         <img
-          className="absolute left-[-14px] right-[-14px] top-0 h-[220px] w-auto aspect-[3.08217] object-cover tablet:h-[280px] desktop:h-[334px]"
+          className="absolute top-0 -left-[240px] -right-[241px] h-[262px] z-0 object-cover aspect-[3.08217] tablet:-left-[99px] tablet:-right-[101px] tablet:h-[283px] desktop:-left-[13px] desktop:-right-[14px] desktop:h-[334px]"
           src="/images/why-podium-closes-bg.png"
           alt=""
           aria-hidden="true"
@@ -123,10 +82,8 @@ export default function WhyPodiumClosesSection() {
         </p>
       </div>
 
-      {/* ── Feature cards row — framer-x0g5pw ───────────────────────────── */}
-      {/* Desktop flex-row; gap:24px; max-width:1200px; align-items:flex-start */}
-      {/* Mobile → flex-direction:column via .wp-closes-cards-row            */}
-      <div className="flex w-full max-w-[1200px] shrink-0 flex-col items-start justify-start gap-[12px] bg-transparent tablet:gap-[16px] desktop:flex-row desktop:items-start desktop:justify-center desktop:gap-[24px]">
+      {/* feature cards row */}
+      <div className="flex-col tablet:flex-row w-full max-w-[1200px] flex place-content-start items-start gap-[24px] bg-transparent shrink-0">
         {FEATURES.map((f, i) => (
           <FeatureCard key={i} title={f.title} body={f.body} />
         ))}

@@ -37,7 +37,6 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ]
 
-/* ── Plus/Minus icon (28×28, lines are 2×12 px, color rgb(78,97,118)) ── */
 function AccordionIcon({ open }: { open: boolean }) {
   return (
     <button
@@ -52,7 +51,6 @@ function AccordionIcon({ open }: { open: boolean }) {
   )
 }
 
-/* ── Single accordion item ── */
 function AccordionItem({ item }: { item: FaqItem }) {
   const [open, setOpen] = useState(true)
 
@@ -83,7 +81,6 @@ function AccordionItem({ item }: { item: FaqItem }) {
   )
 }
 
-/* ── Main component ── */
 export default function FAQSection() {
   return (
     <section
