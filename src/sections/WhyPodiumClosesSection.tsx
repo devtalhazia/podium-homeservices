@@ -26,7 +26,7 @@ function FeatureCard({ title, body }: { title: string; body: string }) {
   )
 }
 
-export default function WhyPodiumClosesSection() {
+export default function WhyCloseCrewClosesSection() {
   return (
     <section className="px-[24px] py-[48px] tablet:px-[48px] tablet:py-[72px] desktop:p-[80px] relative w-full flex flex-col place-content-start items-center gap-[32px] overflow-hidden bg-[#e8e8ed]">
 

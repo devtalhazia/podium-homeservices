@@ -29,7 +29,7 @@ const CARDS: StatCard[] = [
     image: '/images/why-podium-stats-air-texas.png',
     primaryStat: '$20,000',
     secondaryStat: 'job booked after hours',
-    description: 'A lead came in after the office closed. Larry answered, qualified, and booked it. Without Podium, it goes to voicemail.',
+    description: 'A lead came in after the office closed. Larry answered, qualified, and booked it. Without CloseCrew, it goes to voicemail.',
     attribution: 'Air Texas',
   },
   {
@@ -139,7 +139,7 @@ function StatCardItem({ card }: { card: StatCard }) {
   )
 }
 
-export default function WhyPodiumStatsSection() {
+export default function WhyCloseCrewStatsSection() {
   return (
     <section className="relative w-full flex flex-col items-center gap-[96px] overflow-clip bg-[#18181c] px-0 pt-[48px] pb-[48px] tablet:pt-[72px] tablet:pb-[72px] desktop:p-[80px] box-border">
       {/* Blue fade */}

@@ -10,7 +10,7 @@ const SIGN_IN   = 'https://calendly.com/umar-softaims/hvac-automation'
 // ]
 
 const NAV_LINKS = [
-  { label: 'Why Larry?', href: '/why-podium' },
+  { label: 'Why CloseCrew?', href: '/why-closecrew' },
   { label: 'Features',   href: '#larry-jtbd'},
   { label: 'Plans',      href: '/plans' },
 ]
@@ -33,7 +33,7 @@ export default function NavSection() {
     >
 
       {/* ── Desktop bar (tablet+) ── */}
-      <div className="hidden tablet:flex items-center py-[12px] px-[30px] max-w-[1440px] mx-auto">
+      <div className="hidden tablet:flex items-center py-[12px]  max-w-[1440px] mx-auto">
 
         {/* Logo — 238×20px SVG, white fill */}
         <a href="/" className="flex shrink-0 items-center py-[7px]">
@@ -134,7 +134,7 @@ export default function NavSection() {
 
       {/* ── Mobile drawer ── */}
       {mobileOpen && (
-        <div className="tablet:hidden flex flex-col border-t border-white/10 bg-nav px-5 pb-6">
+        <div className="tablet:hidden flex flex-col border-t border-white/10 bg-nav px-5 pb-6 h-screen">
           {/* Meet Larry */}
           <a
             href="/ai/larry"
@@ -157,12 +157,12 @@ export default function NavSection() {
               </a>
             ))}
 
-          <div className="pt-5 flex flex-col gap-3">
+          <div className="pt-5 flex flex-row gap-3 ">
             <a
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-[50px] bg-crimson px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
+              className="rounded-[50px] bg-crimson px-[24px] py-[10px] flex items-center justify-center text-center font-graphik-semi text-[14px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Watch a demo
             </a>

@@ -226,8 +226,8 @@ Extract all CSS measurements from dump. Download plan-section images to `public/
 #### Task 5: FooterSection — site-wide footer
 
 **Description:** Build `FooterSection.tsx` from `Copyright Bar` section in dump (430692+ offset). Footer has:
-- Left: Podium logo
-- Nav columns: "Podium Home Services" (Meet Larry, Communications, Calendar & Booking, Marketing Tools, Plans, Contact Sales), "Resources" (Podium Home, Blogs & Guides, Download Podium Apps)
+- Left: CloseCrew logo
+- Nav columns: "CloseCrew Home Services" (Meet Larry, Communications, Calendar & Booking, Marketing Tools, Plans, Contact Sales), "Resources" (CloseCrew Home, Blogs & Guides, Download CloseCrew Apps)
 - Social icons: Facebook, Instagram, X/Twitter
 - Bottom bar: copyright text + Privacy Policy, Terms, Sitemap, Privacy Center links
 

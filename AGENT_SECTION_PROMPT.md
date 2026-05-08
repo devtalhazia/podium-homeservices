@@ -14,7 +14,7 @@ You are building a pixel-perfect React section for a marketing landing page. The
 
 ### Project context
 
-- Working directory: `/Users/dev/Documents/Projects/podium-homeservices`
+- Working directory: `/Users/dev/Documents/Projects/closecrew-homeservices`
 - Source of truth for all measurements: `dump/homeservices.podium.com/index.html` (786 KB Framer SSR HTML — this is the authoritative reference, do not guess any value)
 - Fonts declared in `src/styles/globals.css` via `@font-face`, files in `public/fonts/`
 - Tailwind named colors: `nav`, `ink`, `cream`, `crimson`. Named fonts: `graphik`, `grenette`, `editors-note`, `fragment-mono`

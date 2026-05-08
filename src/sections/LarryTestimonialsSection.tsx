@@ -39,10 +39,10 @@ function Attribution({ author, company }: { author: string; company: string }) {
 
 function QuoteContent({ quote, author, company }: { quote: string; author: string; company: string }) {
   return (
-    <div className="flex flex-row flex-[1_0_0] place-content-[flex-start_flex-end] items-start gap-[24px] w-px relative z-[2]">
+    <div className="relative z-[2] flex w-full flex-row items-start gap-[16px] desktop:w-px desktop:flex-[1_0_0] desktop:gap-[24px]">
       <QuoteMarks />
-      <div className="flex flex-col flex-[1_0_0] place-content-[flex-start_flex-end] items-start gap-[24px] w-px">
-        <p className="m-0 font-graphik text-[19px] font-normal leading-[150%] text-white w-full">{quote}</p>
+      <div className="flex w-full flex-col items-start gap-[20px] desktop:w-px desktop:flex-[1_0_0] desktop:gap-[24px]">
+        <p className="m-0 w-full font-graphik text-[16px] font-normal leading-[150%] text-white desktop:text-[19px]">{quote}</p>
         <Attribution author={author} company={company} />
       </div>
     </div>
@@ -51,7 +51,7 @@ function QuoteContent({ quote, author, company }: { quote: string; author: strin
 
 function GlassCard({ quote, author, company }: { quote: string; author: string; company: string }) {
   return (
-    <div className="flex-[1_0_0] w-px self-stretch rounded-[24px] bg-[linear-gradient(180deg,rgba(61,57,53,0.25)_0%,rgba(127,121,105,0.25)_100%)] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.16)] flex flex-row place-content-end items-end gap-[48px] p-[40px] relative overflow-hidden cursor-pointer">
+    <div className="relative flex w-full cursor-pointer flex-row items-end gap-[32px] self-stretch overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,rgba(61,57,53,0.25)_0%,rgba(127,121,105,0.25)_100%)] p-[24px] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.16)] desktop:w-px desktop:flex-[1_0_0] desktop:gap-[48px] desktop:p-[40px]">
       <GlassInner />
       <div className="absolute -top-[78px] left-0 right-0 bottom-0 z-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0)_100%)] opacity-25 pointer-events-none" />
       <QuoteContent quote={quote} author={author} company={company} />
@@ -61,7 +61,7 @@ function GlassCard({ quote, author, company }: { quote: string; author: string; 
 
 function ImageCard({ quote, author, company, image }: { quote: string; author: string; company: string; image: string }) {
   return (
-    <div className="flex-[2_0_0] w-px h-[380px] rounded-[24px] bg-[rgb(195,195,200)] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.16)] flex flex-row place-content-end items-end gap-[48px] p-[40px] relative overflow-hidden cursor-pointer">
+    <div className="relative flex h-[320px] w-full cursor-pointer flex-row items-end gap-[32px] overflow-hidden rounded-[24px] bg-[rgb(195,195,200)] p-[24px] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.16)] tablet:h-[360px] desktop:h-[380px] desktop:w-px desktop:flex-[2_0_0] desktop:gap-[48px] desktop:p-[40px]">
       <div className="absolute inset-0 z-0">
         <img src={image} alt="" className="block w-full h-full object-cover object-center" style={{ borderRadius: 'inherit' }} />
       </div>
@@ -73,7 +73,7 @@ function ImageCard({ quote, author, company, image }: { quote: string; author: s
 
 function ImageQuoteCard({ quote, author, company, image }: { quote: string; author: string; company: string; image: string }) {
   return (
-    <div className="flex-[2_0_0] w-px rounded-[24px] bg-[rgb(195,195,200)] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.16)] flex flex-row place-content-end items-end gap-[48px] p-[40px] relative overflow-hidden min-h-[320px] cursor-pointer">
+    <div className="relative flex w-full cursor-pointer flex-row items-end gap-[32px] overflow-hidden rounded-[24px] bg-[rgb(195,195,200)] p-[24px] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.16)] min-h-[320px] desktop:w-px desktop:flex-[2_0_0] desktop:gap-[48px] desktop:p-[40px]">
       <div className="absolute inset-0 z-0">
         <img src={image} alt="" className="block w-full h-full object-cover object-center" style={{ borderRadius: 'inherit' }} />
       </div>
@@ -85,28 +85,28 @@ function ImageQuoteCard({ quote, author, company, image }: { quote: string; auth
 
 export default function LarryTestimonialsSection() {
   return (
-    <section className="bg-[#18181c] flex flex-col place-content-[center_flex-start] items-center gap-[64px] w-full p-[80px] overflow-hidden relative">
+    <section className="relative flex w-full flex-col items-center gap-[56px] overflow-hidden bg-[#18181c] px-[24px] py-[56px] tablet:gap-[60px] tablet:px-[48px] tablet:py-[64px] desktop:gap-[64px] desktop:p-[80px]">
       {/* Blue fade top-left */}
-      <div className="absolute w-[1192px] h-[1049px] top-0 left-0 z-0 pointer-events-none">
+      <div className="absolute left-[-180px] top-0 z-0 h-[780px] w-[860px] pointer-events-none tablet:left-[-90px] tablet:h-[920px] tablet:w-[1020px] desktop:left-0 desktop:h-[1049px] desktop:w-[1192px]">
         <img src="/images/larry-testimonials-blue-fade.png" alt="" className="w-full h-full object-cover" />
       </div>
       {/* Red fade bottom-right */}
-      <div className="absolute bottom-0 left-[508px] right-0 z-0 pointer-events-none">
+      <div className="absolute bottom-0 left-[20%] right-0 z-0 pointer-events-none desktop:left-[508px]">
         <img src="/images/larry-testimonials-red-fade.png" alt="" className="w-full h-full object-cover" />
       </div>
       {/* Carbon texture */}
-      <div className="absolute top-0 left-0 right-0 h-[560px] z-0 pointer-events-none">
+      <div className="absolute left-0 right-0 top-0 z-0 h-[420px] pointer-events-none tablet:h-[500px] desktop:h-[560px]">
         <img src="/images/larry-hero-bg.png" alt="" className="w-full h-full object-cover" />
       </div>
 
       <div className="max-w-[1440px] flex flex-col items-center gap-[30px] w-full relative z-[1]">
         {/* Heading */}
-        <div className="flex flex-col gap-[48px] pb-[24px] w-full items-center">
+        <div className="flex w-full flex-col items-center gap-[36px] pb-[24px] tablet:gap-[40px] desktop:gap-[48px]">
           <div className="flex flex-col items-center gap-[16px] pb-[16px]">
             <h6 className="m-0 font-graphik-medium text-[16px] font-medium tracking-[0.1em] uppercase text-[rgb(170,170,173)]">
               AI that drives results
             </h6>
-            <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] text-white text-center">
+            <h2 className="m-0 text-center font-grenette text-[30px] font-normal leading-[110%] text-white tablet:text-[38px] desktop:text-[46px]">
               What our customers are saying about Larry
             </h2>
           </div>

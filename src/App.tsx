@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Plans from './pages/Plans'
 import Larry from './pages/Larry'
-import WhyPodium from './pages/WhyPodium'
+import WhyCloseCrew from './pages/WhyPodium'
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/ai/larry" element={<Larry />} />
-        <Route path="/why-podium" element={<WhyPodium />} />
+        <Route path="/why-closecrew" element={<WhyCloseCrew />} />
       </Routes>
     </BrowserRouter>
   )

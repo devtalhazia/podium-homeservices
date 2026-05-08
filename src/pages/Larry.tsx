@@ -8,7 +8,7 @@ import FooterSection from '../sections/FooterSection'
 
 export default function Larry() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#18181c]">
+    <div className="min-h-screen bg-[#18181c]">
       <NavSection />
       <LarryHeroSection />
       <LarryVideoSection />

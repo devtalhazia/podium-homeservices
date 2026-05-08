@@ -1,28 +1,28 @@
 import NavSection from '../sections/NavSection'
-import WhyPodiumHeroSection from '../sections/WhyPodiumHeroSection'
-import WhyPodiumComparisonSection from '../sections/WhyPodiumComparisonSection'
-import WhyPodiumClosesSection from '../sections/WhyPodiumClosesSection'
-import WhyPodiumStatsSection from '../sections/WhyPodiumStatsSection'
-import WhyPodiumWorksSection from '../sections/WhyPodiumWorksSection'
+import WhyCloseCrewHeroSection from '../sections/WhyPodiumHeroSection'
+import WhyCloseCrewComparisonSection from '../sections/WhyPodiumComparisonSection'
+import WhyCloseCrewClosesSection from '../sections/WhyPodiumClosesSection'
+import WhyCloseCrewStatsSection from '../sections/WhyPodiumStatsSection'
+import WhyCloseCrewWorksSection from '../sections/WhyPodiumWorksSection'
 import CTASection from '../sections/CTASection'
-import WhyPodiumFaqSection from '../sections/WhyPodiumFaqSection'
+import WhyCloseCrewFaqSection from '../sections/WhyPodiumFaqSection'
 import FooterSection from '../sections/FooterSection'
 
-export default function WhyPodium() {
+export default function WhyCloseCrew() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#18181c]">
+    <div className="min-h-screen  bg-[#18181c]">
       <NavSection />
-      <WhyPodiumHeroSection />
-      <WhyPodiumComparisonSection />
-      <WhyPodiumClosesSection />
-      <WhyPodiumStatsSection />
-      <WhyPodiumWorksSection />
+      <WhyCloseCrewHeroSection />
+      <WhyCloseCrewComparisonSection />
+      <WhyCloseCrewClosesSection />
+      <WhyCloseCrewStatsSection />
+      <WhyCloseCrewWorksSection />
       <CTASection
         headline="Your best employee doesn't take days off. Ready to hire Larry and grow your business?"
         buttonText="Get a demo"
         buttonHref="https://calendly.com/umar-softaims/hvac-automation"
       />
-      <WhyPodiumFaqSection />
+      <WhyCloseCrewFaqSection />
       <FooterSection />
     </div>
   )

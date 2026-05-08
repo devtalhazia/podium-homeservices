@@ -338,7 +338,7 @@ export default function TestimonialsSection() {
         >
           <div className="flex flex-col items-center justify-center gap-[16px] w-full p-[44px_28px] desktop:p-[48px_32px] box-border">
             <h6 style={cardTitleStyle}>Premium onboarding</h6>
-            <p style={cardBodyStyle}>Our white-glove onboarding service ensures you're set up for success. You'll have a Podium team member available every step.</p>
+            <p style={cardBodyStyle}>Our white-glove onboarding service ensures you're set up for success. You'll have a CloseCrew team member available every step.</p>
           </div>
         </motion.div>
 
@@ -380,7 +380,7 @@ export default function TestimonialsSection() {
         >
           <div className="flex flex-col items-center justify-center gap-[16px] w-full p-[44px_28px] desktop:p-[48px_32px] box-border">
             <h6 style={cardTitleStyle}>Works with your systems</h6>
-            <p style={cardBodyStyle}>Podium integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.</p>
+            <p style={cardBodyStyle}>CloseCrew integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.</p>
           </div>
         </motion.div>
       </div>

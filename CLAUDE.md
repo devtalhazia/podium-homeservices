@@ -19,7 +19,7 @@ No test runner, no linter config (one `// biome-ignore` comment exists in source
 
 ## Architecture
 
-This is a marketing landing page for Podium's "Larry AI" product. It has a dual rendering architecture — most of the page is injected Framer HTML, but sections are being progressively replaced with React components.
+This is a marketing landing page for CloseCrew's "Larry AI" product. It has a dual rendering architecture — most of the page is injected Framer HTML, but sections are being progressively replaced with React components.
 
 ### Framer-HTML path (current `Home` page)
 

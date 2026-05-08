@@ -10,8 +10,8 @@ const BADGES = [
 
 export default function AwardBadgesSection() {
   return (
-    <section className="flex w-full justify-center px-[80px] pb-[80px] pt-[64px]">
-      <div className="flex w-full max-w-[800px] flex-wrap content-start items-start justify-center gap-[48px]">
+    <section className="flex w-full justify-center px-[24px] pb-[56px] pt-[40px] tablet:px-[48px] tablet:pb-[64px] tablet:pt-[48px] desktop:px-[80px] desktop:pb-[80px] desktop:pt-[64px]">
+      <div className="flex w-full max-w-[800px] flex-wrap content-start items-start justify-center gap-[24px] tablet:gap-[32px] desktop:gap-[48px]">
         {BADGES.map((badge, i) => (
           <img
             key={i}
@@ -19,7 +19,7 @@ export default function AwardBadgesSection() {
             alt={badge.alt}
             width={badge.width}
             height={badge.height}
-            className="block shrink-0 object-cover"
+            className="block h-[76px] w-auto shrink-0 object-cover tablet:h-[90px] desktop:h-auto"
           />
         ))}
       </div>

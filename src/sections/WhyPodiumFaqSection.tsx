@@ -17,19 +17,19 @@ const FAQS: FaqItem[] = [
       "Larry never sleeps. When your office closes, he keeps working — answering every inbound call, qualifying leads, and booking jobs directly into your field management software. Missed calls are missed revenue. Larry makes sure you capture every opportunity, whether it's 2pm or 2am.",
   },
   {
-    question: 'What happens to our customer data when we switch to Podium?',
+    question: 'What happens to our customer data when we switch to CloseCrew?',
     answer:
       'Your data moves with you. Our onboarding team handles the migration from your existing software, bringing over customer records, job history, and contacts. We work with your team until everything is set up and verified before you go live.',
   },
   {
     question: 'Will we experience downtime?',
     answer:
-      'No. Podium is designed for a smooth, parallel transition. Your team stays live on your current system while we set up Podium. We only cut over when you are fully ready and confident.',
+      'No. CloseCrew is designed for a smooth, parallel transition. Your team stays live on your current system while we set up CloseCrew. We only cut over when you are fully ready and confident.',
   },
   {
     question: 'Will my team struggle to learn a new system?',
     answer:
-      'Most technicians and CSRs are up and running within a day. Podium is built for the field, not for IT teams. Training is included, and you will have a dedicated contact to help your team get comfortable quickly.',
+      'Most technicians and CSRs are up and running within a day. CloseCrew is built for the field, not for IT teams. Training is included, and you will have a dedicated contact to help your team get comfortable quickly.',
   },
   {
     question:
@@ -38,7 +38,7 @@ const FAQS: FaqItem[] = [
       'AI only works when it has access to your full business. When calls, texts, reviews, payments, and booking all live in one place, Larry can act on them automatically. Disconnected tools create gaps that no AI can bridge.',
   },
   {
-    question: 'How does Podium help HVAC businesses grow memberships?',
+    question: 'How does CloseCrew help HVAC businesses grow memberships?',
     answer:
       'Larry follows up with every customer who is a fit for a membership plan — automatically, at the right time. He identifies the opportunity, sends the message, and books the conversation. Your team focuses on closing; Larry handles the outreach.',
   },
@@ -92,7 +92,7 @@ function FaqRow({ item, isOpen, onToggle }: { item: FaqItem; isOpen: boolean; on
   )
 }
 
-export default function WhyPodiumFaqSection() {
+export default function WhyCloseCrewFaqSection() {
   const [openIndex, setOpenIndex] = useState(0)
   const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? -1 : i))
 
