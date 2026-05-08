@@ -1,39 +1,19 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const DEMO_URL  = 'https://calendly.com/umar-softaims/hvac-automation'
 const SIGN_IN   = 'https://auth.podium.com/'
 
-const FEATURES = [
-  { label: 'Communications',     href: 'https://homeservices.podium.com/features/communications' },
-  { label: 'Marketing Tools',    href: 'https://homeservices.podium.com/features/marketing-tools' },
-  { label: 'Booking & Payments', href: 'https://homeservices.podium.com/features/booking-and-payments' },
-]
-
 const NAV_LINKS = [
-  { label: 'Why Podium?', href: 'https://homeservices.podium.com/why-podium' },
-  { label: 'Features',    href: '#', dropdown: FEATURES },
+  { label: 'Why CloseCrew?', href: 'https://homeservices.podium.com/why-podium' },
+  { label: 'Features',    href: 'https://homeservices.podium.com/features/communications' },
   { label: 'Plans',       href: 'https://homeservices.podium.com/plans' },
-  { label: 'Resources',   href: 'https://homeservices.podium.com/resources' },
 ]
 
 // Nav link: padding:8px 10px, height:45px, Graphik weight-600 16px 100% line-height
-const linkCls = 'flex h-[45px] items-center gap-1 whitespace-nowrap rounded-lg px-[10px] py-[8px] font-graphik-semi text-[16px] leading-[100%] text-cream-white transition-colors hover:bg-white/10'
+const linkCls = 'flex h-[45px] items-center gap-1 whitespace-nowrap rounded-lg px-[10px] py-[8px] font-graphik-semi text-[16px] leading-[100%] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]'
 
 export default function NavSection() {
-  const [mobileOpen,     setMobileOpen]     = useState(false)
-  const [featuresOpen,   setFeaturesOpen]   = useState(false)
-  const [mobileFeatOpen, setMobileFeatOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    function onClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setFeaturesOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', onClickOutside)
-    return () => document.removeEventListener('mousedown', onClickOutside)
-  }, [])
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     function onResize() { if (window.innerWidth >= 768) setMobileOpen(false) }
@@ -53,7 +33,7 @@ export default function NavSection() {
         <a href="/" className="flex shrink-0 items-center py-[7px]">
           <img
             src="/images/logo-white.svg"
-            alt="Podium Home Services"
+            alt="CloseCrew Home Services"
             className="h-[20px] w-[238px]"
           />
         </a>
@@ -67,7 +47,7 @@ export default function NavSection() {
             {/* Meet Larry — icon 24×24 + Grenette SemiBold Italic */}
             <a
               href="https://homeservices.podium.com/ai/larry"
-              className="flex items-center gap-[8px] rounded-lg px-[10px] py-[8px] transition-colors hover:bg-white/10"
+              className="flex items-center gap-[8px] rounded-lg px-[10px] py-[8px] transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               <img
                 src="/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg"
@@ -82,46 +62,11 @@ export default function NavSection() {
             </a>
 
             {/* Standard nav links */}
-            {NAV_LINKS.map((item) =>
-              item.dropdown ? (
-                <div key={item.label} ref={dropdownRef} className="relative flex h-[44px] items-center">
-                  <button
-                    onClick={() => setFeaturesOpen((v) => !v)}
-                    className={linkCls}
-                  >
-                    {item.label}
-                    <svg
-                      className={`w-3 h-3 transition-transform duration-150 ${featuresOpen ? 'rotate-180' : ''}`}
-                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-
-                  {featuresOpen && (
-                    <div className="absolute left-0 top-full z-50 mt-1 w-52 rounded-[12px] border border-white/10 bg-[#222228] py-2 shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
-                      {item.dropdown.map((sub) => (
-                        <a
-                          key={sub.label}
-                          href={sub.href}
-                          className="block px-4 py-[10px] font-graphik text-[14px] text-white/70 transition-colors hover:bg-white/5 hover:text-white"
-                        >
-                          {sub.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={linkCls}
-                >
-                  {item.label}
-                </a>
-              )
-            )}
+            {NAV_LINKS.map((item) => (
+              <a key={item.label} href={item.href} className={linkCls}>
+                {item.label}
+              </a>
+            ))}
           </div>
 
           {/* Right: Watch a demo + Sign in — gap:12px */}
@@ -131,7 +76,7 @@ export default function NavSection() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="whitespace-nowrap rounded-[50px] bg-crimson px-[24px] py-[8px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-opacity hover:opacity-90"
+              className="whitespace-nowrap rounded-[50px] bg-crimson px-[24px] py-[8px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Watch a demo
             </a>
@@ -141,7 +86,7 @@ export default function NavSection() {
               href={SIGN_IN}
               target="_blank"
               rel="noopener noreferrer"
-              className="whitespace-nowrap rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[6px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-opacity hover:opacity-90"
+              className="whitespace-nowrap rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[6px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Sign in
             </a>
@@ -154,7 +99,7 @@ export default function NavSection() {
         <a href="/">
           <img
             src="/images/logo-white.svg"
-            alt="Podium Home Services"
+            alt="CloseCrew Home Services"
             className="h-[13px] w-[160px]"
           />
         </a>
@@ -189,36 +134,7 @@ export default function NavSection() {
             </span>
           </a>
 
-          {NAV_LINKS.map((item) =>
-            item.dropdown ? (
-              <div key={item.label}>
-                <button
-                  onClick={() => setMobileFeatOpen((v) => !v)}
-                  className="flex w-full items-center justify-between py-3 font-graphik-semi text-[16px] leading-[100%] text-white/80 hover:text-white"
-                >
-                  {item.label}
-                  <svg
-                    className={`w-4 h-4 transition-transform ${mobileFeatOpen ? 'rotate-180' : ''}`}
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {mobileFeatOpen && (
-                  <div className="pl-4 flex flex-col pb-2">
-                    {item.dropdown.map((sub) => (
-                      <a
-                        key={sub.label}
-                        href={sub.href}
-                        className="py-2 font-graphik text-[14px] text-white/60 hover:text-white"
-                      >
-                        {sub.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
+          {NAV_LINKS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
@@ -226,15 +142,14 @@ export default function NavSection() {
               >
                 {item.label}
               </a>
-            )
-          )}
+            ))}
 
           <div className="pt-5 flex flex-col gap-3">
             <a
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-[50px] bg-crimson px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-opacity hover:opacity-90"
+              className="rounded-[50px] bg-crimson px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Watch a demo
             </a>
@@ -242,7 +157,7 @@ export default function NavSection() {
               href={SIGN_IN}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-opacity hover:opacity-90"
+              className="rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Sign in
             </a>

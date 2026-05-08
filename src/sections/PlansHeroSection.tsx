@@ -1,159 +1,39 @@
-import '../styles/plans-hero.css'
-
 const BG = '/images/plans-hero-bg.png'
 
 export default function PlansHeroSection() {
   return (
-    <section
-      className="plans-hero-section"
-      style={{
-        backgroundColor: '#18181c',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '100%',
-        padding: '80px 80px 0',
-        position: 'relative',
-        zIndex: 0,
-      }}
-    >
-      {/* Blue glow blob */}
+    <section className="relative z-0 flex w-full flex-col items-center bg-[#18181c] px-[80px] pb-0 pt-[80px]">
       <div
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          width: 757,
-          height: 757,
-          borderRadius: '100%',
-          backgroundColor: '#284568',
-          filter: 'blur(125px)',
-          top: -279,
-          left: -327,
-          zIndex: 0,
-          pointerEvents: 'none',
-        }}
+        className="pointer-events-none absolute left-[-327px] top-[-279px] z-0 h-[757px] w-[757px] rounded-full bg-[#284568] blur-[125px]"
       />
 
-      {/* Red/crimson glow blob */}
       <div
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          width: 731,
-          height: 731,
-          borderRadius: '100%',
-          backgroundColor: '#653130',
-          filter: 'blur(125px)',
-          top: 'calc(24.2%)',
-          right: -422,
-          zIndex: 0,
-          pointerEvents: 'none',
-        }}
+        className="pointer-events-none absolute right-[-422px] top-[24.2%] z-0 h-[731px] w-[731px] rounded-full bg-[#653130] blur-[125px]"
       />
 
-      {/* Carbon background image */}
-      <div
-        className="plans-hero-bg"
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 578,
-          zIndex: 0,
-          pointerEvents: 'none',
-          overflow: 'hidden',
-        }}
-      >
+      <div className="pointer-events-none absolute left-0 right-0 top-0 z-0 h-[578px] overflow-hidden" aria-hidden="true">
         <img
           src={BG}
           alt=""
-          style={{
-            display: 'block',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center top',
-          }}
+          className="block h-full w-full object-cover object-top"
         />
       </div>
 
-      {/* Text content */}
-      <div
-        className="plans-hero-text"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: 1080,
-          maxWidth: '100%',
-          position: 'relative',
-          zIndex: 1,
-          paddingBottom: 64,
-        }}
-      >
-        {/* Preheader */}
-        <div style={{ width: '100%', paddingBottom: 24 }}>
-          <p
-            className="plans-hero-preheader"
-            style={{
-              margin: 0,
-              fontFamily: '"Graphik Medium", "Graphik Medium Placeholder", sans-serif',
-              fontSize: 16,
-              fontWeight: 500,
-              lineHeight: '150%',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              textAlign: 'center',
-              color: 'rgb(170, 170, 173)',
-            }}
-          >
+      <div className="relative z-[1] flex w-[1080px] max-w-full flex-col items-center pb-[64px]">
+        <div className="w-full pb-[24px]">
+          <p className="m-0 text-center font-graphik-medium text-[16px] font-medium uppercase leading-[150%] tracking-[0.1em] text-[rgb(170,170,173)]">
             Get started today
           </p>
         </div>
 
-        {/* Heading + subheader */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 16,
-            width: '100%',
-          }}
-        >
-          <h2
-            className="plans-hero-heading"
-            style={{
-              margin: 0,
-              width: '100%',
-              fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-              fontSize: 46,
-              fontWeight: 400,
-              lineHeight: '110%',
-              letterSpacing: '0px',
-              textAlign: 'center',
-              color: 'rgb(255, 255, 255)',
-            }}
-          >
+        <div className="flex w-full flex-col items-center gap-[16px]">
+          <h2 className="m-0 w-full text-center font-grenette text-[46px] font-normal leading-[110%] tracking-[0] text-white">
             Agents and platform packages built for home services
           </h2>
 
-          <p
-            className="plans-hero-subheader"
-            style={{
-              margin: 0,
-              width: '100%',
-              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-              fontSize: 16,
-              fontWeight: 400,
-              lineHeight: '150%',
-              letterSpacing: '0em',
-              textAlign: 'center',
-              color: 'rgb(232, 232, 232)',
-            }}
-          >
+          <p className="m-0 w-full text-center font-graphik text-[16px] font-normal leading-[150%] tracking-[0] text-[rgb(232,232,232)]">
             Grow your revenue with Larry, the AI Employee that communicates
             with customers, books into your calendar, and keeps you updated
             in real time. Start generating 30% more revenue today.

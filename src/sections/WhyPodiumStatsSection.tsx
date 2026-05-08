@@ -37,8 +37,6 @@
  *   Attribution p:       "Graphik Regular Italic" italic 18px 150% rgb(170,170,173)
  */
 
-import '../styles/why-podium-stats.css'
-
 // ─── Card data ──────────────────────────────────────────────────────────────
 
 interface StatCard {

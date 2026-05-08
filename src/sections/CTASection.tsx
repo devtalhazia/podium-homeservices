@@ -1,12 +1,6 @@
-import '../styles/cta.css'
-
 const BG_BLUE   = '/images/cta-bg-blue.png'
 const BG_RED    = '/images/cta-bg-red.png'
 const CARD_BG   = '/images/cta-card-bg.png'
-
-const CRIMSON = 'rgb(157, 64, 60)'
-const CREAM   = 'rgb(247, 244, 237)'
-const WHITE   = 'rgb(255, 255, 255)'
 
 interface CTASectionProps {
   headline?: string
@@ -20,170 +14,45 @@ export default function CTASection({
   buttonHref = '/demo',
 }: CTASectionProps = {}) {
   return (
-    /* ── Outer section: full-width dark gradient ── */
     <div
-      className="cta-section"
-      style={{
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 10,
-        padding: 80,
-        position: 'relative',
-        overflow: 'hidden',
-        background: 'linear-gradient(180deg, rgb(28, 29, 24) 0%, rgb(0, 0, 0) 100%)',
-      }}
+      className="relative flex w-full flex-col items-center gap-[10px] overflow-hidden bg-[linear-gradient(180deg,rgb(28,29,24)_0%,rgb(0,0,0)_100%)] px-[24px] py-[56px] tablet:px-[48px] tablet:py-[64px] desktop:p-[80px]"
     >
-      {/* ── Decorative bg blob: blue radial fade (top-left) ── */}
       <img
         src={BG_BLUE}
         alt=""
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          width: 1147,
-          height: 1147,
-          top: -645,
-          left: -531,
-          zIndex: 0,
-          pointerEvents: 'none',
-          overflow: 'visible',
-          objectFit: 'fill',
-        }}
+        className="pointer-events-none absolute left-[-531px] top-[-645px] z-0 h-[1147px] w-[1147px] object-fill"
       />
 
-      {/* ── Decorative bg blob: red radial fade (bottom-right) ── */}
       <img
         src={BG_RED}
         alt=""
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          width: 1147,
-          height: 1147,
-          bottom: -640,
-          right: -627,
-          zIndex: 0,
-          pointerEvents: 'none',
-          overflow: 'visible',
-          objectFit: 'fill',
-        }}
+        className="pointer-events-none absolute bottom-[-640px] right-[-627px] z-0 h-[1147px] w-[1147px] object-fill"
       />
 
-      {/* ── Card ── */}
-      <div
-        className="cta-card"
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          width: '100%',
-          maxWidth: 1440,
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          gap: 48,
-          padding: 80,
-          borderRadius: 32,
-          overflow: 'clip',
-        }}
-      >
-        {/* Card background image (absolute, object-fit cover) */}
+      <div className="relative z-[1] flex w-full max-w-[1440px] flex-col items-start gap-[32px] overflow-hidden rounded-[24px] p-[28px] tablet:p-[48px] desktop:flex-row desktop:items-center desktop:gap-[48px] desktop:rounded-[32px] desktop:p-[80px]">
         <img
           src={CARD_BG}
           alt=""
           aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            borderRadius: 'inherit',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            display: 'block',
-            zIndex: 0,
-          }}
+          className="absolute inset-0 z-0 block h-full w-full rounded-[inherit] object-cover object-center"
         />
 
-        {/* ── Content container (heading) ── */}
-        <div
-          className="cta-container"
-          style={{
-            position: 'relative',
-            zIndex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '1 0 0',
-            alignItems: 'center',
-            gap: 24,
-            width: 1,
-            maxWidth: 1440,
-            overflow: 'visible',
-          }}
-        >
-          {/* Content inner */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              gap: 10,
-              width: '100%',
-              maxWidth: 900,
-            }}
-          >
-            {/* Heading */}
-            <h3
-              className="cta-heading"
-              style={{
-                margin: 0,
-                fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-                fontSize: 40,
-                fontWeight: 400,
-                lineHeight: '120%',
-                letterSpacing: 0,
-                color: WHITE,
-                width: '100%',
-                whiteSpace: 'pre-wrap',
-                wordBreak: 'break-word',
-              }}
-            >
+        <div className="relative z-[1] flex w-full max-w-[1440px] flex-[1_0_0] flex-col items-center gap-[24px] overflow-visible desktop:w-px">
+          <div className="flex w-full max-w-[900px] flex-col items-start gap-[10px]">
+            <h3 className="m-0 w-full break-words whitespace-pre-wrap font-grenette text-[28px] font-normal leading-[120%] tracking-[0] text-white tablet:text-[34px] desktop:text-[40px]">
               {headline}
             </h3>
           </div>
         </div>
 
-        {/* ── Button ── */}
-        <div style={{ position: 'relative', zIndex: 1, flexShrink: 0 }}>
+        <div className="relative z-[1] shrink-0">
           <a
             href={buttonHref}
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 10,
-              padding: '16px 32px',
-              backgroundColor: CRIMSON,
-              borderRadius: 50,
-              textDecoration: 'none',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-            }}
+            className="flex cursor-pointer flex-row items-center justify-center gap-[10px] whitespace-nowrap rounded-[50px] bg-crimson px-[32px] py-[16px] no-underline"
           >
-            <p
-              style={{
-                margin: 0,
-                fontFamily: '"Graphik Semibold", "Graphik Semibold Placeholder", sans-serif',
-                fontSize: 18,
-                fontWeight: 600,
-                lineHeight: '18px',
-                letterSpacing: 0,
-                textAlign: 'center',
-                color: CREAM,
-              }}
-            >
+            <p className="m-0 text-center font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-cream">
               {buttonText}
             </p>
           </a>

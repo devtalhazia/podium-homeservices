@@ -4,8 +4,6 @@ import {
   useMotionValue,
   useAnimationFrame,
 } from 'framer-motion'
-import '../styles/testimonials.css'
-
 /* ── Constants ────────────────────────────────────────────── */
 const TRACK_WIDTH = 3810   // total width of one full set of 10 items + gaps
 const SPEED       = TRACK_WIDTH / 60  // pixels per second (60 s per loop)
@@ -318,13 +316,13 @@ const CAROUSEL_ITEMS = [
   />,
   <QuoteMedCard key="q2"
     image="E2OjBROpd8MW7NxGtUg7ErOA.png"
-    quote="Podium is amazing. Oh, I love it. Absolutely. Definite game changer for us being able to text quickly and connect with our technicians."
+    quote="CloseCrew is amazing. Oh, I love it. Absolutely. Definite game changer for us being able to text quickly and connect with our technicians."
     author="Amy Ewing, Office and Service Manager" company="Design Air, Inc."
   />,
   <CustomerStoryCard key="cs1" image1="c7WDKfdxBvG3KtVpzpd0Hga9oY.png" image2="tb9kTaUJ169vh6QiAVTNBd8.png" />,
   <StatCard key="st1"
     background="FkBx4GckClyDkXH5v8umNe8Gj8.png" icon="wjgO5gCDRFel3Wylvio70kSKAgg.png"
-    stat="40%" statFontSize={88} detail="more calls handled with Podium Phones."
+    stat="40%" statFontSize={88} detail="more calls handled with CloseCrew Phones."
   />,
   <QuoteMedCard key="q3"
     image="1rktX3Q7ke3hpvdjBqS5SkkhmM.png"
@@ -333,7 +331,7 @@ const CAROUSEL_ITEMS = [
   />,
   <GlassColumn key="gc2"
     top={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', icon:'6TSSzl56DRaRMH0zrR7obyKrpiY.png', stat:'57', statFontSize:96, label:'appointments set by Larry in 30 days', company:'Warner Super Service' }}
-    bottom={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', stat:'5-15 hrs', statFontSize:72, label:'saved weekly with Podium AI', company:'Air Design Heating & Cooling' }}
+    bottom={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', stat:'5-15 hrs', statFontSize:72, label:'saved weekly with CloseCrew AI', company:'Air Design Heating & Cooling' }}
   />,
   <QuoteMedCard key="q4"
     image="8wmwG210q7leKcnS41mbrXxd60.png"
@@ -342,7 +340,7 @@ const CAROUSEL_ITEMS = [
   />,
   <StatCard key="st2"
     background="FkBx4GckClyDkXH5v8umNe8Gj8.png" icon="6TSSzl56DRaRMH0zrR7obyKrpiY.png"
-    stat="$2,000" statFontSize={72} detail="Air Texas saves $2,000/month by replacing service with Podium's Voice AI."
+    stat="$2,000" statFontSize={72} detail="Air Texas saves $2,000/month by replacing service with CloseCrew's Voice AI."
   />,
   <CustomerStoryCard key="cs2" image1="6Cg2set3ZhyypXsavYgeMsFXnuo.png" image2="IhRc1j0QWW4wCrOOtspj9qBWNr8.png" />,
 ]
@@ -552,7 +550,7 @@ export default function TestimonialsSection() {
               wordBreak: 'break-word',
               width: '100%',
             }}>
-              Our white-glove onboarding service ensures you're set up for success. You'll have a Podium team member available every step.
+              Our white-glove onboarding service ensures you're set up for success. You'll have a CloseCrew team member available every step.
             </p>
           </div>
         </motion.div>
@@ -698,7 +696,7 @@ export default function TestimonialsSection() {
               wordBreak: 'break-word',
               width: '100%',
             }}>
-              Podium integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.
+              CloseCrew integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.
             </p>
           </div>
         </motion.div>

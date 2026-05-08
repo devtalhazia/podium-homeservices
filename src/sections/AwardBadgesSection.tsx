@@ -1,5 +1,3 @@
-import '../styles/award-badges.css'
-
 const BADGES = [
   { src: '/images/badge-1.png', width: 93, height: 106, alt: '' },
   { src: '/images/badge-2.png', width: 93, height: 106, alt: '' },
@@ -12,28 +10,8 @@ const BADGES = [
 
 export default function AwardBadgesSection() {
   return (
-    <section
-      className="award-badges-section"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100%',
-        padding: '64px 80px 80px',
-      }}
-    >
-      {/* framer-18ex8tt: flex-wrap row, gap 48px, max-width 800px */}
-      <div
-        className="award-badges-container"
-        style={{
-          display: 'flex',
-          flexFlow: 'wrap',
-          placeContent: 'flex-start center',
-          alignItems: 'flex-start',
-          gap: 48,
-          width: '100%',
-          maxWidth: 800,
-        }}
-      >
+    <section className="flex w-full justify-center px-[80px] pb-[80px] pt-[64px]">
+      <div className="flex w-full max-w-[800px] flex-wrap content-start items-start justify-center gap-[48px]">
         {BADGES.map((badge, i) => (
           <img
             key={i}
@@ -41,13 +19,7 @@ export default function AwardBadgesSection() {
             alt={badge.alt}
             width={badge.width}
             height={badge.height}
-            style={{
-              display: 'block',
-              width: badge.width,
-              height: badge.height,
-              objectFit: 'cover',
-              flexShrink: 0,
-            }}
+            className="block shrink-0 object-cover"
           />
         ))}
       </div>

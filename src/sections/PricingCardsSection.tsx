@@ -1,5 +1,3 @@
-import '../styles/pricing-cards.css'
-
 const CARD_HEADER_IMG = '/images/plans-card-header-img.png'
 const CTA_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 

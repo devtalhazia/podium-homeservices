@@ -41,8 +41,10 @@ const LOGO_ROWS = [
 ]
 
 export default function IntegrationsSection({ background }: { background?: string }) {
+  const sectionBgClass = background === '#ffffff' ? 'bg-white' : 'bg-[#f0f0f3]'
+
   return (
-    <section className="relative flex w-full flex-col items-center justify-center gap-[10px] overflow-clip px-[32px] py-[64px] tablet:p-[64px] desktop:px-[80px] desktop:py-[64px]" style={{ backgroundColor: background || '#f0f0f3' }}>
+    <section className={`relative flex w-full flex-col items-center justify-center gap-[10px] overflow-clip px-[32px] py-[64px] tablet:p-[64px] desktop:px-[80px] desktop:py-[64px] ${sectionBgClass}`}>
       <div className="flex w-full max-w-[1200px] flex-col items-center justify-center gap-[10px]">
         <div className="flex w-full flex-col items-center justify-center gap-[16px] pb-[16px]">
           <h3 className="m-0 p-0 text-center font-grenette text-[40px] font-normal leading-[120%] tracking-[0px] text-ink">

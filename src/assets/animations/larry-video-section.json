@@ -1,0 +1,393 @@
+{
+  "media": {
+      "accountId": 400465,
+      "accountHashedId": "16dr56ctes",
+      "accountKey": "wistia-production_400465",
+      "analyticsHost": "https://distillery.wistia.net",
+      "formsHost": "https://app.wistia.com",
+      "formEventsApi": "/form-stream/1.0.0",
+      "aspectRatio": 1.7777777777777777,
+      "assets": [
+          {
+              "is_enhanced": false,
+              "type": "original",
+              "slug": "original",
+              "display_name": "Original File",
+              "details": {},
+              "width": 3840,
+              "height": 2160,
+              "size": 929018396,
+              "bitrate": 39414,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "av_stream_metadata": "{\"FastStart\":true,\"Audio\":{\"bitRate\":317345,\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.142292,\"sampleFormat\":\"fltp\",\"sampleRate\":48000},\"Video\":{\"bitRate\":39979799,\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.142292,\"height\":2160,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24000/1001\",\"width\":3840}}"
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/30dc43852fd53d8b56dbd860470054b1.bin",
+              "created_at": 1764015789
+          },
+          {
+              "is_enhanced": false,
+              "type": "iphone_video",
+              "slug": "mp4_h264_397k",
+              "display_name": "360p",
+              "details": {},
+              "container": "mp4",
+              "codec": "h264",
+              "width": 640,
+              "height": 360,
+              "ext": "mp4",
+              "size": 9375640,
+              "bitrate": 397,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "max_bitrate": 1194864,
+                  "average_bitrate": 407338,
+                  "early_max_bitrate": 426896,
+                  "av_stream_metadata": "{\"FastStart\":true,\"Audio\":{\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.134467,\"sampleFormat\":\"fltp\",\"sampleRate\":44100},\"Video\":{\"avgFrameRate\":\"24/1\",\"bitRate\":\"275315\",\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.125,\"height\":360,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24/1\",\"width\":640}}",
+                  "built_by": "render-pipeline",
+                  "time_to_ready": 22.86570449
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/5f0f5b8afb46ab2ae5c5184758084d2ca0ae3819.bin",
+              "created_at": 1764015789,
+              "segment_duration": 3,
+              "opt_vbitrate": 1200
+          },
+          {
+              "is_enhanced": false,
+              "type": "mp4_video",
+              "slug": "mp4_h264_257k",
+              "display_name": "224p",
+              "details": {},
+              "container": "mp4",
+              "codec": "h264",
+              "width": 400,
+              "height": 224,
+              "ext": "mp4",
+              "size": 6069145,
+              "bitrate": 257,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "max_bitrate": 454344,
+                  "average_bitrate": 263683,
+                  "early_max_bitrate": 277936,
+                  "av_stream_metadata": "{\"Audio\":{\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.134467,\"sampleFormat\":\"fltp\",\"sampleRate\":44100},\"Video\":{\"avgFrameRate\":\"24/1\",\"bitRate\":\"131638\",\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.125,\"height\":224,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24/1\",\"width\":400}}",
+                  "built_by": "gen3-split-n-stitch",
+                  "time_to_ready": 50.324596574
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/32d779a23fba4aacd9bcb160f91ee5d2a0c6bbdd.bin",
+              "created_at": 1764015789,
+              "segment_duration": 3,
+              "opt_vbitrate": 300
+          },
+          {
+              "is_enhanced": false,
+              "type": "md_mp4_video",
+              "slug": "mp4_h264_602k",
+              "display_name": "540p",
+              "details": {},
+              "container": "mp4",
+              "codec": "h264",
+              "width": 960,
+              "height": 540,
+              "ext": "mp4",
+              "size": 14199250,
+              "bitrate": 602,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "max_bitrate": 1822360,
+                  "average_bitrate": 616907,
+                  "early_max_bitrate": 668256,
+                  "av_stream_metadata": "{\"Audio\":{\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.134467,\"sampleFormat\":\"fltp\",\"sampleRate\":44100},\"Video\":{\"avgFrameRate\":\"24/1\",\"bitRate\":\"484912\",\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.125,\"height\":540,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24/1\",\"width\":960}}",
+                  "built_by": "gen3-split-n-stitch",
+                  "time_to_ready": 56.167961592
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/90a9631f04a68496df17418f30d375b8e9b80f0f.bin",
+              "created_at": 1764015789,
+              "segment_duration": 3,
+              "opt_vbitrate": 1800
+          },
+          {
+              "is_enhanced": false,
+              "type": "hd_mp4_video",
+              "slug": "mp4_h264_882k",
+              "display_name": "720p",
+              "details": {},
+              "container": "mp4",
+              "codec": "h264",
+              "width": 1280,
+              "height": 720,
+              "ext": "mp4",
+              "size": 20809337,
+              "bitrate": 882,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "max_bitrate": 2858376,
+                  "average_bitrate": 904093,
+                  "early_max_bitrate": 968576,
+                  "av_stream_metadata": "{\"Audio\":{\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.134467,\"sampleFormat\":\"fltp\",\"sampleRate\":44100},\"Video\":{\"avgFrameRate\":\"24/1\",\"bitRate\":\"772128\",\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.125,\"height\":720,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24/1\",\"width\":1280}}",
+                  "built_by": "gen3-split-n-stitch",
+                  "time_to_ready": 61.736577148
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/79a6976c7d9809286d256c3e5cc5273725a55864.bin",
+              "created_at": 1764015789,
+              "segment_duration": 3,
+              "opt_vbitrate": 3750
+          },
+          {
+              "is_enhanced": false,
+              "type": "hd_mp4_video",
+              "slug": "mp4_h264_1596k",
+              "display_name": "1080p",
+              "details": {},
+              "container": "mp4",
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "ext": "mp4",
+              "size": 37631351,
+              "bitrate": 1596,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "max_bitrate": 4468560,
+                  "average_bitrate": 1634950,
+                  "early_max_bitrate": 1804952,
+                  "av_stream_metadata": "{\"Audio\":{\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.134467,\"sampleFormat\":\"fltp\",\"sampleRate\":44100},\"Video\":{\"avgFrameRate\":\"24/1\",\"bitRate\":\"1503051\",\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.125,\"height\":1080,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24/1\",\"width\":1920}}",
+                  "built_by": "gen3-split-n-stitch",
+                  "time_to_ready": 78.29278038
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/6f5c92b2c83750b41fc93aef2d374e08c4c5b5a6.bin",
+              "created_at": 1764015789,
+              "segment_duration": 3,
+              "opt_vbitrate": 5625
+          },
+          {
+              "is_enhanced": false,
+              "type": "hd_mp4_video",
+              "slug": "mp4_h264_5290k",
+              "display_name": "4k",
+              "details": {},
+              "container": "mp4",
+              "codec": "h264",
+              "width": 3840,
+              "height": 2160,
+              "ext": "mp4",
+              "size": 124703588,
+              "bitrate": 5290,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "max_bitrate": 11393424,
+                  "average_bitrate": 5417935,
+                  "early_max_bitrate": 6614024,
+                  "av_stream_metadata": "{\"FastStart\":true,\"Audio\":{\"channels\":2,\"channelLayout\":\"stereo\",\"Codec ID\":\"mp4a-40-2\",\"codec\":\"aac\",\"codecType\":\"audio\",\"duration\":184.134467,\"sampleFormat\":\"fltp\",\"sampleRate\":44100},\"Video\":{\"avgFrameRate\":\"24/1\",\"bitRate\":\"5286483\",\"Codec ID\":\"avc1\",\"codec\":\"h264\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"bt709\",\"colorTransfer\":\"bt709\",\"duration\":184.125,\"height\":2160,\"pixelFormat\":\"yuv420p\",\"rFrameRate\":\"24/1\",\"width\":3840}}",
+                  "built_by": "render-pipeline",
+                  "time_to_ready": 40.627190829
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/8aab1429f42bf6463c503550be2e5687f0a87663.bin",
+              "created_at": 1764015789,
+              "segment_duration": 3,
+              "opt_vbitrate": 11250
+          },
+          {
+              "is_enhanced": false,
+              "type": "storyboard",
+              "slug": "storyboard_2000x2240",
+              "display_name": "Storyboard",
+              "details": {},
+              "width": 2000,
+              "height": 2240,
+              "ext": "jpg",
+              "size": 538020,
+              "bitrate": 0,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "frame_count": 200,
+                  "aspect_ratio": 1.7857143,
+                  "frame_height": 112,
+                  "frame_width": 200,
+                  "time_to_ready": 88.175210904
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/57bcda071b91947b8d2d90dbfdfbd9837827086e.bin",
+              "created_at": 1764015789
+          },
+          {
+              "is_enhanced": false,
+              "type": "still_image",
+              "slug": "still_image_3840x2160",
+              "display_name": "Thumbnail Image",
+              "details": {},
+              "width": 3840,
+              "height": 2160,
+              "size": 10596893,
+              "bitrate": 0,
+              "public": true,
+              "status": 2,
+              "progress": 1.0,
+              "metadata": {
+                  "av_stream_metadata": "{\"FastStart\":false,\"Audio\":{},\"Video\":{\"codec\":\"png\",\"colorPrimaries\":\"bt709\",\"colorSpace\":\"gbr\",\"colorTransfer\":\"bt709\",\"height\":2160,\"pixelFormat\":\"rgba\",\"rFrameRate\":\"25/1\",\"width\":3840}}"
+              },
+              "url": "https://embed-ssl.wistia.com/deliveries/19032d224413e80473d4ad8756cb81d9.bin",
+              "created_at": 1764015877
+          }
+      ],
+      "branding": false,
+      "createdAt": 1764015789,
+      "distilleryUrl": "https://distillery.wistia.com/x",
+      "duration": 184.134,
+      "enableCustomerLogo": true,
+      "firstEmbedForAccount": false,
+      "firstShareForAccount": false,
+      "availableTranscripts": [
+          {
+              "bcp47LanguageTag": "en",
+              "familyName": "English",
+              "familyNativeName": "English",
+              "hasCaptions": true,
+              "hasVideoStream": false,
+              "name": "English",
+              "nativeName": "English",
+              "wistiaLanguageCode": "eng",
+              "language": "eng",
+              "ietf_language_tag": "eng",
+              "alpha3_terminologic": "eng",
+              "alpha3_bibliographic": "eng",
+              "iso639_2_language_code": "en",
+              "english_name": "English",
+              "native_name": "English",
+              "right_to_left": false,
+              "alpha3Bibliographic": "eng",
+              "alpha3Terminologic": "eng",
+              "ietfLanguageTag": "eng",
+              "iso6392LanguageCode": "en",
+              "genericName": "English",
+              "genericNativeName": "English"
+          }
+      ],
+      "hashedId": "nkyk66ti5a",
+      "mediaId": 141283142,
+      "mediaKey": "wistia-production_141283142",
+      "mediaType": "Video",
+      "name": "Meet Larry 2.0: The Smartest AI Employee for Home Services",
+      "preloadPreference": null,
+      "progress": 1.0,
+      "protected": false,
+      "projectId": 5506276,
+      "seoDescription": "a Podium Ads video",
+      "showAbout": true,
+      "status": 2,
+      "type": "Video",
+      "playableWithoutInstantHls": true,
+      "stats": {
+          "loadCount": 3377,
+          "playCount": 570,
+          "uniqueLoadCount": 1422,
+          "uniquePlayCount": 525,
+          "averageEngagement": 0.613426
+      },
+      "trackingTransmitInterval": 20,
+      "liveStreamEventDetails": null,
+      "integrations": {
+          "marketo_v2": true,
+          "google_analytics4": true,
+          "marketo_v2_watch_events": true,
+          "google_analytics": true
+      },
+      "captions": [
+          {
+              "language": "eng",
+              "text": "Twenty twenty four, we launched Larry, the number one AI CSR for home services businesses. For the first time, you'd never miss a lead. You have a super capable employee working twenty four seven, never gets sick, never takes vacation, and it's constantly helping you make more money. What we learned is what makes a great AI employee for home services businesses is the same exact things that make a great human employee.\n\nThey're great at their job. They know it inside and out. They know your business. They know the playbooks.\n\nThey follow them, and they're coachable. Every business is different. Every business has unique needs, and transparency is the number one thing that every single one of our customers wants in their AI employee. The result of everything we learned has allowed us to build capabilities and coachability into our AI employees that doesn't exist in the market and nobody else is working on, and I cannot wait to show you what we built.\n\nIntroducing Larry two point o. Larry now goes beyond scheduling, handling any scenario, like capturing info for estimates, recommending compliant equipment, and discussing memberships no matter where your leads come from. Larry now has unlimited playbooks fully under your control. If a customer starts with a tune up inquiry, pivots to an equipment upgrade, then asks about financing, Larry switches playbooks automatically, handling each one like your best CSR. And you can customize everything from dialect and service approach to how he handles specific equipment, competitor comparisons, and your financing options, making Larry as unique as your business, reflecting your values, your process, and your voice.\n\nAI can make mistakes. The key is catching them fast and making sure they never happen twice. With most tools, changing something means a support ticket. Maybe it gets fixed, maybe it doesn't.\n\nWith Larry two point o, you're in control. No engineering degree, no tickets, no waiting. Just tell Larry what to change. He analyzes the issue, updates his own playbooks, and tests the change automatically.\n\nAI shouldn't be a black box. With AI Studio, you can see exactly how Larry reasons, what documents he references, what policies he follows. So you're never wondering, why did Larry say that? You can see the logic.\n\nAnd if something feels off, you can fix it fast with total confidence. Larry two point o ensures every customer gets a response. Every opportunity moves forward. Every conversation reflects your standards, which means more money in the door, more time at the dinner table for your team, and better service for your customers.\n\nI think the best part about Glari two point o is not only now do you have a really capable AI employee, but it's as customizable as it is capable. And it's gonna completely change the entire way you run your business.\n\nBook a demo to see the instant impact of Larry two point o."
+          }
+      ],
+      "hls_enabled": true,
+      "embed_options": {
+          "opaqueControls": "false",
+          "playerColor": "af4e30",
+          "playerColorGradient": {
+              "on": "false",
+              "colors": [
+                  [
+                      "#af4e30",
+                      "0"
+                  ],
+                  [
+                      "#ffb496",
+                      "1"
+                  ]
+              ]
+          },
+          "plugin": {
+              "googleAnalytics4": {
+                  "on": true,
+                  "measurementId": "G-WKYNN4EZQT",
+                  "usePageGA4Config": true
+              }
+          },
+          "volumeControl": "true",
+          "fullscreenButton": "true",
+          "controlsVisibleOnLoad": "true",
+          "bpbTime": "false",
+          "vulcan": true,
+          "unalteredStillImageAsset": {
+              "url": "https://embed-ssl.wistia.com/deliveries/19032d224413e80473d4ad8756cb81d9.png",
+              "width": "3840",
+              "height": "2160"
+          },
+          "stillUrl": "https://embed-ssl.wistia.com/deliveries/19032d224413e80473d4ad8756cb81d9.png",
+          "newRoundedIcons": true,
+          "shouldShowCaptionsSettings": true
+      },
+      "embedOptions": {
+          "opaqueControls": "false",
+          "playerColor": "af4e30",
+          "playerColorGradient": {
+              "on": "false",
+              "colors": [
+                  [
+                      "#af4e30",
+                      "0"
+                  ],
+                  [
+                      "#ffb496",
+                      "1"
+                  ]
+              ]
+          },
+          "plugin": {
+              "googleAnalytics4": {
+                  "on": true,
+                  "measurementId": "G-WKYNN4EZQT",
+                  "usePageGA4Config": true
+              }
+          },
+          "volumeControl": "true",
+          "fullscreenButton": "true",
+          "controlsVisibleOnLoad": "true",
+          "bpbTime": "false",
+          "vulcan": true,
+          "unalteredStillImageAsset": {
+              "url": "https://embed-ssl.wistia.com/deliveries/19032d224413e80473d4ad8756cb81d9.png",
+              "width": "3840",
+              "height": "2160"
+          },
+          "stillUrl": "https://embed-ssl.wistia.com/deliveries/19032d224413e80473d4ad8756cb81d9.png",
+          "newRoundedIcons": true,
+          "shouldShowCaptionsSettings": true
+      }
+  },
+  "options": {}
+}

@@ -1,191 +1,40 @@
-import '../styles/why-podium-hero.css'
-
 export default function WhyPodiumHeroSection() {
   return (
-    <section
-      className="why-podium-hero-outer"
-      style={{
-        backgroundColor: '#18181c',
-        display: 'flex',
-        flexFlow: 'row' as const,
-        placeContent: 'center',
-        alignItems: 'center',
-        gap: 64,
-        width: '100%',
-        height: 'min-content',
-        padding: 80,
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Hero photo — absolute positioned, right side */}
-      <div
-        style={{
-          aspectRatio: '1',
-          width: 445,
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          overflow: 'visible',
-        }}
-      >
+    <section className="relative flex w-full items-center justify-center overflow-hidden bg-[#18181c] px-[24px] py-[56px] tablet:px-[48px] tablet:py-[64px] desktop:p-[80px]">
+      <div className="pointer-events-none absolute bottom-0 right-0 top-0 hidden w-[445px] aspect-square overflow-visible desktop:block">
         <img
-          className="why-podium-hero-photo"
           src="/images/why-podium-hero-photo.png"
           alt="Contractor professional"
-          style={{
-            aspectRatio: '1840 / 1366',
-            width: 599,
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            right: 0,
-            objectFit: 'cover',
-            objectPosition: 'center',
-            display: 'block',
-          }}
+          className="absolute bottom-0 right-0 top-0 block w-[599px] object-cover object-center"
         />
       </div>
 
-      {/* Content wrapper — max-width 1200px */}
-      <div
-        style={{
-          maxWidth: 1200,
-          height: 'min-content',
-          display: 'flex',
-          flexFlow: 'row' as const,
-          flex: '1 0 0',
-          placeContent: 'center',
-          alignItems: 'center',
-          gap: 64,
-          width: '1px',
-          overflow: 'clip',
-          position: 'relative',
-        }}
-      >
-        {/* Hero content — text + CTA */}
-        <div
-          className="why-podium-hero-content"
-          style={{
-            display: 'flex',
-            flexFlow: 'column' as const,
-            flex: '10 0 0',
-            placeContent: 'flex-start',
-            alignItems: 'flex-start',
-            gap: 48,
-            width: '1px',
-            height: 'min-content',
-            padding: 0,
-            position: 'relative',
-            overflow: 'visible',
-          }}
-        >
-          {/* Text block */}
-          <div
-            style={{
-              display: 'flex',
-              flexFlow: 'column' as const,
-              placeContent: 'center flex-start',
-              alignItems: 'center',
-              gap: 24,
-              width: '100%',
-              height: 'min-content',
-              padding: 0,
-              position: 'relative',
-              overflow: 'visible',
-            }}
-          >
-            {/* Hero text */}
-            <div
-              style={{
-                display: 'flex',
-                flexFlow: 'column' as const,
-                placeContent: 'center flex-start',
-                alignItems: 'center',
-                gap: 24,
-                width: '100%',
-              }}
-            >
-              <h1
-                className="why-podium-hero-h1"
-                style={{
-                  fontFamily: '"Grenette Regular", sans-serif',
-                  fontSize: 52,
-                  fontWeight: 400,
-                  lineHeight: '110%',
-                  letterSpacing: 0,
-                  color: 'rgb(247, 244, 237)',
-                  margin: 0,
-                  textAlign: 'left',
-                  width: '100%',
-                }}
-              >
+      <div className="relative flex w-full max-w-[1200px] flex-col items-start gap-[40px] desktop:w-px desktop:flex-[1_0_0] desktop:flex-row desktop:items-center desktop:gap-[64px]">
+        <div className="relative flex w-full flex-col items-start gap-[40px] desktop:w-px desktop:flex-[10_0_0] desktop:gap-[48px]">
+          <div className="flex w-full flex-col items-start gap-[24px]">
+            <div className="flex w-full flex-col items-start gap-[24px]">
+              <h1 className="m-0 w-full text-left font-grenette text-[34px] font-normal leading-[110%] tracking-[0] text-cream tablet:text-[44px] desktop:text-[52px]">
                 Every lead is a job waiting to happen. Larry makes sure it does.
               </h1>
             </div>
 
-            {/* Body copy */}
-            <p
-              style={{
-                fontFamily: '"Graphik Regular", sans-serif',
-                fontSize: 16,
-                fontWeight: 400,
-                lineHeight: '150%',
-                letterSpacing: 0,
-                color: 'rgb(247, 244, 237)',
-                margin: 0,
-                textAlign: 'left',
-                width: '100%',
-              }}
-            >
+            <p className="m-0 w-full text-left font-graphik text-[16px] font-normal leading-[150%] tracking-[0] text-cream">
               Larry is an AI Employee who runs your phones, fills your calendar,{' '}
               and grows your memberships so your team can focus on the work.
             </p>
           </div>
 
-          {/* CTA button */}
           <a
             href="/demo"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: 'rgb(157, 64, 60)',
-              borderRadius: 50,
-              padding: '16px 28px',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              flexShrink: 0,
-            }}
+            className="inline-flex shrink-0 cursor-pointer items-center justify-center rounded-[50px] bg-crimson px-[28px] py-[16px] no-underline"
           >
-            <span
-              style={{
-                fontFamily: '"Graphik Semibold", sans-serif',
-                fontSize: 18,
-                fontWeight: 600,
-                lineHeight: '18px',
-                letterSpacing: 0,
-                color: 'rgb(247, 244, 237)',
-                whiteSpace: 'nowrap',
-              }}
-            >
+            <span className="whitespace-nowrap font-graphik-semibold text-[18px] font-semibold leading-[18px] tracking-[0] text-cream">
               Get a demo
             </span>
           </a>
         </div>
 
-        {/* Spacer — hidden on mobile (takes flex:2) */}
-        <div
-          className="why-podium-hero-spacer"
-          style={{
-            flex: '2 0 0',
-            alignSelf: 'stretch',
-            width: '1px',
-            position: 'relative',
-            overflow: 'clip',
-          }}
-        />
+        <div className="hidden self-stretch overflow-clip desktop:block desktop:w-px desktop:flex-[2_0_0]" />
       </div>
     </section>
   )

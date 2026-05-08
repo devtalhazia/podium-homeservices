@@ -28,13 +28,7 @@
  * Card p   preset-zmyn5w:  Graphik Regular    16px  400  150%  rgb(170,170,173)  center  (mobile:14px)
  */
 
-import '../styles/why-podium-works.css'
-
 const CRIMSON = '#9d403c'
-const WHITE = 'rgb(255, 255, 255)'
-const SECTION_BG = '#222226'
-const SUBHEADER_COLOR = 'rgb(232, 232, 232)'
-const BODY_COLOR = 'rgb(170, 170, 173)'
 
 // ─── Icon SVGs ───────────────────────────────────────────────────────────────
 // Paths verbatim from -webkit-mask data URIs in dump CSS.
@@ -126,124 +120,32 @@ const CARDS = [
 
 export default function WhyPodiumWorksSection() {
   return (
-    /* framer-v8z9w7: bg:#313135  flex-col  align-items:center  gap:64px  padding:80px */
     <section
-      className="wp-works-section"
-      style={{
-        backgroundColor: SECTION_BG,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 64,
-        padding: '80px',
-        width: '100%',
-        boxSizing: 'border-box',
-      }}
+      className="flex w-full flex-col items-center gap-[56px] bg-[#222226] px-[24px] py-[56px] tablet:gap-[60px] tablet:px-[48px] tablet:py-[64px] desktop:gap-[64px] desktop:p-[80px]"
     >
-      {/* framer-RwRi6 "H2 inverted": heading + subheader, width:100%, flex-col, align-items:center, gap:16px */}
-      <div
-        className="wp-works-heading"
-        style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 16,
-        }}
-      >
-        {/* framer-l6pu9u "Heading 2" — preset-xcqpjm: Grenette Regular 46px 400 110% white center */}
-        <h2
-          className="wp-works-h2"
-          style={{
-            margin: 0,
-            fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-            fontSize: 46,
-            fontWeight: 400,
-            lineHeight: '110%',
-            letterSpacing: 0,
-            textAlign: 'center',
-            color: WHITE,
-            width: '100%',
-          }}
-        >
+      <div className="flex w-full flex-col items-center gap-[16px]">
+        <h2 className="m-0 w-full text-center font-grenette text-[30px] font-normal leading-[110%] tracking-[0] text-white tablet:text-[38px] desktop:text-[46px]">
           Larry works for you. We work with you.
         </h2>
 
-        {/* framer-3zuzid "Subheader" — preset-zmyn5w: Graphik Regular 16px 400 150% rgb(232,232,232) center */}
-        <p
-          style={{
-            margin: 0,
-            fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-            fontSize: 16,
-            fontWeight: 400,
-            lineHeight: '150%',
-            letterSpacing: 0,
-            textAlign: 'center',
-            color: SUBHEADER_COLOR,
-          }}
-        >
+        <p className="m-0 text-center font-graphik text-[16px] font-normal leading-[150%] tracking-[0] text-[rgb(232,232,232)]">
           We work with thousands of contractors. We know what you need to get live fast.
         </p>
       </div>
 
-      {/* framer-7fvyxz > framer-35hd7t: max-width:1080px  2×2 grid  gap:24px */}
-      <div
-        className="wp-works-cards"
-        style={{
-          width: '100%',
-          maxWidth: 1080,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, minmax(50px, 1fr))',
-          gridTemplateRows: 'repeat(2, min-content)',
-          gap: 24,
-        }}
-      >
+      <div className="grid w-full max-w-[1080px] grid-cols-1 gap-[8px] tablet:grid-cols-2 tablet:gap-[10px] desktop:gap-[24px]">
         {CARDS.map((card, i) => (
           <div
             key={i}
-            className={`wp-works-card${card.bordered ? ' wp-works-card-bordered' : ''}`}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 16,
-              padding: 12,
-              alignSelf: 'start',
-            }}
+            className={`flex flex-col items-center gap-[16px] self-start p-[12px] ${card.bordered ? 'border-b border-[#4a4a4d] tablet:border-0' : ''}`}
           >
             {card.icon}
 
-            {/* preset-1963bkz: Grenette SemiBold 24px 600 120% white center */}
-            <h6
-              className="wp-works-card-title"
-              style={{
-                margin: 0,
-                fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
-                fontSize: 24,
-                fontWeight: 600,
-                lineHeight: '120%',
-                letterSpacing: 0,
-                textAlign: 'center',
-                color: WHITE,
-              }}
-            >
+            <h6 className="m-0 text-center font-grenette-semi text-[20px] font-semibold leading-[120%] tracking-[0] text-white desktop:text-[24px]">
               {card.title}
             </h6>
 
-            {/* preset-zmyn5w: Graphik Regular 16px 400 150% rgb(170,170,173) center */}
-            <p
-              className="wp-works-card-body"
-              style={{
-                margin: 0,
-                fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-                fontSize: 16,
-                fontWeight: 400,
-                lineHeight: '150%',
-                letterSpacing: 0,
-                textAlign: 'center',
-                color: BODY_COLOR,
-              }}
-            >
+            <p className="m-0 text-center font-graphik text-[14px] font-normal leading-[150%] tracking-[0] text-[rgb(170,170,173)] desktop:text-[16px]">
               {card.body}
             </p>
           </div>

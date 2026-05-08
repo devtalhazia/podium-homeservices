@@ -10,7 +10,7 @@ import FooterSection from '../sections/FooterSection'
 
 export default function WhyPodium() {
   return (
-    <div className="min-h-screen overflow-hidden" style={{ backgroundColor: '#18181c' }}>
+    <div className="min-h-screen overflow-hidden bg-[#18181c]">
       <NavSection />
       <WhyPodiumHeroSection />
       <WhyPodiumComparisonSection />

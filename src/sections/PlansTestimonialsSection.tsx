@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import '../styles/plans-testimonials.css'
 
 const CREAM = 'rgb(247, 244, 237)'
 const WARM_CREAM = 'rgb(242, 236, 227)'
@@ -16,7 +15,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "We've seen at least a 30% revenue increase since implementing Podium AI.",
+      "We've seen at least a 30% revenue increase since implementing CloseCrew AI.",
     logo: '/images/plans-testimonial-logo-2.png',
     logoAspect: 488 / 89,
     name: 'Katherine Shorey, Office Manager',

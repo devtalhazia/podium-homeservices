@@ -28,11 +28,6 @@
  */
 
 import { useState } from 'react'
-import '../styles/why-podium-faq.css'
-
-const SECTION_BG = '#f4f4f7'
-const Q_COLOR = '#18181c'
-const A_COLOR = '#4a4a4d'
 
 // ─── FAQ data ────────────────────────────────────────────────────────────────
 
@@ -95,15 +90,11 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 16 16"
       fill="none"
       aria-hidden="true"
-      style={{
-        flexShrink: 0,
-        transition: 'transform 0.25s ease',
-        transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-      }}
+      className={`shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : 'rotate-0'}`}
     >
       <path
         d="M 2 5 L 8 11 L 14 5"
-        stroke={Q_COLOR}
+        stroke="#18181c"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -130,34 +121,12 @@ function FaqRow({
       tabIndex={0}
       onClick={onToggle}
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onToggle()}
-      style={{
-        background: SECTION_BG,
-        padding: '22px',
-        boxShadow: '0 1px 0 rgba(0, 0, 0, 0.04)',
-        cursor: 'pointer',
-        userSelect: 'none',
-      }}
+      className="cursor-pointer select-none bg-[#f4f4f7] p-[22px] shadow-[0_1px_0_rgba(0,0,0,0.04)]"
     >
       {/* Question row */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 12,
-          justifyContent: 'space-between',
-        }}
-      >
+      <div className="flex items-center justify-between gap-[12px]">
         <h3
-          className="faq-question"
-          style={{
-            margin: 0,
-            fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-            fontSize: 24,
-            fontWeight: 400,
-            lineHeight: 1.25,
-            color: Q_COLOR,
-            flex: 1,
-          }}
+          className="m-0 flex-1 font-grenette text-[20px] font-normal leading-[1.25] text-[#18181c] tablet:text-[24px]"
         >
           {item.question}
         </h3>
@@ -166,18 +135,8 @@ function FaqRow({
 
       {/* Answer (expanded) */}
       {isOpen && (
-        <div style={{ marginTop: 16 }}>
-          <p
-            style={{
-              margin: 0,
-              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-              fontSize: 16,
-              fontWeight: 400,
-              lineHeight: 1.5,
-              color: A_COLOR,
-              wordBreak: 'break-word',
-            }}
-          >
+        <div className="mt-[16px]">
+          <p className="m-0 break-words font-graphik text-[16px] font-normal leading-[1.5] text-[#4a4a4d]">
             {item.answer}
           </p>
         </div>
@@ -194,50 +153,15 @@ export default function WhyPodiumFaqSection() {
   const toggle = (i: number) => setOpenIndex((prev) => (prev === i ? -1 : i))
 
   return (
-    /* framer-ybuwjm: bg:#f4f4f7  flex-col  align-items:center  padding:80px */
     <section
-      className="faq-section"
-      style={{
-        backgroundColor: SECTION_BG,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '80px',
-        width: '100%',
-        boxSizing: 'border-box',
-      }}
+      className="flex w-full flex-col items-center bg-[#f4f4f7] px-[24px] py-[56px] tablet:px-[48px] tablet:py-[64px] desktop:p-[80px]"
     >
-      {/* framer-lp220m > framer-dq77sb: max-width:900px  flex-col  gap:64px */}
-      <div
-        className="faq-inner"
-        style={{
-          width: '100%',
-          maxWidth: 900,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 64,
-        }}
-      >
-        {/* Heading: preset-19h1oaz — Grenette Regular 40px 400 110% center */}
-        <h3
-          className="faq-heading"
-          style={{
-            margin: 0,
-            fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-            fontSize: 40,
-            fontWeight: 400,
-            lineHeight: '110%',
-            letterSpacing: 0,
-            textAlign: 'center',
-            color: Q_COLOR,
-            width: '100%',
-          }}
-        >
+      <div className="flex w-full max-w-[900px] flex-col gap-[40px] tablet:gap-[56px] desktop:gap-[64px]">
+        <h3 className="m-0 w-full text-center font-grenette text-[30px] font-normal leading-[110%] tracking-[0] text-[#18181c] tablet:text-[36px] desktop:text-[40px]">
           Frequently Asked Questions
         </h3>
 
-        {/* Accordion: display:grid  gap:12px */}
-        <div style={{ display: 'grid', gap: 12 }}>
+        <div className="grid gap-[12px]">
           {FAQS.map((faq, i) => (
             <FaqRow
               key={i}

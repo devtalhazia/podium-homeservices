@@ -342,7 +342,7 @@ export default function LarryTestimonialsSection() {
             company="Heritage Mountain Heating & Cooling"
           />
           <ImageCard
-            quote="Before Podium, we spent 2\u20134 hours a day on invoicing; with Larry\u2019s paperless workflow, we can finish in about an hour\u2014cutting invoicing time by at least half."
+            quote="Before CloseCrew, we spent 2\u20134 hours a day on invoicing; with Larry\u2019s paperless workflow, we can finish in about an hour\u2014cutting invoicing time by at least half."
             author="Jase Marshall, CFO"
             company="Air Design Heating and Cooling"
             image="/images/larry-testimonial-jase.png"
