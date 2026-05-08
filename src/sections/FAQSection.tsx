@@ -1,14 +1,5 @@
 import { useState } from 'react'
-import '../styles/faq.css'
 
-/* ── Colors ── */
-const INK       = '#1c1b18'
-const INK_SOFT  = '#4e4a44'
-const DIVIDER   = 'rgb(233, 225, 216)'
-const ICON_CLR  = 'rgb(78, 97, 118)'
-const CRIMSON   = 'rgb(157, 64, 60)'
-
-/* ── FAQ data (source: dump/homeservices.podium.com/index.html, SSR + live site) ── */
 interface FaqItem {
   question: string
   answer: JSX.Element
@@ -19,30 +10,25 @@ const FAQ_ITEMS: FaqItem[] = [
     question: 'How difficult is it to switch to Podium from another scheduling software?',
     answer: (
       <>
-        <p style={{ margin: '0 0 20px' }}>
+        <p className="mb-[20px]">
           Podium's onboarding team aims to have you up and running in days, not months. Our
           onboarding team makes the transition as smooth as possible:
         </p>
-        <ul style={{ margin: '0 0 20px', paddingLeft: '1.2em' }}>
+        <ul className="mb-[20px] pl-[1.2em] list-disc">
           <li>White-glove onboarding within 48 hours of signing</li>
           <li>Dedicated team to answer questions</li>
           <li>Data migration (customers, jobs, history, etc.)</li>
           <li>We test and refine your AI Employee until it reflects your business</li>
           <li>Staff training for your entire team</li>
         </ul>
-        <p style={{ margin: 0 }}>
+        <p className="m-0">
           Our goal is to minimize disruption so your business stays up and running during the
           change.{' '}
           <a
-            href="/demo"
-            style={{
-              color: CRIMSON,
-              textDecoration: 'underline',
-              textDecorationColor: 'rgb(226, 198, 196)',
-              textDecorationThickness: '2px',
-              textUnderlineOffset: '1px',
-              fontWeight: 700,
-            }}
+            href="https://calendly.com/umar-softaims/hvac-automation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-crimson underline decoration-[rgb(226,198,196)] decoration-2 underline-offset-[1px] font-bold"
           >
             Book a meeting today to learn more.
           </a>
@@ -52,129 +38,44 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ]
 
-/* ── Plus/Minus icon (28×28, lines are 2×12 px, color rgb(78,97,118)) ── */
 function AccordionIcon({ open }: { open: boolean }) {
   return (
-    <button
-      aria-hidden="true"
-      style={{
-        width: 28,
-        height: 28,
-        borderRadius: 100,
-        flexShrink: 0,
-        position: 'relative',
-        cursor: 'pointer',
-        background: 'none',
-        border: 'none',
-        padding: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {/* Horizontal line (always visible) */}
-      <span
-        style={{
-          position: 'absolute',
-          top: 'calc(50% - 1px)',
-          left: 'calc(50% - 6px)',
-          width: 12,
-          height: 2,
-          backgroundColor: ICON_CLR,
-          borderRadius: 1,
-        }}
-      />
-      {/* Vertical line (hidden when open) */}
+    <button aria-hidden="true" className="relative w-[28px] h-[28px] rounded-full shrink-0 cursor-pointer bg-none border-none p-0 flex items-center justify-center">
+      {/* horizontal bar */}
+      <span className="absolute top-[calc(50%-1px)] left-[calc(50%-6px)] w-[12px] h-[2px] bg-slate-mid rounded-[1px]" />
+      {/* vertical bar (hidden when open) */}
       {!open && (
-        <span
-          style={{
-            position: 'absolute',
-            top: 'calc(50% - 6px)',
-            left: 'calc(50% - 1px)',
-            width: 2,
-            height: 12,
-            backgroundColor: ICON_CLR,
-            borderRadius: 1,
-          }}
-        />
+        <span className="absolute top-[calc(50%-6px)] left-[calc(50%-1px)] w-[2px] h-[12px] bg-slate-mid rounded-[1px]" />
       )}
     </button>
   )
 }
 
-/* ── Single accordion item ── */
 function AccordionItem({ item }: { item: FaqItem }) {
   const [open, setOpen] = useState(true)
 
   return (
     <div
-      style={{
-        width: '100%',
-        padding: '32px 0',
-        borderTop: `1px solid ${DIVIDER}`,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: open ? 32 : 0,
-        cursor: 'pointer',
-        overflow: 'hidden',
-      }}
+      className="w-full py-[32px] border-t border-[rgb(233,225,216)] flex flex-col overflow-hidden cursor-pointer"
+      style={{ gap: open ? 32 : 0 }}
     >
-      {/* Question row */}
       <div
         role="button"
         tabIndex={0}
         aria-expanded={open}
         onClick={() => setOpen(o => !o)}
         onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setOpen(o => !o)}
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          width: '100%',
-          cursor: 'pointer',
-          outline: 'none',
-        }}
+        className="flex flex-row items-start justify-between w-full cursor-pointer outline-none"
       >
-        <h6
-          style={{
-            margin: 0,
-            flex: '1 0 0',
-            maxWidth: 840,
-            fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
-            fontSize: 24,
-            fontWeight: 600,
-            lineHeight: '120%',
-            letterSpacing: 0,
-            color: INK,
-            userSelect: 'none',
-          }}
-        >
+        <h6 className="m-0 flex-[1_0_0] max-w-[840px] font-grenette-semi text-[24px] font-semibold leading-[120%] tracking-[0] text-ink select-none">
           {item.question}
         </h6>
         <AccordionIcon open={open} />
       </div>
 
-      {/* Answer */}
       {open && (
-        <div
-          style={{
-            display: 'flex',
-            width: '100%',
-          }}
-        >
-          <div
-            style={{
-              flex: '1 0 0',
-              maxWidth: '88%',
-              fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-              fontSize: 16,
-              fontWeight: 400,
-              lineHeight: '150%',
-              letterSpacing: 0,
-              color: INK_SOFT,
-            }}
-          >
+        <div className="flex w-full">
+          <div className="flex-[1_0_0] max-w-[88%] font-graphik text-[16px] font-normal leading-[150%] tracking-[0] text-ink-soft">
             {item.answer}
           </div>
         </div>
@@ -183,91 +84,24 @@ function AccordionItem({ item }: { item: FaqItem }) {
   )
 }
 
-/* ── Main component ── */
 export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="faq-section"
-      style={{
-        backgroundColor: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 0,
-        width: '100%',
-        minWidth: 1200,
-        padding: '80px',
-        position: 'relative',
-        overflow: 'visible',
-      }}
+      className="w-full flex flex-col items-center bg-white px-[24px] py-[60px] tablet:px-[48px] tablet:py-[60px] desktop:p-[80px] relative overflow-visible"
     >
-      {/* Heading */}
-      <div
-        className="faq-heading-wrap"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 16,
-          width: '100%',
-          padding: '0 0 16px',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: 1080,
-            maxWidth: '100%',
-          }}
-        >
-          <h3
-            className="faq-heading"
-            style={{
-              margin: 0,
-              width: '100%',
-              fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-              fontSize: 40,
-              fontWeight: 400,
-              lineHeight: '120%',
-              letterSpacing: 0,
-              color: INK,
-              textAlign: 'center',
-            }}
-          >
+      {/* heading */}
+      <div className="flex flex-col items-center gap-[16px] tablet:gap-[24px] w-full pb-[16px]">
+        <div className="flex flex-col items-center justify-center w-full max-w-[1080px]">
+          <h3 className="m-0 w-full font-grenette text-[32px] desktop:text-[40px] font-normal leading-[120%] tracking-[0] text-ink text-center">
             Frequently Asked Questions
           </h3>
         </div>
       </div>
 
-      {/* List area */}
-      <div
-        className="faq-list-area"
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'flex-start',
-          justifyContent: 'center',
-          gap: 72,
-          width: '100%',
-          maxWidth: 1440,
-        }}
-      >
-        {/* Accordion list */}
-        <div
-          className="faq-list"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            gap: 0,
-            width: '83%',
-            maxWidth: 925,
-          }}
-        >
+      {/* list */}
+      <div className="flex flex-col tablet:flex-wrap items-center justify-center gap-[40px] tablet:gap-[72px] w-full max-w-[1440px]">
+        <div className="flex flex-col items-start gap-0 w-full tablet:w-full max-w-[925px] tablet:max-w-full desktop:w-[83%] desktop:max-w-[925px]">
           {FAQ_ITEMS.map((item, i) => (
             <AccordionItem key={i} item={item} />
           ))}
