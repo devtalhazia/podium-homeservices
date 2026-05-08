@@ -1,6 +1,3 @@
-import React from 'react'
-import '../styles/footer.css'
-
 // ── Social icon SVG components ──────────────────────────────────────────────
 
 const FacebookIcon = () => (
@@ -52,7 +49,7 @@ const PodiumWordmarkSvg = () => (
   <svg
     viewBox="0 0 1421 307"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ width: '100%', display: 'block' }}
+    className="w-full block"
     aria-hidden="true"
     role="presentation"
   >
@@ -66,12 +63,12 @@ const PodiumWordmarkSvg = () => (
 const DEMO_URL = 'https://calendly.com/umar-softaims/hvac-automation'
 
 const col1Links = [
-  { label: 'Meet Larry',         href: '/ai/larry',  external: false },
+  { label: 'Meet Larry',         href: '/ai/larry',    external: false },
   { label: 'Communications',     href: '/#larry-jtbd', external: false },
   { label: 'Calendar & Booking', href: '/#larry-jtbd', external: false },
   { label: 'Marketing Tools',    href: '/#larry-jtbd', external: false },
-  { label: 'Plans',              href: '/plans',     external: false },
-  { label: 'Contact Sales',      href: DEMO_URL,     external: true },
+  { label: 'Plans',              href: '/plans',        external: false },
+  { label: 'Contact Sales',      href: DEMO_URL,        external: true },
 ]
 
 const col2Links = [
@@ -82,175 +79,55 @@ const col2Links = [
 
 const finePrintLinks = [
   { label: 'Terms & Conditions', href: 'https://softaims.com/terms-and-conditions', external: true },
-  { label: 'Privacy Policy',     href: 'https://softaims.com/privacy-policy', external: true },
+  { label: 'Privacy Policy',     href: 'https://softaims.com/privacy-policy',       external: true },
 ]
 
 const socialLinks: { label: string; href: string; Icon: () => JSX.Element }[] = [
-  { label: 'Facebook',  href: '#', Icon: FacebookIcon },
-  { label: 'Instagram', href: '#', Icon: InstagramIcon },
-  { label: 'LinkedIn',  href: '#', Icon: LinkedInIcon },
+  { label: 'Facebook',    href: '#', Icon: FacebookIcon },
+  { label: 'Instagram',   href: '#', Icon: InstagramIcon },
+  { label: 'LinkedIn',    href: '#', Icon: LinkedInIcon },
   { label: 'X (Twitter)', href: '#', Icon: XIcon },
 ]
-
-// ── Shared style objects ─────────────────────────────────────────────────────
-
-const colHeaderStyle: React.CSSProperties = {
-  fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
-  fontSize: '24px',
-  fontWeight: 600,
-  lineHeight: '120%',
-  letterSpacing: '0px',
-  color: 'rgb(247, 244, 237)',
-  whiteSpace: 'pre-wrap',
-  wordBreak: 'break-word',
-  width: '100%',
-  margin: 0,
-}
-
-const linkTextStyle: React.CSSProperties = {
-  fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-  fontSize: '14px',
-  fontWeight: 400,
-  lineHeight: '18px',
-  letterSpacing: '0em',
-  color: 'rgb(194, 186, 171)',
-}
 
 // ── Main component ───────────────────────────────────────────────────────────
 
 export default function FooterSection() {
   return (
-    <footer
-      style={{
-        backgroundColor: 'rgb(24, 24, 28)',
-        width: '100%',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
+    <footer className="bg-nav w-full overflow-hidden flex flex-col items-center">
       {/* Inner container */}
-      <div
-        className="footer-container"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '32px',
-          width: '100%',
-          maxWidth: '1440px',
-          padding: '80px',
-          boxSizing: 'border-box',
-        }}
-      >
+      <div className="flex flex-col items-center gap-[32px] w-full max-w-[1440px] p-[80px] box-border tablet:px-[48px] tablet:pt-[72px] tablet:pb-[32px]">
         {/* Content row: left col + links */}
-        <div
-          className="footer-content"
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            justifyContent: 'flex-start',
-            gap: '30px',
-            width: '100%',
-          }}
-        >
+        <div className="flex flex-col desktop:flex-row items-start justify-start gap-[48px] desktop:gap-[30px] w-full">
           {/* Left column */}
-          <div
-            className="footer-left-col"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              gap: '24px',
-              flex: '1 0 0',
-              minWidth: '250px',
-              maxWidth: '470px',
-            }}
-          >
-            <h6
-              className="footer-heading"
-              style={{
-                fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
-                fontSize: '20px',
-                fontWeight: 600,
-                lineHeight: '150%',
-                letterSpacing: '0px',
-                color: 'rgb(247, 244, 237)',
-                whiteSpace: 'pre-wrap',
-                wordBreak: 'break-word',
-                width: '100%',
-                margin: 0,
-              }}
-            >
+          <div className="flex flex-col items-start gap-[24px] flex-[1_0_0] min-w-0 desktop:min-w-[250px] desktop:max-w-[470px] w-full desktop:w-auto">
+            <h6 className="m-0 font-grenette-semi text-[18px] tablet:text-[18px] desktop:text-[20px] font-semibold leading-[150%] text-cream w-full whitespace-pre-wrap break-words">
               Learn to grow revenue with the #1 AI Employee for Home Services.
             </h6>
             <a
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '16px 32px',
-                backgroundColor: 'rgb(220, 220, 225)',
-                borderRadius: '50px',
-                textDecoration: 'none',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-              }}
+              className="inline-flex flex-row items-center justify-center px-[32px] py-[16px] bg-[rgb(220,220,225)] rounded-[50px] no-underline cursor-pointer whitespace-nowrap"
             >
-              <span
-                style={{
-                  fontFamily: '"Graphik Semibold", "Graphik Semibold Placeholder", sans-serif',
-                  fontSize: '18px',
-                  fontWeight: 600,
-                  lineHeight: '18px',
-                  letterSpacing: '0px',
-                  color: 'rgb(28, 27, 24)',
-                }}
-              >
+              <span className="font-graphik-semi text-[18px] font-semibold leading-[18px] text-ink">
                 Watch a demo
               </span>
             </a>
           </div>
 
           {/* Links section */}
-          <div
-            className="footer-links"
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'flex-start',
-              justifyContent: 'flex-end',
-              flex: '1 0 0',
-              minWidth: '500px',
-              gap: '30px',
-            }}
-          >
+          <div className="flex flex-row items-start justify-start desktop:justify-end flex-[1_0_0] w-full desktop:min-w-[500px] gap-0 desktop:gap-[30px]">
             {/* Col 1 - Podium Home Services */}
-            <div
-              className="footer-col1"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                gap: '16px',
-                flex: '1 0 0',
-                maxWidth: '265px',
-              }}
-            >
-              <h6 style={colHeaderStyle}>Podium Home Services</h6>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px', width: '100%' }}>
+            <div className="flex flex-col items-start gap-[16px] flex-none desktop:flex-[1_0_0] w-1/2 desktop:w-auto desktop:max-w-[265px]">
+              <h6 className="m-0 font-grenette-semi text-[24px] font-semibold leading-[120%] text-cream w-full whitespace-pre-wrap break-words">
+                Podium Home Services
+              </h6>
+              <div className="flex flex-col items-start gap-[16px] w-full">
                 {col1Links.map(({ label, href, external }) => (
                   <a
                     key={label}
                     href={href}
-                    className="footer-link"
-                    style={linkTextStyle}
+                    className="font-graphik text-[14px] font-normal leading-[18px] text-[rgb(194,186,171)] no-underline transition-colors duration-150 ease hover:text-[#c0c0bf]"
                     target={external ? '_blank' : undefined}
                     rel={external ? 'noopener noreferrer' : undefined}
                   >
@@ -261,25 +138,16 @@ export default function FooterSection() {
             </div>
 
             {/* Col 2 - Resources */}
-            <div
-              className="footer-col2"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                gap: '16px',
-                flex: '1 0 0',
-                maxWidth: '250px',
-              }}
-            >
-              <h6 style={colHeaderStyle}>Resources</h6>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '16px', width: '100%' }}>
+            <div className="flex flex-col items-start gap-[16px] flex-none desktop:flex-[1_0_0] w-1/2 desktop:w-auto desktop:max-w-[250px]">
+              <h6 className="m-0 font-grenette-semi text-[24px] font-semibold leading-[120%] text-cream w-full whitespace-pre-wrap break-words">
+                Resources
+              </h6>
+              <div className="flex flex-col items-start gap-[16px] w-full">
                 {col2Links.map(({ label, href, external }) => (
                   <a
                     key={label}
                     href={href}
-                    className="footer-link"
-                    style={linkTextStyle}
+                    className="font-graphik text-[14px] font-normal leading-[18px] text-[rgb(194,186,171)] no-underline transition-colors duration-150 ease hover:text-[#c0c0bf]"
                     target={external ? '_blank' : undefined}
                     rel={external ? 'noopener noreferrer' : undefined}
                   >
@@ -292,22 +160,13 @@ export default function FooterSection() {
         </div>
 
         {/* Social icons row */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            gap: '20px',
-            width: '100%',
-          }}
-        >
+        <div className="flex flex-row items-center justify-end gap-[20px] w-full">
           {socialLinks.map(({ label, href, Icon }) => (
             <a
               key={label}
               href={href}
               aria-label={label}
-              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
+              className="inline-flex items-center justify-center no-underline"
             >
               <Icon />
             </a>
@@ -315,59 +174,16 @@ export default function FooterSection() {
         </div>
 
         {/* Copyright bar */}
-        <div
-          className="footer-copyright-bar"
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            width: '100%',
-            borderTop: '1px solid rgb(128, 121, 111)',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: '"Graphik Semibold", "Graphik Semibold Placeholder", sans-serif',
-              fontSize: '14px',
-              fontWeight: 600,
-              letterSpacing: '-0.01em',
-              lineHeight: '28px',
-              color: 'rgb(247, 244, 237)',
-              whiteSpace: 'pre-wrap',
-              wordBreak: 'break-word',
-              width: '220px',
-              margin: 0,
-            }}
-          >
+        <div className="flex flex-col desktop:flex-row justify-between items-start w-full border-t border-[rgb(128,121,111)] gap-[20px] desktop:gap-0">
+          <p className="m-0 font-graphik-semi text-[14px] font-semibold tracking-[-0.01em] leading-[28px] text-cream whitespace-pre-wrap break-words w-[220px]">
             © Podium Corp Inc. 2026
           </p>
-
-          <div
-            className="footer-fine-links"
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              gap: '40px',
-              width: 'min-content',
-            }}
-          >
+          <div className="flex flex-row items-center justify-start flex-wrap gap-x-[40px] gap-y-[6px] desktop:gap-y-0">
             {finePrintLinks.map(({ label, href, external }) => (
               <a
                 key={label}
                 href={href}
-                className="footer-fine-link"
-                style={{
-                  fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  letterSpacing: '-0.01em',
-                  lineHeight: '28px',
-                  color: 'rgb(194, 186, 171)',
-                  whiteSpace: 'nowrap',
-                }}
+                className="font-graphik text-[14px] font-normal tracking-[-0.01em] leading-[28px] text-[rgb(194,186,171)] whitespace-nowrap no-underline transition-colors duration-150 ease hover:text-[#c0c0bf]"
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
               >
@@ -379,17 +195,7 @@ export default function FooterSection() {
       </div>
 
       {/* Footer wordmark vector */}
-      <div
-        className="footer-vector"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-          width: '100%',
-          height: '190px',
-          overflow: 'visible',
-        }}
-      >
+      <div className="flex flex-row items-start w-full h-[87px] tablet:h-[131px] desktop:h-[190px] overflow-visible">
         <PodiumWordmarkSvg />
       </div>
     </footer>

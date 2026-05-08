@@ -1,93 +1,41 @@
-import '../styles/communications.css'
-
 const CRIMSON = 'rgb(157, 64, 60)'
 const INK     = '#1c1b18'
 const INK_SOFT = '#4e4a44'
 const GRAY_MID = 'rgb(98, 98, 101)'
 
-/* ── Arrow SVG (14×14, path from #svg-806169162_358) ── */
 const ArrowSVG = () => (
-  <svg
-    viewBox="0 0 14 14"
-    width="14"
-    height="14"
-    overflow="visible"
-    aria-hidden="true"
-    style={{ display: 'block', flexShrink: 0 }}
-  >
-    <path
-      d="M 0 7 L 14 7 M 7 0 L 14 7 L 7 14"
-      fill="transparent"
-      strokeWidth="2"
-      stroke={CRIMSON}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  <svg viewBox="0 0 14 14" width="14" height="14" overflow="visible" aria-hidden="true" className="block shrink-0">
+    <path d="M 0 7 L 14 7 M 7 0 L 14 7 L 7 14" fill="transparent" strokeWidth="2" stroke={CRIMSON} strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
-/* ── Feature item ── */
 function FeatureItem({ title, body, gap = 6 }: { title: string; body: string; gap?: number }) {
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'column', gap,
-      width: '100%', padding: '16px 0', overflow: 'hidden',
-    }}>
-      <h6 style={{
-        margin: 0,
-        fontFamily: '"Grenette SemiBold", "Grenette SemiBold Placeholder", sans-serif',
-        fontSize: 24, fontWeight: 600, lineHeight: '120%',
-        letterSpacing: 0, color: INK,
-      }}>
+    <div className="flex flex-col w-full py-[16px] overflow-hidden" style={{ gap }}>
+      <h6 className="m-0 font-grenette-semi text-[24px] font-semibold leading-[120%] text-left" style={{ color: INK }}>
         {title}
       </h6>
-      <p style={{
-        margin: 0,
-        fontFamily: '"Graphik Regular", "Graphik Regular Placeholder", sans-serif',
-        fontSize: 16, fontWeight: 400, lineHeight: '150%',
-        letterSpacing: 0, color: INK_SOFT,
-      }}>
+      <p className="m-0 font-graphik text-[16px] font-normal leading-[150%] text-left" style={{ color: INK_SOFT }}>
         {body}
       </p>
     </div>
   )
 }
 
-/* ── CTA underline link (framer-9b11zl / Text CTA Underlined) ── */
 function CTALink({ href, label }: { href: string; label: string }) {
   return (
-    <div style={{
-      display: 'flex', flexWrap: 'wrap', alignItems: 'center',
-      gap: 32, padding: '24px 0', width: '100%',
-    }}>
+    <div className="flex flex-wrap items-center gap-[32px] py-[24px] w-full">
       <a
         href={href}
-        style={{
-          display: 'flex', flexDirection: 'row', alignItems: 'center',
-          gap: 0, textDecoration: 'none', cursor: 'pointer',
-          borderBottom: `2px solid ${CRIMSON}`,
-          backgroundColor: 'transparent',
-        }}
+        className="flex flex-row items-center gap-0 no-underline cursor-pointer border-b-2 bg-transparent"
+        style={{ borderColor: CRIMSON }}
       >
-        {/* Text (framer-r3gkvy + framer-tap6xd) */}
-        <div style={{
-          display: 'flex', flexDirection: 'row', alignItems: 'center',
-          gap: 10, width: 'min-content',
-        }}>
-          <p style={{
-            margin: 0, whiteSpace: 'pre',
-            fontFamily: '"Graphik Semibold", "Graphik Semibold Placeholder", sans-serif',
-            fontSize: 18, fontWeight: 600, lineHeight: '18px',
-            letterSpacing: 0, color: CRIMSON, textAlign: 'center',
-          }}>
+        <div className="flex flex-row items-center gap-[10px] w-min">
+          <p className="m-0 whitespace-pre font-graphik-semi text-[18px] font-semibold leading-[18px] text-center" style={{ color: CRIMSON }}>
             {label}
           </p>
         </div>
-        {/* Arrow icon (framer-48kyvy) */}
-        <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: 5,
-        }}>
+        <div className="flex items-center justify-center p-[5px]">
           <ArrowSVG />
         </div>
       </a>
@@ -95,10 +43,6 @@ function CTALink({ href, label }: { href: string; label: string }) {
   )
 }
 
-/* ── Copy block inner content ──
-   preheader + h4 heading + features list + CTA
-   Used by both Communications and Marketing.
-── */
 interface CopyBlockProps {
   preheader: string
   heading: string
@@ -106,45 +50,22 @@ interface CopyBlockProps {
 }
 function CopyBlockInner({ preheader, heading, features }: CopyBlockProps) {
   return (
-    /* framer-3cmdah / framer-flo9cf equivalent */
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 0, width: '100%' }}>
-      {/* Preheader + H4 block */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 0, width: '100%' }}>
-        {/* framer-131698i / framer-uvlp0y: gap 5px */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5, width: '100%' }}>
-          {/* framer-a6722t / framer-1jw6t7l: gap 10px, pb 8px */}
-          <div style={{
-            display: 'flex', flexDirection: 'column', gap: 10,
-            width: '100%', paddingBottom: 8,
-          }}>
-            <h6 style={{
-              margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-              fontFamily: '"Graphik Medium", "Graphik Medium Placeholder", sans-serif',
-              fontSize: 16, fontWeight: 500, lineHeight: '150%',
-              letterSpacing: '0.1em', textTransform: 'uppercase', color: GRAY_MID,
-              textAlign: 'left',
-            }}>
+    <div className="flex flex-col gap-0 w-full">
+      <div className="flex flex-col gap-0 w-full">
+        <div className="flex flex-col gap-[5px] w-full">
+          <div className="flex flex-col gap-[10px] w-full pb-[8px]">
+            <h6 className="m-0 font-graphik-medium text-[16px] font-medium leading-[150%] tracking-[0.1em] uppercase text-left whitespace-pre-wrap break-words" style={{ color: GRAY_MID }}>
               {preheader}
             </h6>
           </div>
-          {/* framer-1o6o4ld / framer-zb3ah9: pb 16px */}
-          <div style={{ width: '100%', paddingBottom: 16 }}>
-            <h4 style={{
-              margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-              fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-              fontSize: 36, fontWeight: 400, lineHeight: '120%',
-              letterSpacing: 0, color: INK, textAlign: 'left',
-            }}>
+          <div className="w-full pb-[16px]">
+            <h4 className="m-0 font-grenette text-[36px] font-normal leading-[120%] text-left whitespace-pre-wrap break-words" style={{ color: INK }}>
               {heading}
             </h4>
           </div>
         </div>
       </div>
-      {/* Features list (framer-1kg7u4z / framer-qnav32): gap 17px */}
-      <div style={{
-        display: 'flex', flexDirection: 'column', gap: 17,
-        width: '100%',
-      }}>
+      <div className="flex flex-col gap-[17px] w-full">
         {features.map(f => (
           <FeatureItem key={f.title} title={f.title} body={f.body} />
         ))}
@@ -153,77 +74,32 @@ function CopyBlockInner({ preheader, heading, features }: CopyBlockProps) {
   )
 }
 
-/* ── CSR side-by-side (framer-xnew9r)
-   Copy LEFT, image RIGHT — "Your #1 converting CSR"
-── */
 const CSR_FEATURES = [
-  {
-    title: 'Responds immediately, 24/7',
-    body:  'Most home services businesses lose 40% of leads after-hours. Larry works day and night so you are always the first to respond.',
-  },
-  {
-    title: 'Books directly',
-    body:  'Larry handles your entire schedule, booking jobs and managing each technician\'s calendar in your FSM.',
-  },
-  {
-    title: 'Optimizes technician scheduling',
-    body:  'Larry knows your routes and technician skillsets to suggest appointments and technicians that are available and nearby.',
-  },
-  {
-    title: 'Works across every lead source',
-    body:  'Larry handles communications from calls, texts, webchats, third-party lead providers, and email in one inbox; accessible to Larry and your entire team.',
-  },
+  { title: 'Responds immediately, 24/7', body: 'Most home services businesses lose 40% of leads after-hours. Larry works day and night so you are always the first to respond.' },
+  { title: 'Books directly', body: "Larry handles your entire schedule, booking jobs and managing each technician's calendar in your FSM." },
+  { title: 'Optimizes technician scheduling', body: 'Larry knows your routes and technician skillsets to suggest appointments and technicians that are available and nearby.' },
+  { title: 'Works across every lead source', body: 'Larry handles communications from calls, texts, webchats, third-party lead providers, and email in one inbox; accessible to Larry and your entire team.' },
 ]
 
 function CSRSideBySide() {
   return (
-    /* framer-xnew9r: flex-row, gap:30, max-width:1440, align-items:center */
-    <div
-      className="csr-row"
-      style={{
-        display: 'flex', flexDirection: 'row', alignItems: 'center',
-        gap: 30, width: '100%', maxWidth: 1440,
-      }}
-    >
-      {/* Copy block LEFT (framer-1ynychl): padding-right:20 */}
-      <div
-        className="csr-copy"
-        style={{
-          display: 'flex', flexDirection: 'column',
-          flex: '1 0 0', minWidth: 505, maxWidth: 705,
-          gap: 32, padding: '0 20px 0 0',
-        }}
-      >
-        {/* framer-rsjot7: gap:0 */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 0, width: '100%' }}>
-          {/* framer-x5gsha: gap:5 */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 5, width: '100%' }}>
-            {/* framer-o6x6lx: gap:10, pb:8 */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', paddingBottom: 8 }}>
-              <h6 style={{
-                margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-                fontFamily: '"Graphik Medium", "Graphik Medium Placeholder", sans-serif',
-                fontSize: 16, fontWeight: 500, lineHeight: '150%',
-                letterSpacing: '0.1em', textTransform: 'uppercase',
-                color: GRAY_MID, textAlign: 'left',
-              }}>
+    <div className="flex flex-col desktop:flex-row items-center gap-[30px] w-full max-w-[1440px]">
+      {/* Copy block — order:1 on mobile (after image), order:0 on desktop (natural DOM order, left) */}
+      <div className="order-[1] desktop:order-[0] flex flex-col flex-none desktop:flex-[1_0_0] w-full desktop:min-w-[505px] desktop:max-w-[705px] gap-[32px] p-0 desktop:pr-[20px]">
+        <div className="flex flex-col gap-0 w-full">
+          <div className="flex flex-col gap-[5px] w-full">
+            <div className="flex flex-col gap-[10px] w-full pb-[8px]">
+              <h6 className="m-0 font-graphik-medium text-[16px] font-medium leading-[150%] tracking-[0.1em] uppercase text-left whitespace-pre-wrap break-words" style={{ color: GRAY_MID }}>
                 Schedules jobs autonomously
               </h6>
             </div>
-            {/* framer-ukmku2: pb:16 */}
-            <div style={{ width: '100%', paddingBottom: 16 }}>
-              <h4 style={{
-                margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-                fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-                fontSize: 36, fontWeight: 400, lineHeight: '120%',
-                letterSpacing: 0, color: INK, textAlign: 'left',
-              }}>
+            <div className="w-full pb-[16px]">
+              <h4 className="m-0 font-grenette text-[36px] font-normal leading-[120%] text-left whitespace-pre-wrap break-words" style={{ color: INK }}>
                 Your #1 converting CSR
               </h4>
             </div>
           </div>
-          {/* framer-1x6outl: gap:17 — feature items use gap:4 */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 17, width: '100%' }}>
+          <div className="flex flex-col gap-[17px] w-full">
             {CSR_FEATURES.map(f => (
               <FeatureItem key={f.title} title={f.title} body={f.body} gap={4} />
             ))}
@@ -232,41 +108,12 @@ function CSRSideBySide() {
         <CTALink href="/ai/larry" label="Learn more about Larry" />
       </div>
 
-      {/* Image panel RIGHT (framer-keegyg): dark bg, border-radius:24, min-width:505, height:640 */}
+      {/* Image panel — order:0 on mobile (first), order:1 on desktop (right) */}
       <div
-        className="csr-img-panel"
-        style={{
-          position: 'relative',
-          backgroundColor: '#18181c',
-          borderRadius: 24,
-          flex: '1 0 0',
-          minWidth: 505,
-          height: 640,
-          overflow: 'hidden',
-        }}
+        className="order-[0] desktop:order-[1] relative bg-[#18181c] rounded-[24px] tablet:rounded-[16px] flex-none desktop:flex-[1_0_0] w-full desktop:min-w-[505px] h-[200px] tablet:h-[375px] desktop:h-[640px] overflow-hidden"
       >
-        {/* Blue gradient blur (framer-q3nanw): top:-220, left:-152 */}
-        <div style={{
-          position: 'absolute', zIndex: 0,
-          filter: 'blur(125px)',
-          backgroundColor: '#284568',
-          borderRadius: '100%',
-          width: 507, height: 520,
-          top: -220, left: -152,
-          pointerEvents: 'none',
-        }} />
-        {/* Crimson gradient blur (framer-1ez1zr6) */}
-        <div style={{
-          position: 'absolute', zIndex: 0,
-          filter: 'blur(125px)',
-          backgroundColor: '#653130',
-          borderRadius: '100%',
-          width: 731,
-          top: 239, bottom: -330, right: -422,
-          pointerEvents: 'none',
-        }} />
-        {/* Desktop/tablet: VzJWSnR4e6aFeMKZLu0em2bjvg.png (framer-fmtt9p): 387×570, centered */}
-        {/* Mobile: zZwf3lkmKGO8s6wtME3DMElbxg.png (landscape, centered) */}
+        <div className="absolute z-0 blur-[125px] bg-[#284568] rounded-full w-[507px] h-[520px] -top-[220px] -left-[152px] pointer-events-none" />
+        <div className="absolute z-0 blur-[125px] bg-[#653130] rounded-full w-[731px] pointer-events-none" style={{ top: 239, bottom: -330, right: -422 }} />
         <picture>
           <source media="(max-width: 767.98px)" srcSet="/images/zZwf3lkmKGO8s6wtME3DMElbxg.png" />
           <img
@@ -274,17 +121,8 @@ function CSRSideBySide() {
             alt=""
             aria-hidden="true"
             decoding="async"
-            style={{
-              position: 'absolute',
-              width: 387,
-              height: 570,
-              top: 'calc(50% - 285px)',
-              left: 'calc(49.901% - 193.5px)',
-              display: 'block',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              zIndex: 1,
-            }}
+            className="absolute block object-cover object-center z-[1]"
+            style={{ width: 387, height: 570, top: 'calc(50% - 285px)', left: 'calc(49.901% - 193.5px)' }}
           />
         </picture>
       </div>
@@ -292,62 +130,19 @@ function CSRSideBySide() {
   )
 }
 
-/* ── Communications side-by-side (framer-jgiwcm)
-   Image LEFT, copy RIGHT
-── */
 const COMMS_FEATURES = [
-  {
-    title: 'Answers your phones with Voice AI',
-    body:  'Larry manages your front desk, answers the phone 24/7, and books jobs directly into your calendar—all while sounding like your best employee.',
-  },
-  {
-    title: 'Reduce no-shows with text confirmations',
-    body:  'Automatically remind customers about upcoming appointments to secure the job and reduce no-shows all through AI text messages.',
-  },
-  {
-    title: 'Consolidate to a single inbox',
-    body:  'See all lead channels in one centralized view (and get insights into what converts faster).',
-  },
-  {
-    title: 'Centralize customer info',
-    body:  'Keep track of customer data, including payments, in one place so your employees and Larry always stay up-to-date and your invoices get paid.',
-  },
+  { title: 'Answers your phones with Voice AI', body: 'Larry manages your front desk, answers the phone 24/7, and books jobs directly into your calendar—all while sounding like your best employee.' },
+  { title: 'Reduce no-shows with text confirmations', body: 'Automatically remind customers about upcoming appointments to secure the job and reduce no-shows all through AI text messages.' },
+  { title: 'Consolidate to a single inbox', body: 'See all lead channels in one centralized view (and get insights into what converts faster).' },
+  { title: 'Centralize customer info', body: 'Keep track of customer data, including payments, in one place so your employees and Larry always stay up-to-date and your invoices get paid.' },
 ]
 
 function CommsSideBySide() {
   return (
-    /* framer-jgiwcm: flex-row, gap:30, max-width:1440, align-items:center */
-    <div
-      className="comms-row"
-      style={{
-        display: 'flex', flexDirection: 'row', alignItems: 'center',
-        gap: 30, width: '100%', maxWidth: 1440,
-      }}
-    >
-      {/* Image panel LEFT (framer-8fp595) */}
-      <div
-        className="comms-img-panel"
-        style={{
-          position: 'relative',
-          backgroundColor: '#18181c',
-          borderRadius: 24,
-          flex: '1 0 0',
-          minWidth: 505,
-          height: 640,
-          overflow: 'hidden',
-        }}
-      >
-        {/* HVAC blue gradient blur (framer-cj7gkm) */}
-        <div style={{
-          position: 'absolute', zIndex: 0,
-          filter: 'blur(125px)',
-          backgroundColor: '#284568',
-          borderRadius: '100%',
-          width: 507, height: 520,
-          top: -150, left: -182,
-          pointerEvents: 'none',
-        }} />
-        {/* Phone UI image (framer-h2r9v2) */}
+    <div className="flex flex-col desktop:flex-row items-center gap-[30px] w-full max-w-[1440px]">
+      {/* Image panel LEFT — natural order (first in DOM, image on top mobile) */}
+      <div className="relative bg-[#18181c] rounded-[24px] flex-none desktop:flex-[1_0_0] w-full desktop:min-w-[505px] h-[250px] tablet:h-[500px] desktop:h-[640px] overflow-hidden">
+        <div className="absolute z-0 blur-[125px] bg-[#284568] rounded-full w-[507px] h-[520px] -top-[150px] -left-[182px] pointer-events-none" />
         <picture>
           <source media="(max-width: 767.98px)" srcSet="/images/gY27lDY1FDg1vqcFbCGwv3ua9w.png" />
           <img
@@ -355,126 +150,41 @@ function CommsSideBySide() {
             alt=""
             aria-hidden="true"
             decoding="async"
-            className="comms-phone-img"
-            style={{
-              position: 'absolute',
-              top: 102, left: 35, right: 153,
-              aspectRatio: '0.725746',
-              display: 'block',
-              width: 'auto',
-              height: 'auto',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              overflow: 'visible',
-              zIndex: 1,
-            }}
+            className="absolute block object-cover object-center overflow-visible z-[1]"
+            style={{ top: 102, left: 35, right: 153, aspectRatio: '0.725746', width: 'auto', height: 'auto' }}
           />
         </picture>
       </div>
 
-      {/* Copy block RIGHT (framer-162lntv) */}
-      <div
-        className="comms-copy"
-        style={{
-          display: 'flex', flexDirection: 'column',
-          flex: '1 0 0', minWidth: 505, maxWidth: 705,
-          gap: 32, padding: '0 0 0 48px',
-        }}
-      >
-        <CopyBlockInner
-          preheader="Eliminates SYSTEM SWITCHING"
-          heading="All-in-one communications"
-          features={COMMS_FEATURES}
-        />
+      {/* Copy block RIGHT */}
+      <div className="flex flex-col flex-none desktop:flex-[1_0_0] w-full desktop:min-w-[505px] desktop:max-w-[705px] gap-[32px] p-0 desktop:pl-[48px]">
+        <CopyBlockInner preheader="Eliminates SYSTEM SWITCHING" heading="All-in-one communications" features={COMMS_FEATURES} />
         <CTALink href="/#larry-jtbd" label="Learn more about Communications" />
       </div>
     </div>
   )
 }
 
-/* ── Marketing side-by-side (framer-1xim388)
-   Copy LEFT, image RIGHT
-── */
 const MKTG_FEATURES = [
-  {
-    title: 'AI-managed memberships',
-    body:  'Proactively manage and leverage your maintenance agreements to keep your calendar full in the shoulder season.',
-  },
-  {
-    title: 'Renewals & upsells',
-    body:  'Build more loyalty (and fill your calendar) with personalized offers, maintenance agreements, second chance leads and upsells.',
-  },
-  {
-    title: 'Marketing & re-engagement',
-    body:  'Mine your customer database for repeat business opportunities and second-chance leads and follow-up on unsold estimates.',
-  },
-  {
-    title: 'Reviews',
-    body:  'Boost your presence online by automating review requests and responses.',
-  },
+  { title: 'AI-managed memberships', body: 'Proactively manage and leverage your maintenance agreements to keep your calendar full in the shoulder season.' },
+  { title: 'Renewals & upsells', body: 'Build more loyalty (and fill your calendar) with personalized offers, maintenance agreements, second chance leads and upsells.' },
+  { title: 'Marketing & re-engagement', body: 'Mine your customer database for repeat business opportunities and second-chance leads and follow-up on unsold estimates.' },
+  { title: 'Reviews', body: 'Boost your presence online by automating review requests and responses.' },
 ]
 
 function MarketingSideBySide() {
   return (
-    /* framer-1xim388: flex-row, gap:30, max-width:1440, align-items:center */
-    <div
-      className="mktg-row"
-      style={{
-        display: 'flex', flexDirection: 'row', alignItems: 'center',
-        gap: 30, width: '100%', maxWidth: 1440,
-      }}
-    >
-      {/* Copy block LEFT (framer-18cen7w): padding-right:48 */}
-      <div
-        className="mktg-copy"
-        style={{
-          display: 'flex', flexDirection: 'column',
-          flex: '1 0 0', minWidth: 505, maxWidth: 705,
-          gap: 32, padding: '0 48px 0 0',
-        }}
-      >
-        <CopyBlockInner
-          preheader="Proactively Fills Your Calendar"
-          heading="AI marketing tools that book"
-          features={MKTG_FEATURES}
-        />
+    <div className="flex flex-col desktop:flex-row items-center gap-[30px] w-full max-w-[1440px]">
+      {/* Copy block LEFT — order:1 on mobile, order:0 on desktop */}
+      <div className="order-[1] desktop:order-[0] flex flex-col flex-none desktop:flex-[1_0_0] w-full desktop:min-w-[505px] desktop:max-w-[705px] gap-[32px] p-0 desktop:pr-[48px]">
+        <CopyBlockInner preheader="Proactively Fills Your Calendar" heading="AI marketing tools that book" features={MKTG_FEATURES} />
         <CTALink href="/#larry-jtbd" label="Learn more about Marketing Tools" />
       </div>
 
-      {/* Image panel RIGHT (framer-1vtt8jy) */}
-      <div
-        className="mktg-img-panel"
-        style={{
-          position: 'relative',
-          backgroundColor: '#18181c',
-          borderRadius: 24,
-          flex: '1 0 0',
-          minWidth: 505,
-          height: 640,
-          overflow: 'hidden',
-        }}
-      >
-        {/* Crimson gradient blur (framer-137605o) */}
-        <div style={{
-          position: 'absolute', zIndex: 0,
-          filter: 'blur(125px)',
-          backgroundColor: '#653130',
-          borderRadius: '100%',
-          width: 731,
-          top: 239, bottom: -330, right: -422,
-          pointerEvents: 'none',
-        }} />
-        {/* Blue gradient blur (framer-1nie3jk) */}
-        <div style={{
-          position: 'absolute', zIndex: 0,
-          filter: 'blur(125px)',
-          backgroundColor: '#284568',
-          borderRadius: '100%',
-          width: 507, height: 520,
-          top: -150, left: -182,
-          pointerEvents: 'none',
-        }} />
-        {/* Marketing UI image (framer-u6j4jt) */}
+      {/* Image panel RIGHT — order:0 on mobile (first), order:1 on desktop */}
+      <div className="order-[0] desktop:order-[1] relative bg-[#18181c] rounded-[24px] flex-none desktop:flex-[1_0_0] w-full desktop:min-w-[505px] h-[250px] tablet:h-[500px] desktop:h-[640px] overflow-hidden">
+        <div className="absolute z-0 blur-[125px] bg-[#653130] rounded-full w-[731px] pointer-events-none" style={{ top: 239, bottom: -330, right: -422 }} />
+        <div className="absolute z-0 blur-[125px] bg-[#284568] rounded-full w-[507px] h-[520px] -top-[150px] -left-[182px] pointer-events-none" />
         <picture>
           <source media="(max-width: 1199.98px)" srcSet="/images/jQDusbuL40uT6io6JcrmrLbrA.png" />
           <img
@@ -482,18 +192,8 @@ function MarketingSideBySide() {
             alt=""
             aria-hidden="true"
             decoding="async"
-            className="mktg-phone-img"
-            style={{
-              position: 'absolute',
-              width: 492,
-              height: 568,
-              top: 'calc(46.0938% - 284px)',
-              left: 'calc(48.9109% - 246px)',
-              display: 'block',
-              objectFit: 'cover',
-              objectPosition: 'center',
-              zIndex: 1,
-            }}
+            className="absolute block object-cover object-center z-[1]"
+            style={{ width: 492, height: 568, top: 'calc(46.0938% - 284px)', left: 'calc(48.9109% - 246px)' }}
           />
         </picture>
       </div>
@@ -501,58 +201,21 @@ function MarketingSideBySide() {
   )
 }
 
-/* ── Section ── */
 export default function CommunicationsSection() {
   return (
-    /* framer-yxgzsj: bg #f0f0f3, flex-col, align-center, gap:64, padding:80, overflow:hidden */
     <section
       id="larry-jtbd"
-      className="comms-section"
-      style={{
-        backgroundColor: '#f0f0f3',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        placeContent: 'center',
-        gap: 64,
-        width: '100%',
-        padding: 80,
-        overflow: 'hidden',
-        position: 'relative',
-      }}
+      className="bg-[#f0f0f3] flex flex-col items-center place-content-center gap-[64px] w-full px-[24px] py-[60px] tablet:px-[48px] tablet:py-[72px] desktop:p-[80px] overflow-hidden relative"
     >
-      {/* H3 Section Heading (framer-svrw9h + framer-1etrr6s) */}
-      {/* framer-1etrr6s: flex-col, align-center, gap:24 (from framer-v-1mzkp2b), width:100%, max-width:1080 */}
-      <div style={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center',
-        gap: 24, width: '100%', maxWidth: 1080,
-      }}>
-        {/* framer-4na7px: flex-col, gap:48, pb:24 — preheader block */}
-        <div style={{
-          display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
-          gap: 48, width: '100%', paddingBottom: 24,
-        }}>
-          <p style={{
-            margin: 0, width: '100%',
-            fontFamily: '"Graphik Medium", "Graphik Medium Placeholder", sans-serif',
-            fontSize: 16, fontWeight: 500, lineHeight: '150%',
-            letterSpacing: '0.1em', textTransform: 'uppercase',
-            color: GRAY_MID, textAlign: 'center',
-          }}>
+      {/* Section heading */}
+      <div className="flex flex-col items-center gap-[24px] w-full max-w-[1080px]">
+        <div className="flex flex-col items-start gap-[48px] w-full pb-[24px]">
+          <p className="m-0 w-full font-graphik-medium text-[16px] font-medium leading-[150%] tracking-[0.1em] uppercase text-center" style={{ color: GRAY_MID }}>
             Your AI Booking, Communications, and Marketing Guru
           </p>
         </div>
-        {/* framer-18n4kb3: flex-col, align-center, gap:16, pb:16 — heading block */}
-        <div style={{
-          display: 'flex', flexDirection: 'column', alignItems: 'center',
-          gap: 16, width: '100%', paddingBottom: 16,
-        }}>
-          <h3 style={{
-            margin: 0, width: '100%',
-            fontFamily: '"Grenette Regular", "Grenette Regular Placeholder", sans-serif',
-            fontSize: 40, fontWeight: 400, lineHeight: '120%',
-            letterSpacing: 0, color: INK, textAlign: 'center',
-          }}>
+        <div className="flex flex-col items-center gap-[16px] w-full pb-[16px]">
+          <h3 className="m-0 w-full font-grenette text-[40px] font-normal leading-[120%] text-center" style={{ color: INK }}>
             Larry improves operations, customer experience, and profitability
           </h3>
         </div>
