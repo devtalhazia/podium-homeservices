@@ -29,7 +29,7 @@ const CARDS: StatCard[] = [
     image: '/images/why-podium-stats-air-texas.png',
     primaryStat: '$20,000',
     secondaryStat: 'job booked after hours',
-    description: 'A lead came in after the office closed. Larry answered, qualified, and booked it. Without Podium, it goes to voicemail.',
+    description: 'A lead came in after the office closed. Larry answered, qualified, and booked it. Without CloseCrew, it goes to voicemail.',
     attribution: 'Air Texas',
   },
   {
@@ -61,7 +61,7 @@ function CardContent({ card }: { card: StatCard }) {
 
   return (
     <div
-      className={`flex flex-col justify-center gap-[24px] p-[24px] h-full box-border ${isCenter ? 'items-center' : 'items-start'} ${card.image ? 'flex-[2_0_0] w-px' : 'w-full'}`}
+      className={`flex flex-col justify-center gap-[24px] p-[24px] h-full box-border ${isCenter ? 'items-center' : 'items-start'} ${card.image ? 'flex-[2_0_0]' : 'w-full'}`}
     >
       <div className={`flex flex-col w-full ${isCenter ? 'items-center' : 'items-start'}`}>
         {card.label && (
@@ -139,7 +139,7 @@ function StatCardItem({ card }: { card: StatCard }) {
   )
 }
 
-export default function WhyPodiumStatsSection() {
+export default function WhyCloseCrewStatsSection() {
   return (
     <section className="relative w-full flex flex-col items-center gap-[96px] overflow-clip bg-[#18181c] px-0 pt-[48px] pb-[48px] tablet:pt-[72px] tablet:pb-[72px] desktop:p-[80px] box-border">
       {/* Blue fade */}
@@ -156,10 +156,10 @@ export default function WhyPodiumStatsSection() {
 
         {/* Heading */}
         <div className="flex flex-col items-center gap-[16px] pb-[16px] w-full">
-          <h6 className="m-0 font-graphik-medium text-[16px] font-medium leading-none tracking-[0.1em] uppercase text-[rgb(170,170,173)] text-center">
+          <h6 className="m-0 font-graphik-medium md:text-[16px] text-sm font-medium leading-none tracking-[0.1em] uppercase text-[rgb(170,170,173)] text-center">
             what contractors are saying
           </h6>
-          <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] text-white text-center">
+          <h2 className="m-0 font-grenette md:text-[46px] text-4xl font-normal leading-[110%] text-white text-center">
             Real businesses. Real numbers.
           </h2>
           <p className="m-0 font-graphik text-[16px] font-normal leading-[150%] text-[rgb(232,232,232)] text-center">

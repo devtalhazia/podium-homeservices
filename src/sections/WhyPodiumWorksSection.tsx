@@ -36,12 +36,12 @@ function IconChat() {
 
 const CARDS = [
   { icon: <IconMove />,   title: 'We handle the move',          body: "We move your data over, get your team set up, and stay with you until you're live.",          bordered: true },
-  { icon: <IconPerson />, title: 'A real person in your corner', body: 'A dedicated contact who knows your business and helps you get the most out of Podium.',        bordered: true },
+  { icon: <IconPerson />, title: 'A real person in your corner', body: 'A dedicated contact who knows your business and helps you get the most out of CloseCrew.',        bordered: true },
   { icon: <IconShield />, title: 'Built from feedback in the field', body: 'What contractors tell us shapes what we build. New features ship constantly.',            bordered: true },
   { icon: <IconChat />,   title: 'Your data is secure',          body: 'Your customer information is handled securely from day one.',                                  bordered: false },
 ]
 
-export default function WhyPodiumWorksSection() {
+export default function WhyCloseCrewWorksSection() {
   return (
     <section className="w-full flex flex-col items-center gap-[56px] tablet:gap-[60px] desktop:gap-[64px] px-[24px] py-[48px] tablet:px-[80px] tablet:py-[72px] desktop:p-[80px] bg-[#222226] box-border">
 

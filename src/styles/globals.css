@@ -85,6 +85,16 @@
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
 
+:root {
+  --dark-red-hover-color: #862525;
+}
+
+button:hover {
+  background-color: var(--dark-red-hover-color) !important;
+}
+html{
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   background-color: rgb(255, 254, 252);

@@ -4,7 +4,6 @@ import {
   useMotionValue,
   useAnimationFrame,
 } from 'framer-motion'
-
 /* ── Constants ────────────────────────────────────────────── */
 const TRACK_WIDTH = 3810
 const SPEED       = TRACK_WIDTH / 60
@@ -214,16 +213,34 @@ const CAROUSEL_ITEMS = [
     top={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', icon:'2qRrfxjt8GEowW4xdJXxsky8.svg', stat:'40K', statFontSize:72, label:'saved annually with Voice AI', company:'Top Mechanical Service Inc.' }}
     bottom={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', icon:'rlHMzmGRAZNghzu17orYNR14.svg', stat:'41', statFontSize:72, label:'additional appointments booked in 30 days with Larry', company:'Heritage Mountain Heating & Cooling' }}
   />,
-  <QuoteMedCard key="q2" image="E2OjBROpd8MW7NxGtUg7ErOA.png" quote="Podium is amazing. Oh, I love it. Absolutely. Definite game changer for us being able to text quickly and connect with our technicians." author="Amy Ewing, Office and Service Manager" company="Design Air, Inc." />,
+  <QuoteMedCard key="q2"
+    image="E2OjBROpd8MW7NxGtUg7ErOA.png"
+    quote="CloseCrew is amazing. Oh, I love it. Absolutely. Definite game changer for us being able to text quickly and connect with our technicians."
+    author="Amy Ewing, Office and Service Manager" company="Design Air, Inc."
+  />,
   <CustomerStoryCard key="cs1" image1="c7WDKfdxBvG3KtVpzpd0Hga9oY.png" image2="tb9kTaUJ169vh6QiAVTNBd8.png" />,
-  <StatCard key="st1" background="FkBx4GckClyDkXH5v8umNe8Gj8.png" icon="wjgO5gCDRFel3Wylvio70kSKAgg.png" stat="40%" statFontSize={88} detail="more calls handled with Podium Phones." />,
-  <QuoteMedCard key="q3" image="1rktX3Q7ke3hpvdjBqS5SkkhmM.png" quote="I don't worry about my phones anymore. I know every call is answered. Now I can focus on everything else." author="Katherine Story, Office Manager" company="Arctic Air" />,
+  <StatCard key="st1"
+    background="FkBx4GckClyDkXH5v8umNe8Gj8.png" icon="wjgO5gCDRFel3Wylvio70kSKAgg.png"
+    stat="40%" statFontSize={88} detail="more calls handled with CloseCrew Phones."
+  />,
+  <QuoteMedCard key="q3"
+    image="1rktX3Q7ke3hpvdjBqS5SkkhmM.png"
+    quote="I don't worry about my phones anymore. I know every call is answered. Now I can focus on everything else."
+    author="Katherine Story, Office Manager" company="Arctic Air"
+  />,
   <GlassColumn key="gc2"
     top={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', icon:'6TSSzl56DRaRMH0zrR7obyKrpiY.png', stat:'57', statFontSize:96, label:'appointments set by Larry in 30 days', company:'Warner Super Service' }}
-    bottom={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', stat:'5-15 hrs', statFontSize:72, label:'saved weekly with Podium AI', company:'Air Design Heating & Cooling' }}
+    bottom={{ background:'P0THBLG3vQlUfO7v2IGMNxQ.png', stat:'5-15 hrs', statFontSize:72, label:'saved weekly with CloseCrew AI', company:'Air Design Heating & Cooling' }}
   />,
-  <QuoteMedCard key="q4" image="8wmwG210q7leKcnS41mbrXxd60.png" quote="Instead of voicemails piling up, Larry 2.0 captures the customer's information, filters what's urgent, and tells us exactly what we're calling back about. It's taken so much pressure off our team." author="Lauren Hardin, Office Manager" company="Olympus Electric & Air" />,
-  <StatCard key="st2" background="FkBx4GckClyDkXH5v8umNe8Gj8.png" icon="6TSSzl56DRaRMH0zrR7obyKrpiY.png" stat="$2,000" statFontSize={72} detail="Air Texas saves $2,000/month by replacing service with Podium's Voice AI." />,
+  <QuoteMedCard key="q4"
+    image="8wmwG210q7leKcnS41mbrXxd60.png"
+    quote="Instead of voicemails piling up, Larry 2.0 captures the customer's information, filters what's urgent, and tells us exactly what we're calling back about. It's taken so much pressure off our team."
+    author="Lauren Hardin, Office Manager" company="Olympus Electric & Air"
+  />,
+  <StatCard key="st2"
+    background="FkBx4GckClyDkXH5v8umNe8Gj8.png" icon="6TSSzl56DRaRMH0zrR7obyKrpiY.png"
+    stat="$2,000" statFontSize={72} detail="Air Texas saves $2,000/month by replacing service with CloseCrew's Voice AI."
+  />,
   <CustomerStoryCard key="cs2" image1="6Cg2set3ZhyypXsavYgeMsFXnuo.png" image2="IhRc1j0QWW4wCrOOtspj9qBWNr8.png" />,
 ]
 
@@ -298,7 +315,7 @@ export default function TestimonialsSection() {
         transition={{ duration: 0.55, ease: EASE }}
       >
         <div className="w-full h-auto desktop:h-[25px] relative">
-          <h6 className="m-0 font-graphik-medium text-[16px] font-medium tracking-[0.1em] leading-[150%] uppercase text-center text-[rgb(170,170,173)]">
+          <h6 className="m-0 font-graphik-medium md:text-[16px] text-sm font-medium tracking-[0.1em] leading-[150%] uppercase text-center text-[rgb(170,170,173)]">
             Real results for real businesses
           </h6>
         </div>
@@ -309,7 +326,7 @@ export default function TestimonialsSection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}
         >
-          <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] text-center text-cream">
+          <h2 className="m-0 font-grenette md:text-[46px] text-4xl font-normal leading-[110%] text-center text-cream">
             Trusted by{' '}
             <strong style={{ fontFamily: '"Grenette Bold", "Grenette Bold Placeholder", sans-serif', fontWeight: 700 }}>
               9,000+
@@ -334,7 +351,7 @@ export default function TestimonialsSection() {
         >
           <div className="flex flex-col items-center justify-center gap-[16px] w-full p-[44px_28px] desktop:p-[48px_32px] box-border">
             <h6 style={cardTitleStyle}>Premium onboarding</h6>
-            <p style={cardBodyStyle}>Our white-glove onboarding service ensures you're set up for success. You'll have a Podium team member available every step.</p>
+            <p style={cardBodyStyle}>Our white-glove onboarding service ensures you're set up for success. You'll have a CloseCrew team member available every step.</p>
           </div>
         </motion.div>
 
@@ -376,7 +393,7 @@ export default function TestimonialsSection() {
         >
           <div className="flex flex-col items-center justify-center gap-[16px] w-full p-[44px_28px] desktop:p-[48px_32px] box-border">
             <h6 style={cardTitleStyle}>Works with your systems</h6>
-            <p style={cardBodyStyle}>Podium integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.</p>
+            <p style={cardBodyStyle}>CloseCrew integrates with the tools your front and back office already use, so you don't notice interruptions in your day-to-day.</p>
           </div>
         </motion.div>
       </div>

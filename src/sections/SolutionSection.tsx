@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import Lottie from 'lottie-react'
+import Lottie, { type LottieRefCurrentProps } from 'lottie-react'
 import neverMissesLeadAnimation from '../assets/animations/never-miss-a-lead.json'
 import booksWithoutOversightAnimation from '../assets/animations/books-without-oversight.json'
 import everyLeadInOnePlatformAnimation from '../assets/animations/every-lead-in-one-platform.json'
 import reengagesCustomersAnimation from '../assets/animations/reengage-customers.json'
 import eliminatesAdminWorkAnimation from '../assets/animations/eleminate-admin-work.json'
 
-const ITEM_DURATION = 5000
+const FALLBACK_ITEM_DURATION = 5000
 
 const ITEMS = [
   {
     title: 'Never misses a lead',
-    body: 'Larry responds to every lead in less than a minute, whether over the phone, text, paid channels, or webchat using situation-specific talk tracks right in your Podium Inbox, with updates reflected in your FSM.',
+    body: 'Larry responds to every lead in less than a minute, whether over the phone, text, paid channels, or webchat using situation-specific talk tracks right in your CloseCrew Inbox, with updates reflected in your FSM.',
   },
   {
     title: 'Books without oversight',
@@ -20,7 +20,7 @@ const ITEMS = [
   },
   {
     title: 'Every lead in one platform',
-    body: 'Podium brings customer context, including messages, contact information and transactions together in one platform and connects to your scheduling system so Larry and your employees are on the same page.',
+    body: 'CloseCrew brings customer context, including messages, contact information and transactions together in one platform and connects to your scheduling system so Larry and your employees are on the same page.',
   },
   {
     title: 'Re-engages customers',
@@ -58,26 +58,35 @@ interface ItemProps {
   title: string
   body: string
   animationData: object
+  progressDurationMs: number
+  playbackSpeed: number
   isActive: boolean
+  isBeforeActive: boolean
+  isLastItem: boolean
   animKey: number
+  onProgressComplete: () => void
+  onAnimationComplete: () => void
   onClick: () => void
 }
 
 /* ── Single accordion row ── */
-function AccordionItem({ title, body, animationData, isActive, animKey, onClick }: ItemProps) {
+function AccordionItem({ title, body, animationData, progressDurationMs, playbackSpeed, isActive, isBeforeActive, isLastItem, animKey, onProgressComplete, onAnimationComplete, onClick }: ItemProps) {
   return (
     <div
-      className="relative flex w-full desktop:w-[436px] cursor-pointer flex-col items-start gap-[16px] overflow-hidden px-[24px] pt-[32px] pb-[48px] border-t border-[rgb(132,124,115)] tablet:border-t desktop:border-t-0 desktop:border-b desktop:border-[rgb(132,124,115)]"
+      className={`relative flex w-full desktop:w-[436px] cursor-pointer flex-col items-start gap-[16px] overflow-hidden px-[24px] pt-[32px] pb-[48px] border-t border-[rgb(132,124,115)] tablet:border-t desktop:border-t-0 desktop:border-[rgb(132,124,115)] ${
+        isLastItem || isBeforeActive ? 'desktop:border-b-0' : 'desktop:border-b'
+      }`}
       onClick={onClick}
     >
       {isActive && (
         <div className="absolute left-0 right-0 top-0 z-[1] h-[4px] overflow-hidden bg-gray-200">
           <motion.div
             key={animKey}
-            className="h-full w-full bg-blue-600"
+            className="h-full w-full bg-[#2959D0]"
             initial={{ x: '-100%' }}
             animate={{ x: '0%' }}
-            transition={{ duration: ITEM_DURATION / 2000, ease: 'linear' }}
+            transition={{ duration: progressDurationMs / 1000, ease: 'linear' }}
+            onAnimationComplete={onProgressComplete}
           />
         </div>
       )}
@@ -104,11 +113,12 @@ function AccordionItem({ title, body, animationData, isActive, animKey, onClick 
 
       {isActive && (
         <div className="w-full overflow-hidden desktop:hidden">
-          <Lottie
+          <SyncLottie
+            stepKey={`${title}-mobile-${animKey}`}
             animationData={animationData}
-            loop
-            autoplay
             className="h-full w-full"
+            playbackSpeed={playbackSpeed}
+            onComplete={onAnimationComplete}
           />
         </div>
       )}
@@ -119,21 +129,41 @@ function AccordionItem({ title, body, animationData, isActive, animKey, onClick 
 export default function SolutionSection() {
   const [activeIdx, setActiveIdx] = useState(0)
   const [animKey,   setAnimKey]   = useState(0)
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [progressDone, setProgressDone] = useState(false)
+  const [animationDone, setAnimationDone] = useState(false)
+  const isAdvancingRef = useRef(false)
+  const activeAnimationData = ANIMATION_BY_TITLE[ITEMS[activeIdx].title]
+  const baseDurationMs = getAnimationDurationMs(activeAnimationData)
+  const isFastItem = activeIdx === 0 || activeIdx === 1 || activeIdx === 2 || activeIdx === ITEMS.length - 1
+  const activeDurationMs = isFastItem ? Math.max(baseDurationMs - 2000, 1000) : baseDurationMs
+  const activePlaybackSpeed = baseDurationMs / activeDurationMs
 
-  /* Auto-advance every ITEM_DURATION ms — restarts when active item changes */
+  const tryAdvance = () => {
+    if (isAdvancingRef.current) return
+    if (!progressDone || !animationDone) return
+    isAdvancingRef.current = true
+    setActiveIdx(prev => (prev + 1) % ITEMS.length)
+    setAnimKey(prev => prev + 1)
+  }
+
   useEffect(() => {
-    if (timerRef.current) clearTimeout(timerRef.current)
-    timerRef.current = setTimeout(() => {
-      setActiveIdx(prev => (prev + 1) % ITEMS.length)
-      setAnimKey(prev => prev + 1)
-    }, ITEM_DURATION)
-    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
+    isAdvancingRef.current = false
+    setProgressDone(false)
+    setAnimationDone(false)
   }, [activeIdx])
+
+  useEffect(() => {
+    tryAdvance()
+  }, [progressDone, animationDone])
+
+  const handleProgressComplete = () => setProgressDone(true)
+  const handleAnimationComplete = () => setAnimationDone(true)
 
   function handleClick(idx: number) {
     if (idx === activeIdx) return
-    if (timerRef.current) clearTimeout(timerRef.current)
+    isAdvancingRef.current = false
+    setProgressDone(false)
+    setAnimationDone(false)
     setActiveIdx(idx)
     setAnimKey(prev => prev + 1)
   }
@@ -167,23 +197,70 @@ export default function SolutionSection() {
               title={item.title}
               body={item.body}
               animationData={ANIMATION_BY_TITLE[item.title]}
+              progressDurationMs={activeIdx === idx ? activeDurationMs : FALLBACK_ITEM_DURATION}
+              playbackSpeed={activeIdx === idx ? activePlaybackSpeed : 1}
               isActive={activeIdx === idx}
+              isBeforeActive={idx === activeIdx - 1}
+              isLastItem={idx === ITEMS.length - 1}
               animKey={activeIdx === idx ? animKey : 0}
+              onProgressComplete={handleProgressComplete}
+              onAnimationComplete={handleAnimationComplete}
               onClick={() => handleClick(idx)}
             />
           ))}
         </div>
 
         <div className="hidden min-w-0 flex-[1_0_0] items-center justify-center desktop:flex desktop:aspect-[1.42814]">
-          <Lottie
-            key={ITEMS[activeIdx].title}
-            animationData={ANIMATION_BY_TITLE[ITEMS[activeIdx].title]}
-            loop
-            autoplay
+          <SyncLottie
+            stepKey={`${ITEMS[activeIdx].title}-desktop-${animKey}`}
+            animationData={activeAnimationData}
             className="h-full w-full"
+            playbackSpeed={activePlaybackSpeed}
+            onComplete={handleAnimationComplete}
           />
         </div>
       </div>
     </section>
   )
+}
+
+function SyncLottie({
+  stepKey,
+  animationData,
+  className,
+  playbackSpeed,
+  onComplete,
+}: {
+  stepKey: string
+  animationData: object
+  className: string
+  playbackSpeed: number
+  onComplete: () => void
+}) {
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null)
+
+  useEffect(() => {
+    lottieRef.current?.setSpeed(playbackSpeed)
+    lottieRef.current?.goToAndPlay(0, true)
+  }, [stepKey, playbackSpeed])
+
+  return (
+    <Lottie
+      lottieRef={lottieRef}
+      animationData={animationData}
+      loop={false}
+      autoplay
+      className={className}
+      onComplete={onComplete}
+    />
+  )
+}
+
+function getAnimationDurationMs(animationData: object): number {
+  const anim = animationData as { fr?: number; ip?: number; op?: number }
+  const fr = anim.fr ?? 0
+  const ip = anim.ip ?? 0
+  const op = anim.op ?? 0
+  if (fr <= 0 || op <= ip) return FALLBACK_ITEM_DURATION
+  return ((op - ip) / fr) * 1000
 }

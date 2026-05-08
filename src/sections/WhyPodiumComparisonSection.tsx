@@ -38,13 +38,13 @@ function RowDivider() {
 }
 
 const ROWS = [
-  { oldWay: 'Leads that come in after hours go cold before anyone calls back',                         podium: 'Larry responds to every lead instantly—24/7, no exceptions' },
-  { oldWay: 'Your team is on the phone chasing callbacks instead of running jobs',                     podium: 'Larry qualifies, follows up, and books so your team stays focused on the work' },
-  { oldWay: 'A missed call is a missed job',                                                           podium: 'Every inbound lead gets an immediate response, every time' },
-  { oldWay: 'Memberships only get pitched when a tech remembers',                                     podium: 'Larry automatically texts your membership list and gets appointments on the calendar' },
-  { oldWay: 'Revenue slips through the cracks between the call, the estimate, and the follow-up',     podium: 'One system connects every step so nothing falls through' },
-  { oldWay: "You have no visibility into how many leads you're actually losing",                       podium: 'A clear view of every lead, every job, and every open opportunity' },
-  { oldWay: "Growth depends on your team's bandwidth",                                                 podium: 'More jobs booked, more memberships sold, more revenue without adding headcount' },
+  { oldWay: 'Leads that come in after hours go cold before anyone calls back',                         closeCrew: 'Larry responds to every lead instantly—24/7, no exceptions' },
+  { oldWay: 'Your team is on the phone chasing callbacks instead of running jobs',                     closeCrew: 'Larry qualifies, follows up, and books so your team stays focused on the work' },
+  { oldWay: 'A missed call is a missed job',                                                           closeCrew: 'Every inbound lead gets an immediate response, every time' },
+  { oldWay: 'Memberships only get pitched when a tech remembers',                                     closeCrew: 'Larry automatically texts your membership list and gets appointments on the calendar' },
+  { oldWay: 'Revenue slips through the cracks between the call, the estimate, and the follow-up',     closeCrew: 'One system connects every step so nothing falls through' },
+  { oldWay: "You have no visibility into how many leads you're actually losing",                       closeCrew: 'A clear view of every lead, every job, and every open opportunity' },
+  { oldWay: "Growth depends on your team's bandwidth",                                                 closeCrew: 'More jobs booked, more memberships sold, more revenue without adding headcount' },
 ]
 
 function ComparisonRow({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -73,7 +73,7 @@ function ColumnHeader({ label }: { label: string }) {
   )
 }
 
-export default function WhyPodiumComparisonSection() {
+export default function WhyCloseCrewComparisonSection() {
   return (
     <section className="relative w-full h-min overflow-clip flex flex-row place-content-start items-start gap-[30px] px-[24px] py-[48px] tablet:px-[48px] tablet:py-[72px] desktop:p-[80px] bg-nav">
 
@@ -96,22 +96,22 @@ export default function WhyPodiumComparisonSection() {
       <div className="relative z-[1] rounded-[16px] flex flex-col place-content-start items-center gap-[48px] flex-[1_0_0] w-px max-w-[900px] h-min overflow-visible mx-auto">
 
         {/* heading group */}
-        <div className="flex flex-col place-content-start items-center gap-[48px] w-full h-min pb-[24px]">
+        <div className="flex flex-col place-content-start items-center gap-[28px] w-full h-min pb-[24px]">
           <div className="w-full h-auto relative">
-            <h6 className="m-0 font-graphik-medium text-[16px] font-medium leading-[150%] tracking-[0.1em] uppercase text-center text-[rgb(170,170,173)]">
+            <h6 className="m-0 font-graphik-medium md:text-[16px] text-sm font-medium leading-[150%] tracking-[0.1em] uppercase text-center text-[rgb(170,170,173)]">
               what the wrong tools cost you
             </h6>
           </div>
 
           <div className="flex flex-col place-content-center items-center gap-[16px] w-full h-min pb-[16px]">
             <div className="w-full h-auto relative">
-              <h2 className="m-0 font-grenette text-[46px] font-normal leading-[110%] tracking-[0] text-center text-white">
+              <h2 className="m-0 font-grenette md:text-[46px] text-4xl font-normal leading-[110%] tracking-[0] text-center text-white">
                 You run a great business. But why does the system you use make it harder?
               </h2>
             </div>
             <div className="w-full h-auto relative">
               <p className="m-0 font-graphik text-[16px] font-normal leading-[150%] tracking-[0] text-center text-[rgb(232,232,232)]">
-                Most contractors are running on five tools held together with duct tape. Podium replaces that.{' '}
+                Most contractors are running on five tools held together with duct tape. CloseCrew replaces that.{' '}
               </p>
             </div>
           </div>
@@ -130,10 +130,10 @@ export default function WhyPodiumComparisonSection() {
             {ROWS.map((row, i) => <ComparisonRow key={i} icon={<XIcon />} text={row.oldWay} />)}
           </div>
 
-          {/* Podium column */}
+          {/* CloseCrew column */}
           <div className="flex-none w-full tablet:flex-[1_0_0] tablet:w-px relative z-[1] border border-[#4a4a4d] bg-[#ffffff0d] rounded-[8px] shadow-[0_4px_10px_#0003] flex flex-col place-content-end items-center gap-0 h-min overflow-visible">
-            <ColumnHeader label="One System in Podium" />
-            {ROWS.map((row, i) => <ComparisonRow key={i} icon={<CheckIcon />} text={row.podium} />)}
+            <ColumnHeader label="One System in CloseCrew" />
+            {ROWS.map((row, i) => <ComparisonRow key={i} icon={<CheckIcon />} text={row.closeCrew} />)}
           </div>
         </div>
       </div>

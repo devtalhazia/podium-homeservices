@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 const TESTIMONIALS = [
   {
     quote: "Instead of voicemails piling up, Larry 2.0 captures the customer's information, filters what's urgent, and tells us exactly what we're calling back about. It's taken so much pressure off our team.",
@@ -9,7 +8,8 @@ const TESTIMONIALS = [
     company: 'Olymus Electric & Air',
   },
   {
-    quote: "We've seen at least a 30% revenue increase since implementing Podium AI.",
+    quote:
+      "We've seen at least a 30% revenue increase since implementing CloseCrew AI.",
     logo: '/images/plans-testimonial-logo-2.png',
     logoAspect: 488 / 89,
     name: 'Katherine Shorey, Office Manager',

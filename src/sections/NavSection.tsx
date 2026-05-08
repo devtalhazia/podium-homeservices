@@ -10,13 +10,13 @@ const SIGN_IN   = 'https://calendly.com/umar-softaims/hvac-automation'
 // ]
 
 const NAV_LINKS = [
-  { label: 'Why Larry?', href: '/why-podium' },
-  { label: 'Features',   href: '#larry-jtbd'},
+  { label: 'Why CloseCrew?', href: '/why-closecrew' },
+  { label: 'Features',   href: '/#larry-jtbd'},
   { label: 'Plans',      href: '/plans' },
 ]
 
 // Nav link: padding:8px 10px, height:45px, Graphik weight-600 16px 100% line-height
-const linkCls = 'flex h-[45px] items-center gap-1 whitespace-nowrap rounded-lg px-[10px] py-[8px] font-graphik-semi text-[16px] leading-[100%] text-cream-white transition-colors hover:bg-white/10'
+const linkCls = 'flex h-[45px] items-center gap-1 whitespace-nowrap rounded-lg px-[10px] py-[8px] font-graphik-semi text-[16px] leading-[100%] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]'
 
 export default function NavSection() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -33,14 +33,14 @@ export default function NavSection() {
     >
 
       {/* ── Desktop bar (tablet+) ── */}
-      <div className="hidden tablet:flex items-center py-[12px] px-[30px] max-w-[1440px] mx-auto">
+      <div className="hidden tablet:flex items-center py-[12px]  max-w-[1440px] mx-auto">
 
         {/* Logo — 238×20px SVG, white fill */}
-        <a href="/" className="flex shrink-0 items-center py-[7px]">
+        <a href="/" className="flex shrink-0 items-center px-4">
           <img
-            src="/images/logo-white.svg"
-            alt="Podium Home Services"
-            className="h-[20px] w-[238px]"
+            src="/logo/logo.svg"
+            alt="CloseCrew Home Services"
+            className="h-[30px] w-auto"
           />
         </a>
 
@@ -53,7 +53,7 @@ export default function NavSection() {
             {/* Meet Larry — icon 24×24 + Grenette SemiBold Italic */}
             <a
               href="/ai/larry"
-              className="flex items-center gap-[8px] rounded-lg px-[10px] py-[8px] transition-colors hover:bg-white/10"
+              className="flex items-center gap-[8px] rounded-lg px-[10px] py-[8px] transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               <img
                 src="/images/Gi9QCe6BdWnnt7VZXxy7obNUTc.svg"
@@ -88,7 +88,7 @@ export default function NavSection() {
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="whitespace-nowrap rounded-[50px] bg-crimson px-[24px] py-[8px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-opacity hover:opacity-90"
+              className="whitespace-nowrap rounded-[50px] bg-crimson px-[24px] py-[8px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Watch a demo
             </a>
@@ -98,7 +98,7 @@ export default function NavSection() {
               href={SIGN_IN}
               target="_blank"
               rel="noopener noreferrer"
-              className="whitespace-nowrap rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[6px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-opacity hover:opacity-90"
+              className="whitespace-nowrap rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[6px] font-graphik-semi text-[14px] leading-[18px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Sign in
             </a>
@@ -111,7 +111,7 @@ export default function NavSection() {
         <a href="/">
           <img
             src="/images/logo-white.svg"
-            alt="Podium Home Services"
+            alt="CloseCrew Home Services"
             className="h-[13px] w-[160px]"
           />
         </a>
@@ -134,7 +134,7 @@ export default function NavSection() {
 
       {/* ── Mobile drawer ── */}
       {mobileOpen && (
-        <div className="tablet:hidden flex flex-col border-t border-white/10 bg-nav px-5 pb-6">
+        <div className="tablet:hidden flex flex-col border-t border-white/10 bg-nav px-5 pb-6 h-screen">
           {/* Meet Larry */}
           <a
             href="/ai/larry"
@@ -155,15 +155,14 @@ export default function NavSection() {
               >
                 {item.label}
               </a>
-            )
-          )}
+            ))}
 
-          <div className="pt-5 flex flex-col gap-3">
+          <div className="pt-5 flex flex-row gap-3 ">
             <a
               href={DEMO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-[50px] bg-crimson px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-opacity hover:opacity-90"
+              className="rounded-[50px] bg-crimson px-[24px] py-[10px] flex items-center justify-center text-center font-graphik-semi text-[14px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Watch a demo
             </a>
@@ -171,7 +170,7 @@ export default function NavSection() {
               href={SIGN_IN}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-opacity hover:opacity-90"
+              className="rounded-[50px] border-2 border-blush bg-transparent px-[24px] py-[10px] text-center font-graphik-semi text-[14px] text-cream-white transition-colors hover:bg-[var(--dark-red-hover-color)]"
             >
               Sign in
             </a>
