@@ -274,8 +274,21 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="bg-[#18181c] py-[60px] px-0 flex flex-col items-center justify-start gap-[56px] tablet:gap-[60px] desktop:py-[80px] desktop:gap-[32px] w-full overflow-clip"
+      className="bg-[#18181c] py-[60px] px-0 flex flex-col items-center justify-start gap-[56px] tablet:gap-[60px] desktop:py-[80px] desktop:gap-[32px] w-full overflow-clip relative"
     >
+      {/* Background Image */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <img
+          src="/images/testimonials-bg.avif"
+          alt=""
+          aria-hidden="true"
+          decoding="async"
+          className="w-full h-full object-cover object-top"
+        />
+      </div>
+      <div className="absolute z-0 blur-[125px] bg-[#284568] rounded-full w-[507px] h-[520px] -top-[220px] -right-[152px] pointer-events-none opacity-70" />
+      <div className="absolute z-0 blur-[125px] bg-[#653130] rounded-full w-[731px] h-[520px] -top-[220px] -left-[452px] pointer-events-none opacity-70" />
+
       {/* Header */}
       <motion.div
         className="order-[0] flex flex-col items-center gap-[16px] tablet:gap-[20px] desktop:gap-[24px] w-full max-w-[1440px] px-[24px] tablet:px-[48px] desktop:px-[80px] z-[2]"
