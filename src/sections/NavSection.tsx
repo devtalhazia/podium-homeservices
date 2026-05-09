@@ -110,9 +110,9 @@ export default function NavSection() {
       <div className="tablet:hidden flex items-center justify-between py-3 px-5">
         <a href="/">
           <img
-            src="/images/logo-white.svg"
+            src="/logo/logo.svg"
             alt="CloseCrew Home Services"
-            className="h-[13px] w-[160px]"
+            className="h-[30px] w-auto"
           />
         </a>
         <button
